@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "practiceName": "Example Vein Center",
+  "logoUrl": "./logo.svg",
+  "primaryContact": {
+    "phone": "+1 555 555 0123",
+    "email": "info@example-vein-center.org",
+    "websiteUrl": "https://example-vein-center.org"
+  },
+  "branding": {
+    "primaryColor": "#2a5a8a",
+    "primaryTextColor": "#ffffff",
+    "backgroundColor": "#ffffff",
+    "foregroundColor": "#1a1a1a"
+  },
+  "locale": {
+    "default": "en",
+    "available": ["en", "es", "fr", "de"]
+  },
+  "features": {
+    "aggregateSubmit": false,
+    "aggregateEndpoint": null
+  }
+}

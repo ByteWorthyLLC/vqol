@@ -8,15 +8,19 @@
     saveScore,
   } from '../lib/storage/db';
   import { score } from '../lib/scoring/algorithm';
-  import { SURVEY_ITEMS } from '../lib/survey/items';
-  import type { SessionRecord } from '../lib/storage/types';
+  import { SURVEY_ITEMS, answerOptionsForScale } from '../lib/survey/items';
+  import type { SessionRecord, Locale } from '../lib/storage/types';
+
+  type T = (k: string, p?: Record<string, string | number>) => string;
 
   interface Props {
+    t: T;
+    locale: Locale;
     oncomplete: () => void;
     oncancel: () => void;
   }
 
-  let { oncomplete, oncancel }: Props = $props();
+  let { t, locale, oncomplete, oncancel }: Props = $props();
 
   let session = $state<SessionRecord | undefined>(undefined);
   let cursor = $state(0);
@@ -30,14 +34,16 @@
   const currentValue = $derived(
     session && item ? session.answers[item.id] : undefined
   );
+  const options = $derived(
+    item ? answerOptionsForScale(item.answerScale, item.scaleRange) : []
+  );
 
   onMount(async () => {
     let s = await getActiveDraft();
     if (!s) {
-      s = await createSession({ lockedLocale: 'en' });
+      s = await createSession({ lockedLocale: locale });
     }
     session = s;
-    // Resume on the first un-answered item, otherwise start at 0
     const firstUnanswered = SURVEY_ITEMS.findIndex(
       (it) => s!.answers[it.id] === undefined
     );
@@ -50,7 +56,6 @@
     const dwell = Date.now() - questionStartedAt;
     try {
       await recordAnswer(session.id, item.id, value, dwell);
-      // Optimistic local update so the radio reflects without a re-fetch
       session.answers[item.id] = value;
       session.dwellMs[item.id] = dwell;
     } catch (e) {
@@ -77,16 +82,16 @@
     submitting = true;
     errorMsg = '';
     try {
-      // Build Map for the scoring engine
       const map = new Map(Object.entries(session.answers));
       const result = score(map);
       if (result.status === 'incomplete') {
-        // Jump to first missing item
         const idx = SURVEY_ITEMS.findIndex((it) =>
           result.missing.includes(it.id)
         );
         cursor = idx === -1 ? 0 : idx;
-        errorMsg = `Please answer the remaining questions (need ${result.threshold * 100}%+ items).`;
+        errorMsg = t('survey.incomplete', {
+          threshold: Math.round(result.threshold * 100),
+        });
         submitting = false;
         return;
       }
@@ -111,15 +116,15 @@
     <div class="progress" aria-label="Survey progress">
       <div class="progress-bar" style="width: {progress}%"></div>
       <span class="progress-label">
-        Question {cursor + 1} of {total}
+        {t('survey.progress', { current: cursor + 1, total })}
       </span>
     </div>
 
-    <h1 class="prompt">{item.prompt}</h1>
+    <h1 class="prompt">{t(item.promptKey)}</h1>
 
     <fieldset class="options">
-      <legend class="visually-hidden">Choose one answer</legend>
-      {#each item.options as opt (opt.value)}
+      <legend class="visually-hidden">{t('survey.legend')}</legend>
+      {#each options as opt (opt.value)}
         <label class:selected={currentValue === opt.value}>
           <input
             type="radio"
@@ -128,7 +133,7 @@
             checked={currentValue === opt.value}
             onchange={() => selectAnswer(opt.value)}
           />
-          <span>{opt.label}</span>
+          <span>{t(opt.key)}</span>
         </label>
       {/each}
     </fieldset>
@@ -139,25 +144,17 @@
   </section>
 
   <nav class="bottom-bar" aria-label="Survey navigation">
-    <button onclick={back} disabled={cursor === 0}>Back</button>
+    <button onclick={back} disabled={cursor === 0}>{t('survey.back')}</button>
     {#if cursor < total - 1}
-      <button
-        class="primary"
-        onclick={next}
-        disabled={currentValue === undefined}
-      >
-        Next
+      <button class="primary" onclick={next} disabled={currentValue === undefined}>
+        {t('survey.next')}
       </button>
     {:else}
-      <button
-        class="primary"
-        onclick={submit}
-        disabled={currentValue === undefined || submitting}
-      >
-        {submitting ? 'Scoring…' : 'Finish'}
+      <button class="primary" onclick={submit} disabled={currentValue === undefined || submitting}>
+        {submitting ? t('survey.scoring') : t('survey.finish')}
       </button>
     {/if}
-    <button onclick={oncancel} class="cancel">Pause</button>
+    <button onclick={oncancel} class="cancel">{t('survey.pause')}</button>
   </nav>
 {/if}
 

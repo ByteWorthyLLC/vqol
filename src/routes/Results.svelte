@@ -3,11 +3,14 @@
   import { listScores } from '../lib/storage/db';
   import type { ScoreRecord } from '../lib/storage/types';
 
+  type T = (k: string, p?: Record<string, string | number>) => string;
+
   interface Props {
+    t: T;
     onhome: () => void;
   }
 
-  let { onhome }: Props = $props();
+  let { t, onhome }: Props = $props();
 
   let scores = $state<ScoreRecord[]>([]);
   let loading = $state(true);
@@ -19,59 +22,65 @@
 
   const latest = $derived(scores[scores.length - 1]);
   const prior = $derived(scores.length >= 2 ? scores[scores.length - 2] : undefined);
-  const qolDelta = $derived(latest && prior ? +(latest.qolTscore - prior.qolTscore).toFixed(1) : undefined);
-  const symDelta = $derived(latest && prior ? +(latest.symTscore - prior.symTscore).toFixed(1) : undefined);
+  const qolDelta = $derived(
+    latest && prior ? +(latest.qolTscore - prior.qolTscore).toFixed(1) : undefined
+  );
+  const symDelta = $derived(
+    latest && prior ? +(latest.symTscore - prior.symTscore).toFixed(1) : undefined
+  );
 
   function formatDelta(d: number | undefined): string {
     if (d === undefined) return '';
     const sign = d > 0 ? '+' : '';
-    return `(${sign}${d} vs prior)`;
+    return t('results.delta', { sign, value: d });
+  }
+
+  function fmtDate(ts: number): string {
+    return new Date(ts).toLocaleDateString();
   }
 </script>
 
 <section>
   {#if loading}
-    <p class="muted">Loading…</p>
+    <p class="muted">{t('home.loading')}</p>
   {:else if !latest}
-    <h1>No results yet</h1>
-    <p>Once you complete a survey, your scores will appear here.</p>
-    <button class="primary" onclick={onhome}>Back to home</button>
+    <h1>{t('results.empty.title')}</h1>
+    <p>{t('results.empty.body')}</p>
+    <button class="primary" onclick={onhome}>{t('results.back')}</button>
   {:else}
-    <h1>Your VEINES result</h1>
-    <p class="muted">
-      Completed {new Date(latest.calculatedAt).toLocaleDateString()}.
-      Higher = better.
-    </p>
+    <h1>{t('results.title')}</h1>
+    <p class="muted">{t('results.subtitle', { date: fmtDate(latest.calculatedAt) })}</p>
 
     <div class="scores">
       <div class="score-card">
-        <span class="label">Quality of life (T-score)</span>
+        <span class="label">{t('results.qol.label')}</span>
         <span class="value">{latest.qolTscore}</span>
         <span class="delta">{formatDelta(qolDelta)}</span>
       </div>
       <div class="score-card">
-        <span class="label">Symptoms (T-score)</span>
+        <span class="label">{t('results.sym.label')}</span>
         <span class="value">{latest.symTscore}</span>
         <span class="delta">{formatDelta(symDelta)}</span>
       </div>
     </div>
 
-    <p class="share">
-      Share this with your provider — they understand what these numbers mean for your care.
-    </p>
+    <p class="share">{t('results.share')}</p>
 
     <div class="actions">
-      <button class="primary" onclick={onhome}>Back to home</button>
+      <button class="primary" onclick={onhome}>{t('results.back')}</button>
     </div>
 
     {#if scores.length > 1}
       <details>
-        <summary>Score history ({scores.length} results)</summary>
+        <summary>{t('results.history.summary', { count: scores.length })}</summary>
         <ul>
           {#each scores.slice().reverse() as s (s.id)}
             <li>
-              {new Date(s.calculatedAt).toLocaleDateString()} —
-              QOL {s.qolTscore}, Symptom {s.symTscore}
+              {t('results.history.entry', {
+                date: fmtDate(s.calculatedAt),
+                qol: s.qolTscore,
+                sym: s.symTscore,
+              })}
             </li>
           {/each}
         </ul>

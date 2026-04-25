@@ -14,7 +14,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check": "npm run check:types && npm run check:contrast && npm run check:translations",
+    "check:types": "svelte-check --tsconfig ./tsconfig.json",
+    "check:contrast": "node --experimental-strip-types scripts/validate-contrast.ts",
+    "check:translations": "node --experimental-strip-types scripts/validate-translations.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },

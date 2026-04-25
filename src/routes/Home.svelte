@@ -3,12 +3,15 @@
   import { getActiveDraft, latestScore } from '../lib/storage/db';
   import type { SessionRecord, ScoreRecord } from '../lib/storage/types';
 
+  type T = (k: string, p?: Record<string, string | number>) => string;
+
   interface Props {
+    t: T;
     onstart: () => void;
     onview: () => void;
   }
 
-  let { onstart, onview }: Props = $props();
+  let { t, onstart, onview }: Props = $props();
 
   let draft = $state<SessionRecord | undefined>(undefined);
   let prior = $state<ScoreRecord | undefined>(undefined);
@@ -19,64 +22,49 @@
     loading = false;
   });
 
-  function startFresh(): void {
-    onstart();
-  }
-
-  function resumeDraft(): void {
-    onstart();
-  }
-
-  function viewPriorResults(): void {
-    onview();
+  function fmtDate(ts: number): string {
+    return new Date(ts).toLocaleDateString();
   }
 </script>
 
 <section>
-  <h1>VEINES-QOL/Sym</h1>
-  <p>
-    A patient-owned tracker for the Venous Insufficiency Epidemiological and Economic Study
-    quality-of-life questionnaire. Take the survey at baseline and at follow-ups to see how
-    your symptoms and quality of life change over time.
-  </p>
+  <h1>{t('home.title')}</h1>
+  <p>{t('home.intro')}</p>
 
   {#if loading}
-    <p class="muted">Loading…</p>
+    <p class="muted">{t('home.loading')}</p>
   {:else}
     {#if draft}
       <div class="card">
-        <h2>Resume in progress</h2>
-        <p class="muted">
-          You have a draft survey from {new Date(draft.startedAt).toLocaleDateString()}.
-          Your answers are saved on this device.
-        </p>
+        <h2>{t('home.resume.title')}</h2>
+        <p class="muted">{t('home.resume.body', { date: fmtDate(draft.startedAt) })}</p>
         <div class="actions">
-          <button class="primary" onclick={resumeDraft}>Resume survey</button>
-          <button onclick={startFresh}>Start a new one instead</button>
+          <button class="primary" onclick={onstart}>{t('home.resume.cta')}</button>
+          <button onclick={onstart}>{t('home.resume.alt')}</button>
         </div>
       </div>
     {:else}
       <div class="card">
-        <h2>Start a survey</h2>
-        <p class="muted">
-          About 25 questions. Takes 5–7 minutes. You can pause and resume anytime —
-          your answers are saved as you go, on this device only.
-        </p>
+        <h2>{t('home.start.title')}</h2>
+        <p class="muted">{t('home.start.body')}</p>
         <div class="actions">
-          <button class="primary" onclick={startFresh}>Start now</button>
+          <button class="primary" onclick={onstart}>{t('home.start.cta')}</button>
         </div>
       </div>
     {/if}
 
     {#if prior}
       <div class="card">
-        <h2>Your prior result</h2>
+        <h2>{t('home.prior.title')}</h2>
         <p class="muted">
-          From {new Date(prior.calculatedAt).toLocaleDateString()}:
-          QOL T-score {prior.qolTscore}, Symptom T-score {prior.symTscore}.
+          {t('home.prior.body', {
+            date: fmtDate(prior.calculatedAt),
+            qol: prior.qolTscore,
+            sym: prior.symTscore,
+          })}
         </p>
         <div class="actions">
-          <button onclick={viewPriorResults}>View prior result</button>
+          <button onclick={onview}>{t('home.prior.cta')}</button>
         </div>
       </div>
     {/if}

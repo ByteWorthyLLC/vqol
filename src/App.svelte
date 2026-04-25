@@ -4,6 +4,7 @@
   import Survey from './routes/Survey.svelte';
   import Results from './routes/Results.svelte';
   import LocaleSwitcher from './routes/LocaleSwitcher.svelte';
+  import InAppReminderBanner from './routes/InAppReminderBanner.svelte';
   import {
     loadPracticeConfig,
     applyBrandingToDocument,
@@ -95,11 +96,12 @@
 
   <main>
     {#if route === 'home'}
+      <InAppReminderBanner {t} onstart={() => navigate('survey')} />
       <Home {t} onstart={() => navigate('survey')} onview={() => navigate('results')} />
     {:else if route === 'survey'}
       <Survey {t} {locale} oncomplete={() => navigate('results')} oncancel={() => navigate('home')} />
     {:else}
-      <Results {t} onhome={() => navigate('home')} />
+      <Results {t} {config} onhome={() => navigate('home')} />
     {/if}
   </main>
 

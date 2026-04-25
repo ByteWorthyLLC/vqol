@@ -123,3 +123,38 @@ button:disabled {
 .bottom-bar button {
   flex: 1;
 }
+
+/* Print styles — block layout only (no Grid, no flex-wrap) per Pitfall B-6 */
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+  html,
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 11pt;
+  }
+  header,
+  footer,
+  nav,
+  button,
+  .bottom-bar,
+  details,
+  .install-prompt,
+  .reminder {
+    display: none !important;
+  }
+  main {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+body.is-printing header,
+body.is-printing footer,
+body.is-printing nav,
+body.is-printing button,
+body.is-printing .bottom-bar {
+  display: none !important;
+}

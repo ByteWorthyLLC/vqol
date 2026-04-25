@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "manifest_version": "1.0",
+  "description": "Required + optional assets per ByteWorthy product. Drives the asset-generation script and the README lint check.",
+
+  "required_assets": {
+    "hero_light": {
+      "model": "midjourney",
+      "aspect_ratio": "21:9",
+      "dimensions": "1920x819",
+      "compress_target_kb": 700,
+      "filename": "hero-light.png",
+      "location": "{brand_assets_path}/hero-light.png",
+      "prompt_template": "_style/prompts/hero.template.txt",
+      "fallback": null
+    },
+    "social_preview": {
+      "model": "ideogram",
+      "aspect_ratio": "16:9",
+      "dimensions": "1280x720",
+      "compress_target_kb": 300,
+      "filename": "social-preview-light.png",
+      "location": "{brand_assets_path}/social-preview-light.png",
+      "uploaded_to": ".github/social-preview.png (manual GitHub UI)",
+      "prompt_template": "_style/prompts/social.template.txt",
+      "fallback": null
+    },
+    "comparison_vs": {
+      "model": "ideogram",
+      "aspect_ratio": "16:9",
+      "dimensions": "1280x720",
+      "compress_target_kb": 300,
+      "filename": "comparison-vs.png",
+      "location": "{brand_assets_path}/comparison-vs.png",
+      "prompt_template": "_style/prompts/comparison.template.txt",
+      "fallback": null
+    },
+    "architecture_diagram": {
+      "model": "recraft",
+      "aspect_ratio": "16:9",
+      "dimensions": "1600x900",
+      "compress_target_kb": 200,
+      "filename": "diagram-architecture.webp",
+      "location": "{brand_assets_path}/diagram-architecture.webp",
+      "prompt_template": "_style/prompts/diagram.template.txt",
+      "fallback": "Use Mermaid diagram in README only"
+    },
+    "mark_variant": {
+      "model": "recraft",
+      "aspect_ratio": "1:1",
+      "dimensions": "512x512",
+      "compress_target_kb": 30,
+      "filename": "mark-variant.webp",
+      "location": "{brand_assets_path}/mark.svg (SVG-converted) or mark-variant.webp",
+      "prompt_template": "_style/prompts/mark.template.txt",
+      "fallback": "Use canonical byteworthy-mark-wa02.svg"
+    },
+    "section_quickstart": {
+      "model": "midjourney",
+      "aspect_ratio": "21:9",
+      "dimensions": "1920x819",
+      "compress_target_kb": 500,
+      "filename": "sections/quickstart.png",
+      "location": "{brand_assets_path}/sections/quickstart.png",
+      "prompt_template": "_style/prompts/section-quickstart.template.txt",
+      "fallback": null
+    }
+  },
+
+  "optional_assets": {
+    "hero_dark": {
+      "model": "midjourney",
+      "aspect_ratio": "21:9",
+      "dimensions": "1920x819",
+      "compress_target_kb": 700,
+      "filename": "hero-dark.png",
+      "location": "{brand_assets_path}/hero-dark.png",
+      "prompt_template": "_style/prompts/hero-dark.template.txt",
+      "use_for": "<picture> dark-mode swap"
+    },
+    "social_preview_dark": {
+      "model": "ideogram",
+      "filename": "social-preview-dark.png",
+      "location": "{brand_assets_path}/social-preview-dark.png"
+    },
+    "twitter_card": {
+      "model": "ideogram",
+      "aspect_ratio": "16:9",
+      "dimensions": "1200x675",
+      "filename": "twitter-card.png",
+      "location": "{brand_assets_path}/twitter-card.png"
+    },
+    "section_architecture": {
+      "model": "midjourney",
+      "filename": "sections/architecture.png",
+      "location": "{brand_assets_path}/sections/architecture.png"
+    },
+    "section_why": {
+      "model": "midjourney",
+      "filename": "sections/why.png",
+      "location": "{brand_assets_path}/sections/why.png"
+    },
+    "demo_gif": {
+      "model": "manual_recording",
+      "format": "GIF or APNG",
+      "max_size_mb": 2,
+      "max_duration_seconds": 5,
+      "filename": "demo.gif",
+      "location": "{brand_assets_path}/demo.gif",
+      "use_for": "Show-don't-tell viral hook"
+    },
+    "linkedin_carousel": {
+      "model": "manual_design",
+      "format": "PDF",
+      "slides": 8,
+      "filename": "linkedin-carousel.pdf",
+      "location": "marketing/linkedin-carousel.pdf"
+    },
+    "mark_animated_svg": {
+      "model": "hand_crafted",
+      "filename": "mark-animated.svg",
+      "location": "{brand_assets_path}/mark-animated.svg",
+      "use_for": "README hero with motion"
+    }
+  },
+
+  "compression_pipeline": {
+    "png": "pngquant --quality=65-85",
+    "svg": "svgo --multipass --pretty=false",
+    "webp": "cwebp -q 80",
+    "gif": "gifsicle -O3 --colors 128"
+  },
+
+  "validation_rules": {
+    "all_required_assets_exist": true,
+    "png_under_kb_limit": true,
+    "svg_under_30kb": true,
+    "alt_text_present_for_every_image_in_readme": true,
+    "no_pure_white_background_in_imagery": "warn",
+    "no_emoji_in_readme_outside_typography": true
+  },
+
+  "registry_assignments_2026_04": {
+    "klienta": {
+      "accent": "#D4A574",
+      "metaphor": "atelier",
+      "letter": "K"
+    },
+    "sovra": {
+      "accent": "#5B7C99",
+      "metaphor": "foundry",
+      "letter": "S"
+    },
+    "clynova": {
+      "accent": "#7A9B7E",
+      "metaphor": "clinic",
+      "letter": "C"
+    },
+    "byteworthy-defend": {
+      "accent": "#4A4E54",
+      "metaphor": "watchtower",
+      "letter": "D"
+    },
+    "byteworthy-lead-portfolio": {
+      "accent": "#C9785C",
+      "metaphor": "pipeline",
+      "letter": "L"
+    },
+    "byteworthy-profile": {
+      "accent": "#2563EB",
+      "metaphor": "atelier-of-ateliers",
+      "letter": "B"
+    }
+  },
+
+  "available_for_future_products": {
+    "accents_unused": [
+      {"hex": "#7C5B99", "name": "muted purple", "suggested_metaphor": "library / archive"},
+      {"hex": "#4A6B7C", "name": "deep teal", "suggested_metaphor": "harbor / dock"},
+      {"hex": "#9C5B5B", "name": "dusty red", "suggested_metaphor": "kiln / smithy"},
+      {"hex": "#5B8857", "name": "olive green", "suggested_metaphor": "garden / orchard"},
+      {"hex": "#A89B7C", "name": "linen tan", "suggested_metaphor": "studio / press"}
+    ],
+    "letters_unused": ["E", "F", "G", "H", "I", "J", "M", "N", "O", "P", "Q", "R", "T", "U", "V", "W", "X", "Y", "Z"],
+    "metaphors_proposed": [
+      {"name": "the library", "tone": "knowledge / archive / curation"},
+      {"name": "the harbor", "tone": "intake / triage / departure"},
+      {"name": "the kitchen", "tone": "transformation / recipe / batch"},
+      {"name": "the laboratory", "tone": "experiment / observation / iteration"},
+      {"name": "the press", "tone": "publishing / distribution / impression"}
+    ]
+  }
+}

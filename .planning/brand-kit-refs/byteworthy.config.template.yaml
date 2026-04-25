@@ -1,0 +1,92 @@
+# byteworthy.config.yaml — Per-product configuration
+# Copy this to a new ByteWorthy product repo. Fill in the blanks.
+# The scaffolder reads this + the brand kit to generate README, assets, and .github templates.
+
+schema_version: 1
+brand_kit_version: "1.0"  # pin to the brand kit version this product targets
+
+# ── Product identity ────────────────────────────────────────────────
+product:
+  name: ""                     # display name (e.g., "Klienta")
+  slug: ""                     # repo slug, lowercase (e.g., "klienta")
+  package: ""                  # npm/pypi package name if applicable
+  category: ""                 # broad category (e.g., "AI Agency Platform")
+  one_line: ""                 # tagline ≤ 12 words, AEO-quotable
+
+positioning:
+  paragraph: |
+    # Full positioning paragraph (3-4 sentences, structured for AI extraction)
+    # Pattern: "{Product} is {category} for {ICP}. Unlike {alternative}, it {differentiator 1} and {differentiator 2}.
+    # {ICP type} use it to {dream outcome}. Built by ByteWorthy."
+
+# ── ICP (Ideal Customer Profile) ────────────────────────────────────
+icp:
+  primary: ""                  # main audience (e.g., "AI agencies")
+  secondary: ""                # adjacent audiences
+  size: ""                     # team size (e.g., "5-50 people")
+  geo: []                      # geographic focus (ISO country codes or regions)
+  excluded: ""                 # anti-ICP (who this is NOT for)
+
+# ── Design system ───────────────────────────────────────────────────
+design:
+  accent_hex: ""               # primary accent color (e.g., "#D4A574")
+  accent_name: ""              # readable name (e.g., "soft amber")
+  accent_dark: ""              # gradient endpoint (darker variant)
+  metaphor: ""                 # atelier | foundry | clinic | watchtower | pipeline | custom
+  letter_form: ""              # mark variant letter (e.g., "K")
+
+# ── Pricing ─────────────────────────────────────────────────────────
+pricing:
+  pioneer_beta: ""             # beta price string (e.g., "$49/mo locked for life")
+  tiers:
+    - name: ""
+      price: 0
+      currency: USD
+      cycle: month             # month | one-time | year
+      includes: ""
+
+# ── Stack ───────────────────────────────────────────────────────────
+stack:
+  primary_lang: ""             # TypeScript | Python | Go | Rust | etc.
+  frameworks: []               # list of frameworks
+  database: ""                 # primary database
+  ai_providers: []             # Anthropic | OpenAI | etc.
+  billing: ""                  # Stripe | none
+  deploy: ""                   # Vercel | Railway | self-hosted | etc.
+
+# ── Architecture diagram ────────────────────────────────────────────
+architecture:
+  diagram_topology: []         # ordered list of node labels for the diagram
+
+# ── Verticals / use cases ───────────────────────────────────────────
+verticals:
+  - id: ""
+    label: ""
+
+# ── FAQ (questions only — answers generated from product context) ───
+faq:
+  - q: ""
+
+# ── Glossary ────────────────────────────────────────────────────────
+glossary:
+  - term: ""
+    definition: ""
+
+# ── Community ───────────────────────────────────────────────────────
+community:
+  discord: "discord.gg/byteworthy"
+  newsletter: "byteworthy.io/subscribe"
+  twitter: "byteworthyllc"
+  github_org: "byteworthyllc"
+
+# ── License ─────────────────────────────────────────────────────────
+license:
+  type: ""                     # MIT | Apache-2.0 | source-available | etc.
+  paid_tier_required: false    # production use requires commercial license?
+
+# ── Repo metadata ───────────────────────────────────────────────────
+repo:
+  social_preview_path: ".github/social-preview.png"
+  brand_assets_path: "public/brand/"   # use "docs/brand/" for non-Next.js
+  has_homepage_url: ""                 # e.g., "https://byteworthy.io/klienta"
+  topics: []                           # 8-12 GitHub topics

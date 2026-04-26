@@ -11,8 +11,8 @@ See `.planning/PROJECT.md`.
 ## Current Position
 
 Phase: 4/5 overlap
-Status: Curiosity artifacts implemented; public repo/deploy execution active
-Last activity: 2026-04-26 - Added demo mode, curiosity lab, proof panel, fork audit, QR poster, calendar export, explicit instrument modes, aggregate submission, receiver example, dependency audit cleanup, and planning normalization.
+Status: Public repo and Pages demo live; final launch assets/checks pending
+Last activity: 2026-04-26 - Added demo mode, curiosity lab, proof panel, fork audit, QR poster, calendar export, explicit instrument modes, aggregate submission, receiver example, dependency audit cleanup, planning normalization, public GitHub repo, and GitHub Pages deploy.
 
 Progress: [████████░░] 80%
 
@@ -55,7 +55,15 @@ Phase 4 success means the repo is safe and understandable enough to make public:
 ## Open Blockers
 
 - LSHTM licensing email has a draft, but the status log still shows it has not been sent.
-- Public repository and deployment are being created from the local checkout.
+- Public repository: `https://github.com/ByteWorthyLLC/vqol`.
+- Live demo: `https://byteworthyllc.github.io/vqol/`.
+- Demo route: `https://byteworthyllc.github.io/vqol/#/results?demo=1`.
+- Discussions seeded:
+  - `https://github.com/ByteWorthyLLC/vqol/discussions/1`
+  - `https://github.com/ByteWorthyLLC/vqol/discussions/2`
+  - `https://github.com/ByteWorthyLLC/vqol/discussions/3`
+  - `https://github.com/ByteWorthyLLC/vqol/discussions/4`
+  - `https://github.com/ByteWorthyLLC/vqol/discussions/5`
 - Real-device PDF/PWA verification remains open.
 
 ## Pending Todos
@@ -64,7 +72,6 @@ Phase 4 success means the repo is safe and understandable enough to make public:
 - Decide whether v0.1 ships full in-app survey or reference-only mode.
 - Replace placeholder icons and add public demo screenshots or GIF.
 - Generate deployed screenshots/GIF/social preview.
-- Enable GitHub Pages in repository settings after pushing.
 - Run iOS Safari, Android Chrome, desktop print, and screen-reader checks.
 - Tag v0.1.0 only after the legal/public-demo gates are closed.
 

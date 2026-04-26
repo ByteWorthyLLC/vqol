@@ -27,8 +27,7 @@ Done in the repo:
 
 Remaining:
 
-- Public GitHub repo and GitHub Pages deployment.
-- Deployed screenshots/GIF/social preview.
+- Deployed screenshots/GIF and uploaded GitHub social preview.
 - Real-device verification checklist.
 - Public release copy review.
 - LSHTM legal gate resolution or reference-only fallback.

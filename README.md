@@ -31,7 +31,11 @@ Remaining launch blockers:
 - Send and resolve the LSHTM licensing inquiry, or ship reference-only mode.
 - Add final deployed screenshots/GIF/social preview after Pages is live.
 - Run real-device PDF/PWA testing on iOS Safari and Android Chrome.
-- Publish the repository and GitHub Pages demo.
+
+Live demo:
+
+- https://byteworthyllc.github.io/vqol/
+- https://byteworthyllc.github.io/vqol/#/results?demo=1
 
 ## Why This Is Technically Interesting
 

@@ -93,9 +93,9 @@ license:
   paid_tier_required: false
 
 repo:
-  social_preview_path: ".github/social-preview.png"
+  social_preview_path: "docs/assets/social-preview.svg"
   brand_assets_path: "docs/brand/"
-  has_homepage_url: "https://github.com/ByteWorthyLLC/vqol"
+  has_homepage_url: "https://byteworthyllc.github.io/vqol/"
   topics:
     - "vein"
     - "vascular"

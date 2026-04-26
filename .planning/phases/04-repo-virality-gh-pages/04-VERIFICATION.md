@@ -20,5 +20,9 @@ Results:
 - Telemetry audit: no analytics, monitoring, or beacon signatures.
 - Dependency audit: 0 vulnerabilities.
 
-Manual deployment/device verification is still pending until the public Pages
-site exists.
+Public Pages deployment succeeded through GitHub Actions:
+
+- `https://github.com/ByteWorthyLLC/vqol/actions/runs/24970215351`
+- `https://byteworthyllc.github.io/vqol/#/results?demo=1` loaded successfully in Playwright.
+
+Manual real-device verification is still pending.

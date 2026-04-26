@@ -19,7 +19,7 @@ Updated: 2026-04-26
 | Accessibility | Basic implementation complete, formal/manual audits pending |
 | Anti-features | Enforced by design and docs |
 | Repo launch | In progress |
-| Curiosity-led virality | Core artifacts implemented, deployment assets pending |
+| Curiosity-led virality | Core artifacts implemented and deployed, assets pending |
 | Aggregate submit | Implemented, disabled by default |
 | Operator deployment | Pending |
 
@@ -103,11 +103,11 @@ Updated: 2026-04-26
 
 ## Phase 4: Repo Launch
 
-- [ ] **REPO-01**: Public repo exists at `github.com/ByteWorthyLLC/vqol`.
+- [x] **REPO-01**: Public repo exists at `github.com/ByteWorthyLLC/vqol`.
 - [x] **REPO-02**: MIT license exists in repo root.
 - [x] **REPO-03**: Repo hygiene files and ByteWorthy config exist.
 - [x] **REPO-04**: README exists with setup, status, privacy, and launch blockers.
-- [ ] **REPO-05**: Live GitHub Pages demo exists.
+- [x] **REPO-05**: Live GitHub Pages demo exists.
 - [x] **REPO-06**: Contributing docs include anti-features.
 - [x] **REPO-07**: Code of conduct exists.
 - [x] **REPO-08**: Security doc includes Business Associate notice.
@@ -115,7 +115,7 @@ Updated: 2026-04-26
 - [x] **REPO-10**: Public roadmap exists.
 - [x] **REPO-11**: Changelog exists.
 - [x] **REPO-12**: Issue templates exist.
-- [ ] **REPO-13**: Discussions are enabled and seeded.
+- [x] **REPO-13**: Discussions are enabled and seeded.
 - [x] **REPO-14**: Repo topics are documented in `byteworthy.config.yaml`.
 - [x] **REPO-15**: Fork registry exists.
 - [x] **REPO-16**: Governance doc exists.

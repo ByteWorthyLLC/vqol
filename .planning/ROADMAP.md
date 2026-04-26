@@ -12,7 +12,7 @@ vqol is already through the product-build phases. The remaining work is launch r
 | 1 | Vertical Slice | Complete | `.planning/phases/01-vertical-slice/` |
 | 2 | White-label + i18n | Complete | `.planning/phases/02-white-label-i18n/` |
 | 3 | Patient/Clinician Value | Complete | `.planning/phases/03-patient-clinician-value/` |
-| 4 | Curiosity-Led Virality + GH Pages Deploy | Active | Curiosity tools implemented; public deploy/assets pending |
+| 4 | Curiosity-Led Virality + GH Pages Deploy | Active | Public repo and Pages demo live; screenshots/GIF/discussions pending |
 | 5 | Aggregate Submit + Cluster Extraction | Started | Optional aggregate path and receiver example implemented |
 
 ## Phase 0: Legal Gate
@@ -108,8 +108,9 @@ Current status:
 - Repo docs and workflow scaffolding are now in place.
 - Amplification research and Phase 4 curiosity plan are now in place.
 - Curiosity artifacts are implemented in app routes.
-- Public remote/deployment still needs to be configured.
-- Demo screenshots/GIF/social preview still need to be produced from the deployed URL.
+- Public repo is live at `https://github.com/ByteWorthyLLC/vqol`.
+- GitHub Pages demo is live at `https://byteworthyllc.github.io/vqol/`.
+- Demo screenshots/GIF still need to be produced from the deployed URL.
 
 ## Phase 5: Aggregate Submit + Cluster Extraction
 

@@ -30,12 +30,16 @@ Now implemented locally:
 
 Still missing:
 
-- Public GitHub remote.
-- Live GitHub Pages demo.
 - Demo GIF/screenshots/social preview.
 - Curiosity-first HN/Reddit/LinkedIn drafts.
 - Real-device verification.
 - LSHTM permission outcome or reference-only mode.
+
+Live surfaces:
+
+- Repo: `https://github.com/ByteWorthyLLC/vqol`
+- Demo: `https://byteworthyllc.github.io/vqol/`
+- Fake-data demo: `https://byteworthyllc.github.io/vqol/#/results?demo=1`
 
 ## Amplification Thesis
 

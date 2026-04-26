@@ -18,24 +18,32 @@
     "check:types": "svelte-check --tsconfig ./tsconfig.json",
     "check:contrast": "node --experimental-strip-types scripts/validate-contrast.ts",
     "check:translations": "node --experimental-strip-types scripts/validate-translations.ts",
+    "audit:telemetry": "node --experimental-strip-types scripts/audit-telemetry.ts",
+    "audit:deps": "npm audit --audit-level=moderate",
+    "verify": "npm run check && npm test && npm run build && npm run audit:telemetry && npm run audit:deps",
     "test": "vitest run",
     "test:watch": "vitest"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@tsconfig/svelte": "^5.0.4",
+    "@types/qrcode": "^1.5.6",
     "fake-indexeddb": "^6.0.0",
     "jsdom": "^25.0.1",
     "svelte": "^5.16.0",
     "svelte-check": "^4.1.4",
     "tslib": "^2.8.1",
     "typescript": "^5.7.2",
-    "vite": "^6.0.7",
+    "vite": "^6.4.2",
     "vite-plugin-pwa": "^1.0.3",
-    "vitest": "^2.1.8"
+    "vitest": "^4.1.5"
   },
   "dependencies": {
     "idb": "^8.0.1",
+    "qrcode": "^1.5.4",
     "uplot": "^1.6.32"
+  },
+  "overrides": {
+    "serialize-javascript": "^7.0.5"
   }
 }

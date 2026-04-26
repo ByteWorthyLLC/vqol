@@ -2,129 +2,96 @@
 
 ## What This Is
 
-A patient-owned VEINES-QOL/Sym tracker delivered as a static, installable PWA — the first open-source patient-facing PRO instrument tracker for vein/vascular care. Patients self-administer the validated quality-of-life survey at baseline, 1mo, 6mo, and 1yr after vein/vascular treatment, see their own improvement over time, and export their score history for clinician follow-ups. Vein practices fork the repo, drop in a `practice.json` with their branding, and deploy as a white-label patient tool that doubles as an outcomes-data engine.
+vqol is a patient-owned VEINES-QOL/Sym tracker delivered as a static, installable PWA. Patients can complete a quality-of-life survey, keep longitudinal scores on their own device, view score trends, and export a clinician-ready report. Vein practices can fork the repo, edit `public/practice.json`, and deploy a branded copy without running a backend.
 
-Lives at `github.com/ByteWorthyLLC/vqol`. MIT-licensed. Built to spread.
+The repo target is `github.com/ByteWorthyLLC/vqol`. The application code is MIT licensed. Instrument content is separately governed by `INSTRUMENT-LICENSE.md`.
 
 ## Core Value
 
-A patient-facing, free, validated PRO instrument tracker that produces a real outcomes story for the practice — without requiring engineering, hosting, or per-response licensing fees that closed PRO platforms charge. The repo is the product: every star, fork, and deploy is distribution.
+Give vein and vascular practices a free, forkable, local-first patient outcomes tool that can produce a credible outcomes story without SaaS fees, accounts, telemetry, or per-response platform costs.
 
-## Virality Strategy
+## Current State
 
-vqol is built to be viral first, useful second. The viral mechanics:
+Phases 0-3 are complete in the working codebase:
 
-| Surface | Mechanic |
-|---|---|
-| **HN / r/programming** | "Validated PRO instrument as a static PWA — no backend, no SaaS, no per-response fees" — devs love clean static-PWA replacements for $$$$ closed platforms |
-| **r/varicoseveins / r/vascular / r/lymphedema** | Patients with chronic disease, no good tracking tools, underserved subreddits |
-| **AVF / AVLS / ACP conferences** | Practice managers + surgeons who pay $5–10k/yr for closed PRO platforms — free OSS alternative spreads by word of mouth |
-| **GitHub Pages demo** | One-click "see it work" with seed data → instant trust |
-| **Fork count = social proof** | Each practice fork is a public deploy. Forks compound. |
-| **Ship-list / Changelog cadence** | Public roadmap on GitHub, weekly progress posts on LinkedIn / X — operators love seeing momentum |
+- Legal/provenance package drafted.
+- Survey, scoring-engine shape, and local storage built.
+- Practice branding and four-locale message system built.
+- Chart, print/PDF export, reminders, and PWA shell built.
 
-The repo must be **landing-page-quality** on first visit: hero README, animated demo GIF, "Deploy in 5 min" CTA, screenshot grid, before/after of fork-and-deploy. README is the marketing.
+Phase 4 is active: repo hygiene, CI/CD, public demo readiness, release copy, and legal gate resolution.
 
-## Requirements
+The Phase 4 strategy is curiosity-led. The project should spread because it is technically strange and inspectable: patient outcomes from static files, local-only browser storage, no account system, no telemetry, one-file practice forks, and an explicit legal-safe instrument mode.
 
-### Validated
+## Active Requirements
 
-(None yet — ship to validate)
+### Product
 
-### Active
+- [x] Patient can take the local survey flow on mobile or desktop.
+- [x] Draft answers persist in IndexedDB and can be resumed.
+- [x] Scores persist locally and appear in history.
+- [x] Results show QOL and Sym scores, deltas, and trend chart.
+- [x] Patient can export a clinician report through the browser print dialog.
+- [x] App supports en/es/fr/de message files with key validation.
+- [x] Practice branding is configured through `public/practice.json`.
+- [x] PWA manifest and service worker build successfully.
+- [ ] Real VEINES-QOL/Sym item text and normative constants are legally cleared or replaced by reference-only mode.
+- [ ] First production deployment is live at the operator practice.
 
-**Product (the tracker):**
-- [ ] Patient can take VEINES-QOL/Sym at baseline and at scheduled follow-up intervals (1mo, 3mo, 6mo, 1yr)
-- [ ] Bundled scoring engine produces validated VEINES-QOL/Sym scores from responses (per published algorithm)
-- [ ] Score history is stored locally in IndexedDB, never leaves the device unless the patient explicitly exports
-- [ ] Patient sees a longitudinal trend chart of their own scores over time (lower-is-better axis is unambiguous)
-- [ ] Patient can export their score history as a PDF for their clinician
-- [ ] Web Notifications fire local reminders at 1mo / 3mo / 6mo / 1yr post-baseline
-- [ ] App ships in 4 languages: English, Spanish, French, German (validated translations only)
-- [ ] Single `practice.json` config controls per-practice branding (name, logo, colors, contact)
-- [ ] Optional anonymous aggregate submission for practice-side analytics (opt-in, off by default in MVP)
-- [ ] Deployable to GitHub Pages or Cloudflare Pages with zero backend
-- [ ] First production deployment lives at user's own vein/vascular center
+### Repo and Launch
 
-**Repo / virality:**
-- [ ] MIT LICENSE in repo root
-- [ ] README.md with hero copy, animated demo GIF, "Deploy in 5 minutes" CTA, screenshot grid, fork count badge, license badge, build-status badge
-- [ ] Live demo on GitHub Pages with seeded fake patient data — first visitor sees the trend chart immediately
-- [ ] CONTRIBUTING.md with PR template + how to add a translation
-- [ ] CODE_OF_CONDUCT.md (Contributor Covenant 2.1)
-- [ ] SECURITY.md with private vuln-report channel
-- [ ] GitHub Actions CI: build + lint + typecheck + Lighthouse audit on PR
-- [ ] GitHub Actions deploy: auto-publish to GitHub Pages on main
-- [ ] Repo description, topics (vein, healthcare, pwa, pro-tracker, veines-qol, open-source-health), and social preview image set
-- [ ] Public ROADMAP.md showing planned phases — operators love seeing momentum
-- [ ] CHANGELOG.md following Keep a Changelog
-- [ ] Issue templates: bug, feature, "deploy your practice" (so each fork gets visibility)
-- [ ] GitHub Discussions enabled with seed posts (intro, "share your fork", "request a translation")
-- [ ] Pushed to `github.com/ByteWorthyLLC/vqol` as public repo
-- [ ] v0.1.0 GitHub Release tagged with download links + demo URL
-- [ ] Hand-curated registry: `FORKS.md` listing every clinic that deploys (turns forks into social proof)
+- [x] MIT license exists for application code.
+- [x] README, support, security, governance, changelog, public roadmap, and deployment docs exist.
+- [x] GitHub Actions CI and Pages deploy workflows exist.
+- [x] Issue templates and pull request template exist.
+- [x] `byteworthy.config.yaml` exists.
+- [ ] GitHub remote is configured and repository is public.
+- [ ] GitHub Pages demo is live.
+- [ ] Demo screenshots or GIF exist.
+- [ ] Seeded demo mode, local-first proof panel, one-file fork proof, offline challenge, and reference-only instrument mode exist as curiosity artifacts.
+- [ ] Public copy leads with implementation constraints and proofs rather than promotion.
+- [ ] v0.1.0 release is tagged after verification.
 
-### Out of Scope
+## Out of Scope
 
-- Other vein PROs (CIVIQ-20, AVVQ) — could be v2 modules; v1 stays focused on the gold standard
-- Multi-tenant hosted SaaS — defeats the fork-and-host moat AND kills the virality story
-- Direct EHR integration — out of scope for a static PWA; PDF export is the bridge
-- Diagnosis or interpretation beyond score calculation — explicit anti-feature; this is a tracker, not clinical advice
-- Account systems, login, server-side identity — patient ownership of data is the privacy story
-- Practice-side dashboard for cross-patient aggregate viewing in v1 — anonymous submit only; dashboard is v2
-- Paid tier / Pro features — antithesis of the viral OSS thesis
+- Hosted multi-tenant SaaS.
+- Account system or login.
+- EHR integration.
+- Diagnosis, clinical advice, severity labels, or score color coding.
+- Telemetry, analytics, or third-party error monitoring.
+- Third-party push notification services.
+- Practice dashboard in v1.
 
 ## Context
 
-- **Operator-built**: Author is Director of Operations at a real vein/vascular center. v0.1 ships at that practice. This is the unfakeable moat — random devs cannot replicate operator context.
-- **Cluster member**: vqol is the first of five tools in the Vein and Vascular cluster (vqol → postsclera → veinquest → stockingfit → veinmap). Each shares the `practice.json` white-label pattern. vqol carries the fixed cost of nailing the pattern; later tools ship in days, not weeks.
-- **Distribution thesis**: Practice owners hear about it via dev/HN distribution → fork → deploy → organic word-of-mouth among practice operators (AVF, AVLS, ACP conferences). Vein industry has no free, open patient-facing PRO tooling.
-- **Closed competitors**: Outcomes MTM, Net Health, and other commercial PRO platforms charge per-response. No open-source patient-facing PRO tracker exists at the patient-data-ownership level.
-- **Instrument provenance**: VEINES-QOL/Sym is published in peer-reviewed literature (Lamping et al., 2003) with validated translations across 8+ languages. Standard PRO licensing is generally permissive for non-commercial / clinical-practice use; commercial SaaS hosting may require permission.
-- **Spec sources**: `IDEA.md` (in repo root) is the authoring spec. `CLUSTER-CONTEXT.md` (in repo root) gives the parent cluster rationale.
+- vqol is the first tool in the vein and vascular cluster.
+- The operator context is a real vein/vascular practice.
+- The cluster shares a fork-and-brand pattern: one practice config, static hosting, patient utility first.
+- The app must remain small enough for a practice fork to understand and deploy.
 
 ## Constraints
 
-- **Tech stack**: Static PWA only — Vite + Preact + IndexedDB + chart.js (or uPlot) + jsPDF. ~1200–1800 LOC budget. Reason: fork-and-host requires zero backend; everything must run from a static host.
-- **Hosting**: GitHub Pages or Cloudflare Pages — no server, no DB, no env secrets. Reason: "deployable in an afternoon by a vein practice manager" is the user-facing pitch.
-- **Privacy**: All patient data local-only by default. No telemetry. No analytics. Anonymous aggregate submission is opt-in, off by default. Reason: patient-data-ownership is part of the differentiation story; one accidental leak kills the brand.
-- **Licensing**: VEINES-QOL/Sym instrument license must be confirmed permissive for OSS patient-facing distribution before v1.0 release. Reason: the entire repo's value depends on bundling the validated instrument.
-- **Accessibility**: Patient audience skews older (vein disease prevalence rises with age). UI must meet WCAG AA contrast, support large tap targets, and work with screen readers. Reason: real-world patient mix.
-- **Effort budget**: 1–2 weeks to v0.1 deployable at the author's clinic. Reason: this is the lowest-risk tool in the cluster and must demonstrate the white-label pattern fast.
-- **Repo home**: `github.com/ByteWorthyLLC/vqol` (public). Reason: ByteWorthyLLC is the studio brand for OSS work; signals "real software shop, not abandoned weekend project" and channels traffic to byteworthy.io.
-- **License**: MIT. Reason: max permissive — the moat is operator context + brand, not source-code lockup. Practices and competitors can both fork; we win on continued shipping cadence.
-- **Web commit signoff**: ByteWorthyLLC org enforces signed commits. All commits and releases must be signed.
+- Static PWA only.
+- No backend by default.
+- No secrets required to deploy.
+- Local-only patient data by default.
+- Accessibility matters because the patient audience skews older.
+- Instrument licensing is a hard launch gate.
+- ByteWorthy public releases should use signed commits and tags.
 
 ## Key Decisions
 
-| Decision | Rationale | Outcome |
-|----------|-----------|---------|
-| Static PWA over backend SaaS | Fork-and-host is the moat; backend kills that | — Pending |
-| Preact over React | Smaller bundle, same DX, better fit for ~1500 LOC budget | — Pending |
-| IndexedDB over localStorage | Photo / PDF blobs may be added later in cluster; future-proof now | — Pending |
-| English/Spanish/French/German at v1 | Only languages with validated VEINES-QOL/Sym translations | — Pending |
-| `practice.json` over UI-based admin | Forking devs config in code; non-technical clinic managers config via single file edit | — Pending |
-| Anonymous aggregate submission opt-in, off by default | Privacy-first stance reduces brand risk; can flip default later if practice operators request | — Pending |
-| MIT license over Apache-2.0 / AGPL | Max viral spread; moat is operator context + cluster shipping cadence, not code | — Pending |
-| ByteWorthyLLC org over personal account | Studio-brand positioning, signals professionalism, channels to byteworthy.io | — Pending |
-| GitHub Pages as canonical demo | Same provider as repo, free, fast, no DNS setup | — Pending |
-
-## Evolution
-
-This document evolves at phase transitions and milestone boundaries.
-
-**After each phase transition** (via `/gsd-transition`):
-1. Requirements invalidated? → Move to Out of Scope with reason
-2. Requirements validated? → Move to Validated with phase reference
-3. New requirements emerged? → Add to Active
-4. Decisions to log? → Add to Key Decisions
-5. "What This Is" still accurate? → Update if drifted
-
-**After each milestone** (via `/gsd-complete-milestone`):
-1. Full review of all sections
-2. Core Value check — still the right priority?
-3. Audit Out of Scope — reasons still valid?
-4. Update Context with current state
+| Decision | Rationale | Status |
+|---|---|---|
+| Static PWA over backend SaaS | Keeps fork-and-deploy simple and privacy-preserving | Accepted |
+| Svelte 5 over Preact | Actual implemented stack; small runtime and simple state | Accepted |
+| Hand-rolled hash router | Three routes do not justify a router dependency | Accepted |
+| IndexedDB via `idb` | Thin typed wrapper, enough for sessions/scores/meta | Accepted |
+| uPlot for charting | Small and lazy-loadable | Accepted |
+| `window.print()` over jsPDF | Avoids large PDF dependency | Accepted |
+| `practice.json` over admin UI | Single-file fork workflow | Accepted |
+| Placeholder instrument content until permission | Avoids distributing unlicensed item text/constants | Accepted |
 
 ---
-*Last updated: 2026-04-25 after initialization*
+
+Last updated: 2026-04-26 after GSD cleanup.

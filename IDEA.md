@@ -1,9 +1,9 @@
 # vqol
 
-> A patient-owned VEINES-QOL/Sym tracker. Patient takes the validated quality-of-life survey at baseline, 1mo, 6mo, 1yr. Sees their own improvement over time. Practice gets aggregate outcomes data — a real differentiator.
+> A patient-owned VEINES-QOL/Sym tracker. Patient takes the quality-of-life survey at baseline, 1mo, 6mo, and 1yr. Scores stay local by default, patients can export their own history, and practices get a forkable outcomes tool.
 
 ## One-line pitch
-The VEINES-QOL/Sym is the gold-standard patient-reported outcome instrument for chronic venous disease. It's validated across 8 languages and is the basis of nearly every published vein-treatment outcomes study. But there's no good patient-facing tool for it. This is a static page where patients self-administer at intervals, see their own trajectory, and can export their score history for follow-ups. Practice deploys a branded copy and aggregates anonymized scores for marketing + payer conversations.
+The VEINES-QOL/Sym is a major patient-reported outcome instrument for chronic venous disease and appears across published vein-treatment outcomes research. But there is no good patient-facing open-source tracker for it. This is a static PWA where patients self-administer at intervals, see their own trajectory, and export their score history for follow-ups. A practice deploys a branded copy and can later opt into anonymized aggregate outcomes under its own compliance model.
 
 ## Why this matters operationally
 - Most practices have ZERO outcomes data — they treat, but don't measure
@@ -13,9 +13,9 @@ The VEINES-QOL/Sym is the gold-standard patient-reported outcome instrument for 
 
 ## Engineering trick
 - Static SPA — survey runs locally
-- Bundled VEINES-QOL/Sym scoring algorithm
-- Local data via IndexedDB; optional anonymized opt-in submit (NOT in MVP)
-- Trend chart over baseline → 1mo → 6mo → 1yr
+- Bundled VEINES-QOL/Sym scoring-engine shape, with real item text/constants gated by instrument permission
+- Local data via IndexedDB; optional anonymized opt-in submit in a later phase
+- Trend chart over baseline -> 1mo -> 6mo -> 1yr
 - Per-practice config for branding
 - Multi-language support built-in (English, Spanish, French, German validated translations)
 
@@ -26,21 +26,21 @@ The VEINES-QOL/Sym is the gold-standard patient-reported outcome instrument for 
 - **Devs** — clean PRO-instrument-as-a-static-tool template, replicable for other PROs
 
 ## The demo
-30-second loop: patient lands on page, sees their own previous scores as a trend line (76 at baseline → 68 at 1mo → 58 at 6mo, lower is better) → "ready for your 1-year follow-up?" → 25-question survey, swipe interface → final card: "your score: 49 — you've improved 27 points since baseline (clinically significant)." → tap "share with doctor" → PDF.
+30-second loop: patient lands on page, sees prior scores as a trend line (49 at baseline -> 57 at 1mo -> 64 at 6mo, higher is better) -> "ready for your 1-year follow-up?" -> one-question-at-a-time survey -> final card with current score, prior score, and delta with no clinical interpretation -> tap "Export report" -> browser print/PDF dialog.
 
 ## MVP scope
-1. Static SPA with VEINES-QOL/Sym implementation
-2. Validated scoring engine (published algorithm)
+1. Static PWA with VEINES-QOL/Sym implementation shape
+2. Scoring-engine shape with real constants gated by instrument permission
 3. Reminder schedule (1mo, 3mo, 6mo, 1yr) via Web Notifications
 4. Trend chart of scores over time
 5. PDF export for clinician
 6. Per-practice white-label config
 7. Multi-language (en, es, fr, de)
-8. Optional anonymous aggregate submission for practice analytics
+8. Optional anonymous aggregate submission for practice analytics in a later phase
 
 ## Public data
-- VEINES-QOL/Sym is published in peer-reviewed literature; instrument is licensed for non-commercial use under standard PRO terms
-- Validate licensing language on launch (likely free for non-commercial + clinical practice; commercial SaaS use may require permission)
+- VEINES-QOL/Sym is published in peer-reviewed literature.
+- Verbatim item text, validated translations, and normative constants remain gated by LSHTM/instrument permission. See `INSTRUMENT-LICENSE.md`.
 
 ## Out of scope (MVP)
 - Other vein PROs (CIVIQ-20, AVVQ) — could be v2 modules
@@ -58,9 +58,9 @@ The VEINES-QOL/Sym is the gold-standard patient-reported outcome instrument for 
 - Patient-OWNED data is a privacy story too
 
 ## Stack
-- Vite + Preact
+- Vite + Svelte 5
 - IndexedDB
-- chart.js or uPlot for trend visualization
-- jsPDF
+- uPlot for trend visualization
+- `window.print()` + print CSS for report export
 - Cloudflare or GitHub Pages
 - ~1200–1800 lines

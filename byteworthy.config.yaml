@@ -1,0 +1,108 @@
+schema_version: 1
+brand_kit_version: "1.0"
+
+product:
+  name: "vqol"
+  slug: "vqol"
+  package: "vqol"
+  category: "Open-source patient outcomes PWA"
+  one_line: "Patient-owned VEINES-QOL/Sym tracking for vein practices"
+
+positioning:
+  paragraph: |
+    vqol is an open-source patient outcomes tracker for vein and vascular practices.
+    Unlike closed PRO platforms, it runs as a static PWA with no backend, no accounts, and local-only patient data by default.
+    Practices use it to deploy a branded VEINES-QOL/Sym tracking workflow and give patients a printable score history for follow-ups.
+    Built by ByteWorthy.
+
+icp:
+  primary: "Vein and vascular practices"
+  secondary: "Vascular researchers and patient-education teams"
+  size: "Single-site to small multi-site practices"
+  geo: ["US"]
+  excluded: "Teams needing hosted multi-tenant SaaS, EHR integration, or clinical decision support"
+
+design:
+  accent_hex: "#2a5a8a"
+  accent_name: "clinical blue"
+  accent_dark: "#173b5f"
+  metaphor: "clinic"
+  letter_form: "V"
+
+pricing:
+  pioneer_beta: "Free and MIT-licensed"
+  tiers:
+    - name: "Open Source"
+      price: 0
+      currency: USD
+      cycle: one-time
+      includes: "Static app source, practice config, docs, and verification scripts"
+
+stack:
+  primary_lang: "TypeScript"
+  frameworks: ["Svelte 5", "Vite", "vite-plugin-pwa"]
+  database: "IndexedDB via idb"
+  ai_providers: []
+  billing: "none"
+  deploy: "GitHub Pages or Cloudflare Pages"
+
+architecture:
+  diagram_topology:
+    - "Svelte app shell"
+    - "Practice config loader"
+    - "Survey route"
+    - "Scoring engine"
+    - "IndexedDB stores"
+    - "Results chart"
+    - "Print export"
+    - "PWA service worker"
+
+verticals:
+  - id: "patient-tracking"
+    label: "Patient-owned longitudinal score tracking"
+  - id: "practice-outcomes"
+    label: "Practice outcomes documentation"
+  - id: "research-followup"
+    label: "Research follow-up workflow"
+
+faq:
+  - q: "Does vqol send patient data to ByteWorthy?"
+  - q: "Can my practice deploy a branded copy?"
+  - q: "Is the VEINES-QOL/Sym instrument text licensed?"
+  - q: "Can this connect to an EHR?"
+  - q: "Can we enable aggregate outcome submission?"
+
+glossary:
+  - term: "VEINES-QOL/Sym"
+    definition: "A patient-reported outcome instrument for chronic venous disease symptoms and quality of life."
+  - term: "PWA"
+    definition: "A web app that can be installed and cached for offline-capable use."
+  - term: "IndexedDB"
+    definition: "Browser-local structured storage used for patient-owned sessions and scores."
+  - term: "practice.json"
+    definition: "The single per-practice configuration file for branding and feature flags."
+
+community:
+  discord: "discord.gg/byteworthy"
+  newsletter: "byteworthy.io/subscribe"
+  twitter: "byteworthyllc"
+  github_org: "byteworthyllc"
+
+license:
+  type: "MIT"
+  paid_tier_required: false
+
+repo:
+  social_preview_path: ".github/social-preview.png"
+  brand_assets_path: "docs/brand/"
+  has_homepage_url: "https://github.com/ByteWorthyLLC/vqol"
+  topics:
+    - "vein"
+    - "vascular"
+    - "healthcare"
+    - "pwa"
+    - "svelte"
+    - "patient-reported-outcomes"
+    - "veines-qol"
+    - "open-source-health"
+    - "fork-and-deploy"

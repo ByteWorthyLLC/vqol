@@ -9,9 +9,11 @@
     t: T;
     onstart: () => void;
     onview: () => void;
+    ondemo: () => void;
+    onlab: () => void;
   }
 
-  let { t, onstart, onview }: Props = $props();
+  let { t, onstart, onview, ondemo, onlab }: Props = $props();
 
   let draft = $state<SessionRecord | undefined>(undefined);
   let prior = $state<ScoreRecord | undefined>(undefined);
@@ -68,6 +70,15 @@
         </div>
       </div>
     {/if}
+
+    <div class="card">
+      <h2>{t('home.tools.title')}</h2>
+      <p class="muted">{t('home.tools.body')}</p>
+      <div class="actions">
+        <button onclick={ondemo}>{t('home.tools.demo')}</button>
+        <button onclick={onlab}>{t('home.tools.lab')}</button>
+      </div>
+    </div>
   {/if}
 </section>
 

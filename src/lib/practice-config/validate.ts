@@ -6,9 +6,12 @@ import type {
 import type { Locale } from '../storage/types';
 
 const SUPPORTED_LOCALES: readonly Locale[] = ['en', 'es', 'fr', 'de'];
+const INSTRUMENT_MODES = ['reference-only', 'permissioned-veines', 'bring-your-own'] as const;
+const LICENSE_STATUSES = ['pending-permission', 'permission-granted', 'fallback-required'] as const;
 const HEX_COLOR = /^#[0-9a-fA-F]{6}$/;
 const HTTPS_URL = /^https:\/\/.+/;
 const HTTPS_OR_RELATIVE_URL = /^(https:\/\/|\.\/|\/).+/;
+const PRACTICE_ID = /^[a-z0-9][a-z0-9-]{1,62}[a-z0-9]$/;
 
 function isString(v: unknown): v is string {
   return typeof v === 'string';
@@ -160,6 +163,46 @@ function validateFeatures(
   }
 }
 
+function validateInstrument(
+  instrument: unknown,
+  errors: FieldError[]
+): void {
+  if (!isObject(instrument)) {
+    errors.push({
+      path: 'instrument',
+      message: 'must declare mode and licenseStatus',
+    });
+    return;
+  }
+  if (!isString(instrument.mode) || !INSTRUMENT_MODES.includes(instrument.mode as typeof INSTRUMENT_MODES[number])) {
+    errors.push({
+      path: 'instrument.mode',
+      message: `must be one of: ${INSTRUMENT_MODES.join(', ')}`,
+    });
+  }
+  if (!isString(instrument.licenseStatus) || !LICENSE_STATUSES.includes(instrument.licenseStatus as typeof LICENSE_STATUSES[number])) {
+    errors.push({
+      path: 'instrument.licenseStatus',
+      message: `must be one of: ${LICENSE_STATUSES.join(', ')}`,
+    });
+  }
+  if (instrument.rightsHolder !== undefined && instrument.rightsHolder !== null && !isString(instrument.rightsHolder)) {
+    errors.push({
+      path: 'instrument.rightsHolder',
+      message: 'must be a string if provided',
+    });
+  }
+  if (
+    instrument.mode === 'permissioned-veines' &&
+    instrument.licenseStatus !== 'permission-granted'
+  ) {
+    errors.push({
+      path: 'instrument.licenseStatus',
+      message: 'permissioned-veines mode requires permission-granted status',
+    });
+  }
+}
+
 export function validatePracticeConfig(input: unknown): ValidationResult {
   const errors: FieldError[] = [];
 
@@ -182,6 +225,15 @@ export function validatePracticeConfig(input: unknown): ValidationResult {
     errors.push({ path: 'practiceName', message: 'must be a string' });
   }
 
+  if ('practiceId' in input && input.practiceId !== undefined && input.practiceId !== null) {
+    if (!isString(input.practiceId) || !PRACTICE_ID.test(input.practiceId)) {
+      errors.push({
+        path: 'practiceId',
+        message: 'must be a lowercase slug, e.g. "example-vein-center"',
+      });
+    }
+  }
+
   if ('logoUrl' in input && input.logoUrl !== undefined && input.logoUrl !== null) {
     if (!isString(input.logoUrl) || !HTTPS_OR_RELATIVE_URL.test(input.logoUrl)) {
       errors.push({
@@ -194,6 +246,7 @@ export function validatePracticeConfig(input: unknown): ValidationResult {
   validateContact(input.primaryContact, errors);
   validateBranding(input.branding, errors);
   validateLocale(input.locale, errors);
+  validateInstrument(input.instrument, errors);
   validateFeatures(input.features, errors);
 
   if (errors.length > 0) {

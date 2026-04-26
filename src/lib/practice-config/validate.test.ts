@@ -4,6 +4,7 @@ import { contrastRatio, auditBranding } from './contrast';
 
 const VALID_CONFIG = {
   schemaVersion: 1,
+  practiceId: 'example-vein-center',
   practiceName: 'Example Vein Center',
   logoUrl: './logo.png',
   primaryContact: {
@@ -20,6 +21,11 @@ const VALID_CONFIG = {
   locale: {
     default: 'en',
     available: ['en', 'es', 'fr', 'de'],
+  },
+  instrument: {
+    mode: 'reference-only',
+    licenseStatus: 'pending-permission',
+    rightsHolder: 'LSHTM',
   },
   features: {
     aggregateSubmit: false,
@@ -46,6 +52,18 @@ describe('validatePracticeConfig', () => {
     expect(result.ok).toBe(false);
     if (!result.ok) {
       expect(result.errors.some((e) => e.path === 'practiceName')).toBe(true);
+    }
+  });
+
+  it('rejects malformed optional practiceId', () => {
+    const bad = {
+      ...VALID_CONFIG,
+      practiceId: 'Example Vein Center',
+    };
+    const result = validatePracticeConfig(bad);
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.errors.some((e) => e.path === 'practiceId')).toBe(true);
     }
   });
 
@@ -114,6 +132,23 @@ describe('validatePracticeConfig', () => {
     };
     const result = validatePracticeConfig(bad);
     expect(result.ok).toBe(false);
+  });
+
+  it('requires permission-granted before permissioned VEINES mode', () => {
+    const bad = {
+      ...VALID_CONFIG,
+      instrument: {
+        mode: 'permissioned-veines',
+        licenseStatus: 'pending-permission',
+      },
+    };
+    const result = validatePracticeConfig(bad);
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(
+        result.errors.some((e) => e.path === 'instrument.licenseStatus')
+      ).toBe(true);
+    }
   });
 
   it('formatErrors renders a multi-line bullet list', () => {

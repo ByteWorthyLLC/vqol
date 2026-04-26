@@ -3,6 +3,10 @@
   import Home from './routes/Home.svelte';
   import Survey from './routes/Survey.svelte';
   import Results from './routes/Results.svelte';
+  import Lab from './routes/Lab.svelte';
+  import ProofPanel from './routes/ProofPanel.svelte';
+  import ForkProof from './routes/ForkProof.svelte';
+  import Poster from './routes/Poster.svelte';
   import LocaleSwitcher from './routes/LocaleSwitcher.svelte';
   import InAppReminderBanner from './routes/InAppReminderBanner.svelte';
   import {
@@ -13,9 +17,14 @@
   import type { PracticeConfig } from './lib/practice-config/types';
   import type { Locale } from './lib/storage/types';
 
-  type Route = 'home' | 'survey' | 'results';
+  type Route = 'home' | 'survey' | 'results' | 'lab' | 'proof' | 'fork' | 'poster';
+  interface ParsedLocation {
+    route: Route;
+    demo: boolean;
+  }
 
   let route = $state<Route>('home');
+  let demoMode = $state(false);
   let config = $state<PracticeConfig | undefined>(undefined);
   let locale = $state<Locale>('en');
   let t = $state<(k: string, p?: Record<string, string | number>) => string>(
@@ -23,15 +32,29 @@
   );
   let bootError = $state<string>('');
 
-  function parseHash(): Route {
-    const h = window.location.hash.replace(/^#\/?/, '');
-    if (h === 'survey') return 'survey';
-    if (h === 'results') return 'results';
-    return 'home';
+  function parseLocationHash(): ParsedLocation {
+    const raw = window.location.hash.replace(/^#\/?/, '');
+    const [path = '', query = ''] = raw.split('?');
+    const params = new URLSearchParams(query);
+    const demo = params.get('demo') === '1';
+    if (path === 'survey') return { route: 'survey', demo };
+    if (path === 'results') return { route: 'results', demo };
+    if (path === 'lab') return { route: 'lab', demo };
+    if (path === 'proof') return { route: 'proof', demo };
+    if (path === 'fork') return { route: 'fork', demo };
+    if (path === 'poster') return { route: 'poster', demo };
+    return { route: 'home', demo: false };
   }
 
-  function navigate(next: Route): void {
-    window.location.hash = `#/${next}`;
+  function setRouteFromHash(): void {
+    const parsed = parseLocationHash();
+    route = parsed.route;
+    demoMode = parsed.demo;
+  }
+
+  function navigate(next: Route, opts: { demo?: boolean } = {}): void {
+    const query = opts.demo ? '?demo=1' : '';
+    window.location.hash = `#/${next}${query}`;
   }
 
   async function applyLocale(next: Locale): Promise<void> {
@@ -43,7 +66,7 @@
 
   onMount(() => {
     const onHashChange = (): void => {
-      route = parseHash();
+      setRouteFromHash();
     };
 
     void (async () => {
@@ -54,7 +77,7 @@
         await applyLocale(
           preferredLocale(cfg.locale.default, cfg.locale.available)
         );
-        route = parseHash();
+        setRouteFromHash();
         window.addEventListener('hashchange', onHashChange);
       } catch (err) {
         bootError = err instanceof Error ? err.message : String(err);
@@ -83,13 +106,19 @@
         {config.practiceName}
       </button>
       <span class="muted">{t('app.tagline')}</span>
-      {#if route !== 'survey' && config.locale.available.length > 1}
+      {#if route !== 'survey'}
+        <nav class="top-nav" aria-label="Project tools">
+          <button onclick={() => navigate('lab')}>{t('nav.lab')}</button>
+          <button onclick={() => navigate('proof')}>{t('nav.proof')}</button>
+        </nav>
         <span class="spacer"></span>
-        <LocaleSwitcher
-          current={locale}
-          available={config.locale.available}
-          onchange={(next) => { void applyLocale(next); }}
-        />
+        {#if config.locale.available.length > 1}
+          <LocaleSwitcher
+            current={locale}
+            available={config.locale.available}
+            onchange={(next) => { void applyLocale(next); }}
+          />
+        {/if}
       {/if}
     </div>
   </header>
@@ -97,11 +126,38 @@
   <main>
     {#if route === 'home'}
       <InAppReminderBanner {t} onstart={() => navigate('survey')} />
-      <Home {t} onstart={() => navigate('survey')} onview={() => navigate('results')} />
+      <Home
+        {t}
+        onstart={() => navigate('survey')}
+        onview={() => navigate('results')}
+        ondemo={() => navigate('results', { demo: true })}
+        onlab={() => navigate('lab')}
+      />
     {:else if route === 'survey'}
-      <Survey {t} {locale} oncomplete={() => navigate('results')} oncancel={() => navigate('home')} />
+      <Survey
+        {t}
+        {locale}
+        {config}
+        oncomplete={() => navigate('results')}
+        oncancel={() => navigate('home')}
+      />
+    {:else if route === 'lab'}
+      <Lab
+        {t}
+        ondemo={() => navigate('results', { demo: true })}
+        onproof={() => navigate('proof')}
+        onfork={() => navigate('fork')}
+        onposter={() => navigate('poster')}
+        onhome={() => navigate('home')}
+      />
+    {:else if route === 'proof'}
+      <ProofPanel {t} onback={() => navigate('lab')} />
+    {:else if route === 'fork'}
+      <ForkProof {t} {config} onback={() => navigate('lab')} />
+    {:else if route === 'poster'}
+      <Poster {t} {config} onback={() => navigate('lab')} />
     {:else}
-      <Results {t} {config} onhome={() => navigate('home')} />
+      <Results {t} {config} demo={demoMode} onhome={() => navigate('home')} onlab={() => navigate('lab')} />
     {/if}
   </main>
 
@@ -128,6 +184,16 @@
   .spacer {
     flex: 1;
   }
+  .top-nav {
+    display: none;
+    gap: 0.4rem;
+    align-items: center;
+  }
+  .top-nav button {
+    min-height: 36px;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.9rem;
+  }
   .logo {
     font-weight: 700;
     font-size: 1.15rem;
@@ -148,6 +214,11 @@
   }
   footer a {
     color: var(--muted);
+  }
+  @media (min-width: 640px) {
+    .top-nav {
+      display: flex;
+    }
   }
   .boot-error {
     color: var(--danger);

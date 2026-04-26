@@ -1,0 +1,40 @@
+# Structure
+
+```text
+.
+├── src/
+│   ├── App.svelte
+│   ├── app.css
+│   ├── main.ts
+│   ├── lib/
+│   │   ├── chart/
+│   │   ├── i18n/
+│   │   ├── notifications/
+│   │   ├── pdf/
+│   │   ├── practice-config/
+│   │   ├── scoring/
+│   │   ├── storage/
+│   │   └── survey/
+│   └── routes/
+├── messages/
+├── public/
+├── scripts/
+├── docs/
+├── .github/
+└── .planning/
+```
+
+## Source Layout Rules
+
+- Route components stay in `src/routes/`.
+- Reusable logic stays under `src/lib/<domain>/`.
+- Tests sit next to the module they verify as `*.test.ts`.
+- Locale strings stay in `messages/*.json`.
+- Practice-owned runtime config stays in `public/practice.json`.
+- GSD state stays in `.planning/`.
+
+## Generated or Ignored
+
+- `dist/` is build output and ignored.
+- `node_modules/` is ignored.
+- `.code-review-graph/graph.db` is generated knowledge-graph state.

@@ -40,7 +40,7 @@ doi:10.1016/j.jclinepi.2005.10.016
 
 ## Licensing Status
 
-**As of 2026-04-25**: Permission for verbatim OSS distribution of the item text has been **requested** from Sara Schroter (LSHTM) but is **not yet granted in writing**.
+**As of 2026-04-26**: The permission inquiry package for verbatim OSS distribution of the item text has been **drafted** but the status log does not yet record that it has been sent. Written permission is **not yet granted**.
 
 The original developer, Donna L. Lamping, is deceased (confirmed in the 2015 BMC Cardiovasc Disord paper PMC4531536). Sara Schroter is the surviving co-author and the current institutional contact for instrument-distribution requests. The Scoring Manual (Lamping & Schroter, LSHTM 2007) containing the per-item normative means and SDs is not publicly available and must be requested directly.
 

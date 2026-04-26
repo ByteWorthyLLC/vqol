@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { listScores } from '../lib/storage/db';
+  import { buildDemoScores, demoSummary } from '../lib/demo/scores';
+  import { buildFollowUpIcs, calendarFilename, downloadTextFile } from '../lib/calendar/ics';
   import type { ScoreRecord } from '../lib/storage/types';
   import type { PracticeConfig } from '../lib/practice-config/types';
   import TrendChart from '../lib/chart/TrendChart.svelte';
@@ -12,10 +14,12 @@
   interface Props {
     t: T;
     config: PracticeConfig;
+    demo?: boolean;
     onhome: () => void;
+    onlab: () => void;
   }
 
-  let { t, config, onhome }: Props = $props();
+  let { t, config, demo = false, onhome, onlab }: Props = $props();
 
   let scores = $state<ScoreRecord[]>([]);
   let loading = $state(true);
@@ -23,7 +27,7 @@
   let printContainer = $state<HTMLElement | undefined>(undefined);
 
   onMount(async () => {
-    scores = await listScores();
+    scores = demo ? buildDemoScores() : await listScores();
     loading = false;
   });
 
@@ -35,6 +39,7 @@
   const symDelta = $derived(
     latest && prior ? +(latest.symTscore - prior.symTscore).toFixed(1) : undefined
   );
+  const demoStats = $derived(demo ? demoSummary(scores) : undefined);
 
   function formatDelta(d: number | undefined): string {
     if (d === undefined) return '';
@@ -53,6 +58,15 @@
       injectionTarget: printContainer ?? null,
     });
   }
+
+  function exportCalendar(): void {
+    if (!latest) return;
+    downloadTextFile(
+      calendarFilename(latest),
+      buildFollowUpIcs(latest, config),
+      'text/calendar;charset=utf-8'
+    );
+  }
 </script>
 
 <section>
@@ -66,6 +80,19 @@
     <div class="screen-only">
       <h1>{t('results.title')}</h1>
       <p class="muted">{t('results.subtitle', { date: fmtDate(latest.calculatedAt) })}</p>
+
+      {#if demo && demoStats}
+        <div class="demo-banner" role="note">
+          <strong>{t('results.demo.title')}</strong>
+          <p>
+            {t('results.demo.body', {
+              months: demoStats.months,
+              qol: demoStats.qolChange,
+              sym: demoStats.symChange,
+            })}
+          </p>
+        </div>
+      {/if}
 
       <div class="scores">
         <div class="score-card">
@@ -92,9 +119,12 @@
 
       <div class="actions">
         <button class="primary" onclick={exportPdf}>{t('results.export.cta')}</button>
+        <button onclick={exportCalendar}>{t('results.calendar.cta')}</button>
+        <button onclick={onlab}>{t('results.lab.cta')}</button>
         <button onclick={onhome}>{t('results.back')}</button>
       </div>
       <p class="muted hint">{t('results.export.hint')}</p>
+      <p class="muted hint">{t('results.calendar.hint')}</p>
 
       <InstallPrompt {t} />
 
@@ -219,6 +249,16 @@
     padding: 0.75rem 1rem;
     background: color-mix(in oklab, var(--accent) 8%, transparent);
     border-radius: 8px;
+  }
+  .demo-banner {
+    border: 1px solid color-mix(in oklab, var(--accent) 45%, var(--border));
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    background: color-mix(in oklab, var(--accent) 8%, transparent);
+  }
+  .demo-banner p {
+    margin: 0.25rem 0 0;
   }
   .actions {
     margin: 1.5rem 0 0.5rem;

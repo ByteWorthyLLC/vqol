@@ -1,0 +1,26 @@
+# Curiosity Lab
+
+The lab is the project’s inspectable surface for people who want to understand
+the system before trusting it.
+
+Routes:
+
+- `#/lab` opens the tool index.
+- `#/results?demo=1` shows deterministic fake longitudinal data.
+- `#/proof` explains the local-first and no-telemetry claims.
+- `#/fork` audits whether `public/practice.json` is enough to rebrand a fork.
+- `#/poster` generates a printable QR poster for the current deployed URL.
+
+The lab intentionally avoids real patient answers. The demo data is generated
+from `src/lib/demo/scores.ts`, and the poster QR is generated locally in the
+browser. A deployment can use these routes to test charts, PDF export, calendar
+export, installation, and print behavior without creating clinical records.
+
+Verification:
+
+```bash
+npm run verify
+```
+
+The proof panel points readers to the same verification commands instead of
+asking them to trust a README claim.

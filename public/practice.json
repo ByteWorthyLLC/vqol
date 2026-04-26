@@ -1,5 +1,6 @@
 {
   "schemaVersion": 1,
+  "practiceId": "example-vein-center",
   "practiceName": "Example Vein Center",
   "logoUrl": "./logo.svg",
   "primaryContact": {
@@ -16,6 +17,11 @@
   "locale": {
     "default": "en",
     "available": ["en", "es", "fr", "de"]
+  },
+  "instrument": {
+    "mode": "reference-only",
+    "licenseStatus": "pending-permission",
+    "rightsHolder": "LSHTM"
   },
   "features": {
     "aggregateSubmit": false,

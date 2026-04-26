@@ -1,0 +1,25 @@
+name: Deploy your practice
+description: Share or request help with a practice deployment.
+title: "Practice deployment: "
+labels: ["practice-deploy"]
+body:
+  - type: input
+    id: practice
+    attributes:
+      label: Practice name
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Deployment URL
+      description: Leave blank if you are still setting it up.
+    validations:
+      required: false
+  - type: textarea
+    id: help
+    attributes:
+      label: What do you need?
+      description: Share setup status, errors, or anything that should be added to FORKS.md.
+    validations:
+      required: true

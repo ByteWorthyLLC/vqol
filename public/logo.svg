@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">VQOL logo</title>
+  <desc id="desc">A simple V mark for the example vein center deployment.</desc>
+  <rect width="128" height="128" rx="24" fill="#2a5a8a"/>
+  <path d="M28 30h19l17 55 17-55h19L75 98H53L28 30Z" fill="#ffffff"/>
+  <path d="M45 30h38" stroke="#b9d7ee" stroke-width="8" stroke-linecap="round"/>
+</svg>

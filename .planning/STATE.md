@@ -2,61 +2,72 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-04-25)
+See `.planning/PROJECT.md`.
 
-**Core value:** Patient-owned VEINES-QOL/Sym tracker as a static, forkable PWA — free outcomes data for practices without SaaS fees. The repo is the product.
-**Current focus:** Phase 1 — Vertical Slice (Survey + Scoring + Storage)
+**Core value:** Patient-owned VEINES-QOL/Sym tracking as a static, forkable PWA for vein and vascular practices.
+
+**Current focus:** Phase 4 public deploy plus Phase 5 aggregate hardening.
 
 ## Current Position
 
-Phase: 1 of 5 (Phase 0 async legal gate running in parallel)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-04-25 — Roadmap created; ROADMAP.md + STATE.md written; REQUIREMENTS.md traceability updated
+Phase: 4/5 overlap
+Status: Curiosity artifacts implemented; public repo/deploy execution active
+Last activity: 2026-04-26 - Added demo mode, curiosity lab, proof panel, fork audit, QR poster, calendar export, explicit instrument modes, aggregate submission, receiver example, dependency audit cleanup, and planning normalization.
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [████████░░] 80%
 
-## Performance Metrics
+## Completed Phases
 
-**Velocity:**
-- Total plans completed: 0
-- Average duration: -
-- Total execution time: 0 hours
+| Phase | Status | Evidence |
+|---|---|---|
+| 0. Legal Gate | Deliverables complete, async send pending | `.planning/phases/00-legal-gate/` |
+| 1. Vertical Slice | Complete | `.planning/phases/01-vertical-slice/` |
+| 2. White-label + i18n | Complete | `.planning/phases/02-white-label-i18n/` |
+| 3. Patient/Clinician Value | Complete | `.planning/phases/03-patient-clinician-value/` |
 
-**By Phase:**
+## Active Phase
 
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| - | - | - | - |
+Phase 4 success means the repo is safe and understandable enough to make public:
 
-**Recent Trend:** Not started
+- Public README and repo hygiene files exist.
+- CI verifies the current build.
+- GitHub Pages deploy workflow exists.
+- Instrument licensing status is explicit.
+- Real-device launch checklist is documented.
+- The app avoids telemetry, accounts, backend dependencies, and clinical interpretation.
+- The viral strategy leads with intellectual curiosity over promotion.
+- The local demo proves weird constraints: static files, local storage, no backend by default, no analytics, one-file fork, fake data lab, offline readiness, and optional aggregate opt-in.
 
-*Updated after each plan completion*
+## Decisions
 
-## Accumulated Context
+- Svelte 5 + Vite is the actual stack.
+- Hand-rolled hash routing stays until route complexity grows.
+- `idb` owns IndexedDB access through `src/lib/storage/`.
+- uPlot is lazy-loaded only on the results route.
+- PDF export uses `window.print()` plus print CSS, not jsPDF.
+- `public/practice.json` is the practice-owned configuration file.
+- Message files are hand-rolled JSON chunks, not Paraglide.
+- VEINES-QOL/Sym item text and normative constants remain placeholders until LSHTM permission is resolved.
+- Public launch copy must lead with constraints, proofs, implementation details, and failure modes. No "please star this" posture.
+- `instrument.mode` keeps reference-only, permissioned VEINES, and bring-your-own-instrument deployments explicit.
+- Aggregate submission is implemented but disabled by default and non-blocking.
 
-### Decisions
+## Open Blockers
 
-See PROJECT.md Key Decisions table for full log.
+- LSHTM licensing email has a draft, but the status log still shows it has not been sent.
+- Public repository and deployment are being created from the local checkout.
+- Real-device PDF/PWA verification remains open.
 
-Recent decisions affecting current work:
-- Stack: Svelte 5 (not Preact) — paraglide CLI integration + smaller bundle; supersedes PROJECT.md "Preact" constraint
-- PDF: `window.print()` + CSS `@media print` (not jsPDF) — jsPDF is 230KB gzip, exceeds app-shell budget
-- IndexedDB wrapper: `idb` (not Dexie) — 3 simple CRUD stores; Dexie's query power is never exercised; 23KB delta not justified
-- Routing: `wouter-preact` with `useHashLocation` — hash routing required for GitHub Pages zero-config static deploy
-- Framework note: Architecture.md references "Preact" throughout; all module boundaries, signal-ownership rules, and data flow translate directly to Svelte 5 runes
+## Pending Todos
 
-### Pending Todos
-
-None yet.
-
-### Blockers/Concerns
-
-- Phase 0: LSHTM instrument licensing status is UNKNOWN. Phase 1 development proceeds with placeholder item text. Phase 0 gate must resolve before any public commit that includes verbatim VEINES-QOL/Sym question text. See PITFALLS.md A-1 for DMCA runbook.
-- Phase 2: paraglide bare-Vite (non-SvelteKit) init path needs verification during Phase 2 dependency setup — not blocking Phase 1.
+- Send LSHTM inquiry email and update `INSTRUMENT-LICENSE.md`.
+- Decide whether v0.1 ships full in-app survey or reference-only mode.
+- Replace placeholder icons and add public demo screenshots or GIF.
+- Generate deployed screenshots/GIF/social preview.
+- Enable GitHub Pages in repository settings after pushing.
+- Run iOS Safari, Android Chrome, desktop print, and screen-reader checks.
+- Tag v0.1.0 only after the legal/public-demo gates are closed.
 
 ## Session Continuity
 
-Last session: 2026-04-25
-Stopped at: Roadmap written; ready to plan Phase 1
-Resume file: None
+Resume from Phase 4. Start with `npm run verify`, then resolve the legal gate and public deployment path.

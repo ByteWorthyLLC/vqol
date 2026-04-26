@@ -9,18 +9,21 @@
   } from '../lib/storage/db';
   import { score } from '../lib/scoring/algorithm';
   import { SURVEY_ITEMS, answerOptionsForScale } from '../lib/survey/items';
+  import { submitAggregateScore } from '../lib/aggregate/submit';
   import type { SessionRecord, Locale } from '../lib/storage/types';
+  import type { PracticeConfig } from '../lib/practice-config/types';
 
   type T = (k: string, p?: Record<string, string | number>) => string;
 
   interface Props {
     t: T;
     locale: Locale;
+    config: PracticeConfig;
     oncomplete: () => void;
     oncancel: () => void;
   }
 
-  let { t, locale, oncomplete, oncancel }: Props = $props();
+  let { t, locale, config, oncomplete, oncancel }: Props = $props();
 
   let session = $state<SessionRecord | undefined>(undefined);
   let cursor = $state(0);
@@ -96,11 +99,15 @@
         return;
       }
       const completed = await completeSession(session.id);
-      await saveScore({
+      const savedScore = await saveScore({
         sessionId: completed.id,
         qolTscore: result.qolTscore,
         symTscore: result.symTscore,
       });
+      const aggregateResult = await submitAggregateScore(config, savedScore);
+      if (aggregateResult.status === 'failed') {
+        console.warn(`Aggregate score submission failed: ${aggregateResult.reason}`);
+      }
       oncomplete();
     } catch (e) {
       errorMsg = e instanceof Error ? e.message : 'Could not finish the survey.';

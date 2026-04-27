@@ -8,6 +8,8 @@ Passed on 2026-04-27 after Device Lab changes:
 npm run verify
 VQOL_DEVICE_BASE_URL=http://127.0.0.1:4173/ npm run smoke:devices
 VQOL_CAPTURE_BASE_URL=http://127.0.0.1:4173/ npm run assets:launch
+npm run smoke:devices
+npm run assets:launch
 ```
 
 Coverage:
@@ -24,7 +26,8 @@ Coverage:
 - Device smoke: desktop Chromium, Android-sized Chrome layout, and iOS-sized
   Safari layout each rendered launch, studio, forge, proof, device, fake demo,
   and print invocation.
-- Launch screenshots/GIF regenerated with a Device Lab frame.
+- Launch screenshots/GIF regenerated with a Device Lab frame locally and again
+  from the live GitHub Pages deployment.
 
 ## Manual Browser Smoke
 
@@ -50,6 +53,10 @@ Passed on 2026-04-27:
   `assets/workbox-window.prod.es5-BIl4cyR9.js`.
 - Live bundle contains Launch Kit artifact strings and service-worker update
   prompt code (`NeedRefresh`, `sw-update`).
+- Commit `caf7247` deployed Device Lab and app-link social preview metadata.
+- Live `index.html` references `assets/index-Bbi3jpDw.js` and
+  `assets/social-preview.png`.
+- Live Device smoke passed against `https://byteworthyllc.github.io/vqol/`.
 
 Note: an already-open browser controlled by the pre-Phase-7 service worker can
 still show the old shell until it refreshes. The new deployed shell now renders a

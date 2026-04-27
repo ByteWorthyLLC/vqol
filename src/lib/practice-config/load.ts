@@ -36,9 +36,15 @@ export async function loadPracticeConfig(): Promise<PracticeConfig> {
 export function applyBrandingToDocument(config: PracticeConfig): void {
   const root = document.documentElement;
   const b = config.branding;
+  // Bridge legacy aliases and the design-token surface/foreground/accent set
+  // so practice.json overrides take effect across the new system.
   root.style.setProperty('--bg', b.backgroundColor);
+  root.style.setProperty('--surface-0', b.backgroundColor);
+  root.style.setProperty('--surface-elevated', b.backgroundColor);
   root.style.setProperty('--fg', b.foregroundColor);
+  root.style.setProperty('--fg-strong', b.foregroundColor);
   root.style.setProperty('--accent', b.primaryColor);
+  root.style.setProperty('--accent-hover', b.primaryColor);
   root.style.setProperty('--accent-fg', b.primaryTextColor);
-  document.title = `${config.practiceName} — VEINES-QOL/Sym tracker`;
+  document.title = `${config.practiceName} | VEINES-QOL/Sym tracker`;
 }

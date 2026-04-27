@@ -20,7 +20,7 @@ beforeEach(async () => {
   try {
     await wipeAll();
   } catch {
-    // First run: DB doesn't exist yet — fine
+    // First run: DB doesn't exist yet. fine
   }
   _resetForTests();
 });

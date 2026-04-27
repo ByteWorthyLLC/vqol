@@ -1,4 +1,4 @@
-// WCAG 2.1 contrast-ratio computation. Pure math — no external dependencies.
+// WCAG 2.1 contrast-ratio computation. Pure math. no external dependencies.
 
 function hexToRgb(hex: string): readonly [number, number, number] {
   const m = /^#([0-9a-fA-F]{6})$/.exec(hex);

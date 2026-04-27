@@ -41,6 +41,11 @@
   );
   const demoStats = $derived(demo ? demoSummary(scores) : undefined);
 
+  function deltaTone(d: number | undefined): 'up' | 'down' | 'flat' {
+    if (d === undefined || d === 0) return 'flat';
+    return d > 0 ? 'up' : 'down';
+  }
+
   function formatDelta(d: number | undefined): string {
     if (d === undefined) return '';
     const sign = d > 0 ? '+' : '';
@@ -71,40 +76,54 @@
 
 <section>
   {#if loading}
-    <p class="muted">{t('home.loading')}</p>
+    <p class="muted" aria-busy="true">{t('home.loading')}</p>
   {:else if !latest}
-    <h1>{t('results.empty.title')}</h1>
-    <p>{t('results.empty.body')}</p>
-    <button class="primary" onclick={onhome}>{t('results.back')}</button>
+    <div class="empty-state">
+      <h1>{t('results.empty.title')}</h1>
+      <p class="lede">{t('results.empty.body')}</p>
+      <button class="primary" onclick={onhome}>{t('results.back')}</button>
+    </div>
   {:else}
     <div class="screen-only">
-      <h1>{t('results.title')}</h1>
-      <p class="muted">{t('results.subtitle', { date: fmtDate(latest.calculatedAt) })}</p>
+      <header class="page-header">
+        <span class="eyebrow">{t('results.eyebrow')}</span>
+        <h1>{t('results.title')}</h1>
+        <p class="muted">{t('results.subtitle', { date: fmtDate(latest.calculatedAt) })}</p>
+      </header>
 
       {#if demo && demoStats}
-        <div class="demo-banner" role="note">
-          <strong>{t('results.demo.title')}</strong>
-          <p>
-            {t('results.demo.body', {
-              months: demoStats.months,
-              qol: demoStats.qolChange,
-              sym: demoStats.symChange,
-            })}
-          </p>
-        </div>
+        <aside class="demo-banner" role="note">
+          <div class="demo-banner-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><circle cx="12" cy="16" r="0.8" fill="currentColor"/></svg>
+          </div>
+          <div>
+            <strong>{t('results.demo.title')}</strong>
+            <p>
+              {t('results.demo.body', {
+                months: demoStats.months,
+                qol: demoStats.qolChange,
+                sym: demoStats.symChange,
+              })}
+            </p>
+          </div>
+        </aside>
       {/if}
 
       <div class="scores">
-        <div class="score-card">
+        <article class="score-card">
           <span class="label">{t('results.qol.label')}</span>
           <span class="value">{latest.qolTscore}</span>
-          <span class="delta">{formatDelta(qolDelta)}</span>
-        </div>
-        <div class="score-card">
+          <span class="delta" data-tone={deltaTone(qolDelta)}>
+            {formatDelta(qolDelta)}
+          </span>
+        </article>
+        <article class="score-card">
           <span class="label">{t('results.sym.label')}</span>
           <span class="value">{latest.symTscore}</span>
-          <span class="delta">{formatDelta(symDelta)}</span>
-        </div>
+          <span class="delta" data-tone={deltaTone(symDelta)}>
+            {formatDelta(symDelta)}
+          </span>
+        </article>
       </div>
 
       {#if scores.length >= 1}
@@ -115,13 +134,18 @@
         />
       {/if}
 
-      <p class="share">{t('results.share')}</p>
+      <div class="share-card">
+        <span class="share-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12c0 5-4 9-9 9-1.6 0-3.1-.4-4.4-1.1L3 21l1.1-4.6A9 9 0 1 1 21 12z"/></svg>
+        </span>
+        <p class="share">{t('results.share')}</p>
+      </div>
 
       <div class="actions">
-        <button class="primary" onclick={exportPdf}>{t('results.export.cta')}</button>
+        <button class="action" onclick={exportPdf}>{t('results.export.cta')}</button>
         <button onclick={exportCalendar}>{t('results.calendar.cta')}</button>
-        <button onclick={onlab}>{t('results.lab.cta')}</button>
-        <button onclick={onhome}>{t('results.back')}</button>
+        <button class="ghost" onclick={onlab}>{t('results.lab.cta')}</button>
+        <button class="ghost" onclick={onhome}>{t('results.back')}</button>
       </div>
       <p class="muted hint">{t('results.export.hint')}</p>
       <p class="muted hint">{t('results.calendar.hint')}</p>
@@ -129,7 +153,7 @@
       <InstallPrompt {t} />
 
       {#if scores.length > 1}
-        <details>
+        <details class="history">
           <summary>{t('results.history.summary', { count: scores.length })}</summary>
           <ul>
             {#each scores.slice().reverse() as s (s.id)}
@@ -146,7 +170,6 @@
       {/if}
     </div>
 
-    <!-- Print-only template — hidden on screen, surfaces in @media print -->
     <article bind:this={printContainer} class="print-only print-report">
       <header>
         <h1>{config.practiceName}</h1>
@@ -212,11 +235,25 @@
 </section>
 
 <style>
+  .empty-state {
+    text-align: center;
+    padding: var(--space-10) var(--space-2) var(--space-8);
+  }
+  .page-header {
+    margin-bottom: var(--space-6);
+  }
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+  .page-header .muted {
+    margin: 0;
+  }
+
   .scores {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.75rem;
-    margin: 1.5rem 0;
+    gap: var(--space-3);
+    margin: var(--space-5) 0;
   }
   @media (min-width: 480px) {
     .scores {
@@ -225,70 +262,128 @@
   }
   .score-card {
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    background: var(--surface-elevated);
+    box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--space-1);
+    position: relative;
+    overflow: hidden;
+  }
+  .score-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--action));
+    opacity: 0.85;
   }
   .label {
-    font-size: 0.85rem;
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
     color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
   .value {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: var(--weight-bold);
     line-height: 1;
+    color: var(--fg-strong);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
   }
   .delta {
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     color: var(--muted);
+    font-variant-numeric: tabular-nums;
   }
-  .share {
-    margin-top: 1.5rem;
-    padding: 0.75rem 1rem;
-    background: color-mix(in oklab, var(--accent) 8%, transparent);
-    border-radius: 8px;
+  .delta[data-tone='up'] {
+    color: var(--success);
   }
-  .demo-banner {
-    border: 1px solid color-mix(in oklab, var(--accent) 45%, var(--border));
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 1rem 0;
-    background: color-mix(in oklab, var(--accent) 8%, transparent);
-  }
-  .demo-banner p {
-    margin: 0.25rem 0 0;
-  }
-  .actions {
-    margin: 1.5rem 0 0.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-  .hint {
-    margin: 0 0 1rem;
-    font-size: 0.85rem;
-  }
-  details {
-    margin-top: 2rem;
-    border-top: 1px solid var(--border);
-    padding-top: 1rem;
-  }
-  summary {
-    cursor: pointer;
-    font-weight: 600;
-    padding: 0.5rem 0;
-  }
-  ul {
-    padding-left: 1.25rem;
-    margin: 0.5rem 0 0;
-  }
-  li {
-    margin: 0.25rem 0;
+  .delta[data-tone='down'] {
+    color: var(--danger);
   }
 
-  /* Print-template structure (visible only via @media print + .is-printing on body) */
+  .demo-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--border));
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    margin: var(--space-4) 0;
+    background: var(--accent-soft);
+  }
+  .demo-banner-mark {
+    flex: 0 0 auto;
+    color: var(--accent);
+    margin-top: 2px;
+  }
+  .demo-banner p {
+    margin: var(--space-1) 0 0;
+  }
+
+  .share-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin: var(--space-5) 0;
+    padding: var(--space-4);
+    background: var(--success-soft);
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in oklab, var(--success) 25%, var(--border));
+  }
+  .share-mark {
+    flex: 0 0 auto;
+    color: var(--success);
+    margin-top: 2px;
+  }
+  .share {
+    margin: 0;
+    color: var(--fg);
+    font-size: var(--text-sm);
+  }
+
+  .actions {
+    margin: var(--space-5) 0 var(--space-2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .hint {
+    margin: 0 0 var(--space-3);
+    font-size: var(--text-xs);
+  }
+  details.history {
+    margin-top: var(--space-8);
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-4);
+  }
+  details.history summary {
+    cursor: pointer;
+    font-weight: var(--weight-semibold);
+    padding: var(--space-2) 0;
+    color: var(--fg-strong);
+  }
+  details.history ul {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-2) 0 0;
+  }
+  details.history li {
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    font-size: var(--text-sm);
+    font-variant-numeric: tabular-nums;
+  }
+  details.history li:last-child {
+    border-bottom: 0;
+  }
+
   .print-only {
     display: none;
   }

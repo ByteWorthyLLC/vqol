@@ -5,15 +5,15 @@
 
 ## Instrument
 
-**VEINES-QOL/Sym** — Venous Insufficiency Epidemiological and Economic Study Quality of Life and Symptom questionnaire.
+**VEINES-QOL/Sym**. Venous Insufficiency Epidemiological and Economic Study Quality of Life and Symptom questionnaire.
 
 A 26-item patient-reported outcome (PRO) instrument for chronic venous disease. The two scales are scored on a T-score metric (mean 50, SD 10, higher = better).
 
 ## Instrument Authors
 
-- **Donna L. Lamping, PhD** (deceased) — London School of Hygiene & Tropical Medicine (LSHTM); original developer
-- **Sara Schroter, PhD** — Senior Researcher, BMJ; Honorary Assistant Professor, LSHTM; co-developer and co-author of the validation papers and Scoring Manual
-- **Susan R. Kahn, MD, MSc** — McGill University; co-author of the validation paper that established T-score scoring
+- **Donna L. Lamping, PhD** (deceased). London School of Hygiene & Tropical Medicine (LSHTM); original developer
+- **Sara Schroter, PhD**. Senior Researcher, BMJ; Honorary Assistant Professor, LSHTM; co-developer and co-author of the validation papers and Scoring Manual
+- **Susan R. Kahn, MD, MSc**. McGill University; co-author of the validation paper that established T-score scoring
 
 ## Primary Citations
 

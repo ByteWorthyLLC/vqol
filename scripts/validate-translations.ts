@@ -54,7 +54,7 @@ function main(): void {
     const empties = Object.entries(contents).filter(([, v]) => v === '');
     if (empties.length > 0) {
       console.error(
-        `✗ ${f.locale}: ${empties.length} empty translation(s) — fill or remove:`
+        `✗ ${f.locale}: ${empties.length} empty translation(s). fill or remove:`
       );
       for (const [k] of empties) console.error(`    ${k}`);
       exitCode = 1;

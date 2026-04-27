@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import {
     createSession,
     getActiveDraft,
@@ -33,7 +33,7 @@
 
   const total = SURVEY_ITEMS.length;
   const item = $derived(SURVEY_ITEMS[cursor]);
-  const progress = $derived(Math.round((cursor / total) * 100));
+  const progress = $derived(Math.round(((cursor + 1) / total) * 100));
   const currentValue = $derived(
     session && item ? session.answers[item.id] : undefined
   );
@@ -114,24 +114,71 @@
       submitting = false;
     }
   }
+
+  function onKeyDown(event: KeyboardEvent): void {
+    if (!session || !item) return;
+    const target = event.target as HTMLElement | null;
+    if (
+      target instanceof HTMLInputElement ||
+      target instanceof HTMLTextAreaElement ||
+      target instanceof HTMLSelectElement
+    ) {
+      return;
+    }
+    if (event.key === 'ArrowLeft') {
+      back();
+      event.preventDefault();
+      return;
+    }
+    if (event.key === 'ArrowRight' || event.key === 'Enter') {
+      if (cursor === total - 1) {
+        if (currentValue !== undefined && !submitting) void submit();
+      } else if (currentValue !== undefined) {
+        next();
+      }
+      event.preventDefault();
+      return;
+    }
+    const num = Number(event.key);
+    if (Number.isInteger(num) && num >= 1 && num <= options.length) {
+      const opt = options[num - 1];
+      if (opt) void selectAnswer(opt.value);
+      event.preventDefault();
+    }
+  }
+
+  onMount(() => {
+    window.addEventListener('keydown', onKeyDown);
+  });
+  onDestroy(() => {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('keydown', onKeyDown);
+    }
+  });
 </script>
 
 {#if !session || !item}
-  <p class="muted">Loading…</p>
+  <p class="muted" aria-busy="true">{t('home.loading')}</p>
 {:else}
-  <section>
-    <div class="progress" aria-label="Survey progress">
-      <div class="progress-bar" style="width: {progress}%"></div>
-      <span class="progress-label">
-        {t('survey.progress', { current: cursor + 1, total })}
-      </span>
+  <section class="survey">
+    <div class="progress-wrap" aria-label={t('survey.progress', { current: cursor + 1, total })}>
+      <div class="progress-meta">
+        <span class="progress-step">
+          {t('survey.progress', { current: cursor + 1, total })}
+        </span>
+        <span class="progress-percent" aria-hidden="true">{progress}%</span>
+      </div>
+      <div class="progress" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar" style="width: {progress}%"></div>
+      </div>
     </div>
 
     <h1 class="prompt">{t(item.promptKey)}</h1>
+    <p class="hint muted">{t('survey.hint')}</p>
 
     <fieldset class="options">
       <legend class="visually-hidden">{t('survey.legend')}</legend>
-      {#each options as opt (opt.value)}
+      {#each options as opt, i (opt.value)}
         <label class:selected={currentValue === opt.value}>
           <input
             type="radio"
@@ -140,7 +187,8 @@
             checked={currentValue === opt.value}
             onchange={() => selectAnswer(opt.value)}
           />
-          <span>{t(opt.key)}</span>
+          <span class="kbd" aria-hidden="true">{i + 1}</span>
+          <span class="label-text">{t(opt.key)}</span>
         </label>
       {/each}
     </fieldset>
@@ -150,14 +198,14 @@
     {/if}
   </section>
 
-  <nav class="bottom-bar" aria-label="Survey navigation">
+  <nav class="bottom-bar" aria-label={t('survey.legend')}>
     <button onclick={back} disabled={cursor === 0}>{t('survey.back')}</button>
     {#if cursor < total - 1}
       <button class="primary" onclick={next} disabled={currentValue === undefined}>
         {t('survey.next')}
       </button>
     {:else}
-      <button class="primary" onclick={submit} disabled={currentValue === undefined || submitting}>
+      <button class="action" onclick={submit} disabled={currentValue === undefined || submitting}>
         {submitting ? t('survey.scoring') : t('survey.finish')}
       </button>
     {/if}
@@ -166,73 +214,127 @@
 {/if}
 
 <style>
+  .survey {
+    padding-bottom: 6rem;
+  }
+  .progress-wrap {
+    margin-bottom: var(--space-6);
+  }
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+  }
+  .progress-step {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--fg-strong);
+    letter-spacing: 0.01em;
+  }
+  .progress-percent {
+    font-size: var(--text-xs);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
   .progress {
     position: relative;
     height: 6px;
-    background: var(--border);
+    background: var(--surface-2);
     border-radius: 3px;
-    margin-bottom: 1rem;
     overflow: hidden;
   }
   .progress-bar {
     height: 100%;
-    background: var(--accent);
-    transition: width 0.2s ease;
-  }
-  .progress-label {
-    position: absolute;
-    top: 12px;
-    left: 0;
-    font-size: 0.85rem;
-    color: var(--muted);
+    background: linear-gradient(90deg, var(--accent), var(--action));
+    transition: width var(--duration-base) var(--ease-out);
   }
   .prompt {
-    margin-top: 2.5rem;
-    font-size: 1.35rem;
-    line-height: 1.35;
+    font-size: var(--text-xl);
+    line-height: var(--leading-snug);
+    margin: var(--space-4) 0 var(--space-2);
+  }
+  @media (min-width: 540px) {
+    .prompt {
+      font-size: var(--text-2xl);
+    }
+  }
+  .hint {
+    margin: 0 0 var(--space-5);
   }
   .options {
     border: none;
     padding: 0;
-    margin: 1.5rem 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--space-2);
   }
   .options label {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
+    gap: var(--space-3);
+    padding: 0.85rem 1rem;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     cursor: pointer;
     min-height: var(--tap-target);
+    background: var(--surface-elevated);
+    transition:
+      border-color var(--duration-fast) var(--ease-out),
+      background var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out);
+  }
+  .options label:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .options label:focus-within {
+    outline: none;
+    box-shadow: var(--ring-focus);
+    border-color: var(--accent);
   }
   .options label.selected {
     border-color: var(--accent);
-    background: color-mix(in oklab, var(--accent) 10%, transparent);
+    background: var(--accent-soft);
   }
   .options input[type='radio'] {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
+    accent-color: var(--accent);
   }
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  .kbd {
+    display: none;
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--muted);
+    background: var(--surface-2);
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 540px) {
+    .kbd {
+      display: inline-flex;
+    }
+  }
+  .label-text {
+    flex: 1;
+    color: var(--fg);
   }
   .error {
     color: var(--danger);
-    font-size: 0.95rem;
-    margin: 0.75rem 0;
+    background: var(--danger-soft);
+    border: 1px solid color-mix(in oklab, var(--danger) 30%, var(--border));
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-sm);
+    margin: var(--space-4) 0;
   }
   .cancel {
     flex: 0 0 auto;

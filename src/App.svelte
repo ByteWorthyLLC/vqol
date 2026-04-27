@@ -118,22 +118,24 @@
     </p>
   </main>
 {:else if !config}
-  <main><p class="muted">Loading…</p></main>
+  <main aria-busy="true"><p class="muted">Loading.</p></main>
 {:else}
-  <header>
+  <a href="#main" class="skip-link">{t('app.skipToContent')}</a>
+  <header class="app-header">
     <div class="brand">
       <button class="logo" onclick={() => navigate('home')} aria-label={config.practiceName}>
-        {config.practiceName}
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text">{config.practiceName}</span>
       </button>
-      <span class="muted">{t('app.tagline')}</span>
+      <span class="tagline">{t('app.tagline')}</span>
+      <span class="spacer"></span>
       {#if route !== 'survey'}
         <nav class="top-nav" aria-label="Project tools">
-          <button onclick={() => navigate('lab')}>{t('nav.lab')}</button>
-          <button onclick={() => navigate('studio')}>{t('nav.studio')}</button>
-          <button onclick={() => navigate('launch')}>{t('nav.launch')}</button>
-          <button onclick={() => navigate('proof')}>{t('nav.proof')}</button>
+          <button class="ghost" onclick={() => navigate('lab')}>{t('nav.lab')}</button>
+          <button class="ghost" onclick={() => navigate('studio')}>{t('nav.studio')}</button>
+          <button class="ghost" onclick={() => navigate('launch')}>{t('nav.launch')}</button>
+          <button class="ghost" onclick={() => navigate('proof')}>{t('nav.proof')}</button>
         </nav>
-        <span class="spacer"></span>
         {#if config.locale.available.length > 1}
           <LocaleSwitcher
             current={locale}
@@ -147,7 +149,7 @@
 
   <SwUpdatePrompt {t} busy={route === 'survey'} />
 
-  <main>
+  <main id="main">
     {#if route === 'home'}
       <InAppReminderBanner {t} onstart={() => navigate('survey')} />
       <Home
@@ -208,74 +210,129 @@
     {/if}
   </main>
 
-  <footer>
-    <p class="muted">
-      {t('footer.privacy')} ·
-      <a href="https://github.com/ByteWorthyLLC/vqol" rel="noopener">github.com/ByteWorthyLLC/vqol</a>
-    </p>
+  <footer class="app-footer">
+    <div class="footer-row">
+      <span class="muted">{t('footer.privacy')}</span>
+      <span class="footer-sep" aria-hidden="true"></span>
+      <a href="https://github.com/ByteWorthyLLC/vqol" rel="noopener">
+        github.com/ByteWorthyLLC/vqol
+      </a>
+    </div>
   </footer>
 {/if}
 
 <style>
-  header {
+  .app-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in oklab, var(--surface-0) 92%, transparent);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
     border-bottom: 1px solid var(--border);
-    padding: 1rem;
+    padding: var(--space-3) var(--space-4);
   }
   .brand {
-    max-width: var(--max-content);
+    max-width: var(--max-wide);
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--space-3);
   }
   .spacer {
     flex: 1;
   }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: transparent;
+    border: none;
+    padding: 0.25rem 0.4rem;
+    color: var(--fg-strong);
+    cursor: pointer;
+    min-height: auto;
+    font-weight: var(--weight-bold);
+    font-size: var(--text-md);
+    border-radius: var(--radius-sm);
+    letter-spacing: -0.005em;
+  }
+  .logo:hover {
+    background: var(--surface-2);
+    border-color: transparent;
+  }
+  .logo-mark {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background:
+      radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--accent) 80%, white) 0%, var(--accent) 65%);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--accent) 70%, black 0%);
+  }
+  .tagline {
+    color: var(--muted);
+    font-size: var(--text-sm);
+    display: none;
+  }
+  @media (min-width: 720px) {
+    .tagline {
+      display: inline;
+    }
+  }
   .top-nav {
     display: none;
-    gap: 0.4rem;
+    gap: var(--space-1);
     align-items: center;
   }
   .top-nav button {
-    min-height: 36px;
-    padding: 0.4rem 0.65rem;
-    font-size: 0.9rem;
+    min-height: 38px;
+    padding: 0.4rem 0.7rem;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
   }
-  .logo {
-    font-weight: 700;
-    font-size: 1.15rem;
-    background: transparent;
-    border: none;
-    padding: 0;
-    color: var(--accent);
-    cursor: pointer;
-    min-height: auto;
-  }
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 1rem;
-    text-align: center;
-  }
-  footer p {
-    margin: 0;
-  }
-  footer a {
-    color: var(--muted);
-  }
-  @media (min-width: 640px) {
+  @media (min-width: 720px) {
     .top-nav {
       display: flex;
     }
+  }
+  .app-footer {
+    border-top: 1px solid var(--border);
+    padding: var(--space-5) var(--space-4);
+    background: var(--surface-1);
+  }
+  .footer-row {
+    max-width: var(--max-wide);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    font-size: var(--text-sm);
+  }
+  .footer-sep {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--border-strong);
+  }
+  .app-footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .app-footer a:hover {
+    color: var(--accent);
+    text-decoration: underline;
   }
   .boot-error {
     color: var(--danger);
   }
   .boot-error pre {
-    background: var(--border);
+    background: var(--surface-2);
     color: var(--fg);
-    padding: 1rem;
-    border-radius: 8px;
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
     overflow-x: auto;
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
   }
 </style>

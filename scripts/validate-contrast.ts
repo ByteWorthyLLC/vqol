@@ -34,7 +34,7 @@ function main(): void {
     const status = r.meetsAa ? '✓' : '✗';
     const ratio = r.ratio.toFixed(2);
     console.log(
-      `  ${status} ${r.pair} — ${ratio}:1 (threshold ${r.threshold}:1)`
+      `  ${status} ${r.pair}. ${ratio}:1 (threshold ${r.threshold}:1)`
     );
     if (!r.meetsAa) failed = true;
   }

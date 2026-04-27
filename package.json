@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0-pre",
   "type": "module",
-  "description": "Patient-owned VEINES-QOL/Sym tracker — static, white-labelable, viral OSS PWA for vein/vascular practices.",
+  "description": "Patient-owned VEINES-QOL/Sym tracker. Static, white-labelable, viral OSS PWA for vein and vascular practices.",
   "license": "MIT",
   "homepage": "https://github.com/ByteWorthyLLC/vqol",
   "repository": {

@@ -1,4 +1,4 @@
-// One-page printable score report — zero bundle cost (uses window.print + @media print).
+// One-page printable score report. zero bundle cost (uses window.print + @media print).
 //
 // Critical implementation note: uPlot draws to <canvas>, which iOS Safari does NOT
 // reliably print as the canvas element. We work around B-2 (Pitfalls) by snapshotting

@@ -1,4 +1,4 @@
-# Vein and Vascular cluster — research provenance
+# Vein and Vascular cluster. research provenance
 
 Five tools designed to be deployable at a real vein/vascular center (the user is Director of Operations at one), forkable by any other vein practice in the country, and useful enough that they don't feel like demoware.
 
@@ -16,7 +16,7 @@ Bundled, they're a vein-practice operational starter kit. Separately, each is a 
 
 | Slug | What it does | Operational value |
 |---|---|---|
-| veinquest | Pre-consult QR-card patient education | Saves 10–15 min consult time per patient; improves consult quality |
+| veinquest | Pre-consult QR-card patient education | Saves 10-15 min consult time per patient; improves consult quality |
 | stockingfit | Phone-camera compression stocking sizer | Reduces wrong-size returns; reduces staff measurement time |
 | postsclera | Daily post-op companion (PWA) | Absorbs ~80% of "is this normal?" post-op calls |
 | vqol | VEINES-QOL/Sym longitudinal PRO tracker | Outcomes data for marketing + payer negotiations |
@@ -26,20 +26,20 @@ Bundled, they're a vein-practice operational starter kit. Separately, each is a 
 
 | vs | Verdict |
 |---|---|
-| Round-1 chosen (labpilot/pillgraph/opencpt/bodyclock) | Clean — different audience |
-| Round-3 chosen (stethoscope.html/pulsecam/woundlog) | `veinmap` shares CV pattern with `woundlog` — should share `lib/fiducial-cv` |
+| Round-1 chosen (labpilot/pillgraph/opencpt/bodyclock) | Clean. different audience |
+| Round-3 chosen (stethoscope.html/pulsecam/woundlog) | `veinmap` shares CV pattern with `woundlog`. should share `lib/fiducial-cv` |
 | `outbreaktinder` | Clean |
-| Upstream Intelligence | Clean — patient-facing + practice-marketing, not claims/PA/RCM |
+| Upstream Intelligence | Clean. patient-facing + practice-marketing, not claims/PA/RCM |
 | `honeypot-med` | Clean |
 
 ## Viral mechanics
 
-- **TikTok**: visible vein before/after (`veinmap`) is the killer — every cosmetic procedure on TikTok is before/after content
+- **TikTok**: visible vein before/after (`veinmap`) is the killer. every cosmetic procedure on TikTok is before/after content
 - **HN**: `stockingfit` is the dev-magnet ("phone-camera fiducial measurement, no install, no model")
 - **Reddit**: r/vascular, r/varicoseveins, r/lymphedema all active and underserved
 - **Practice owners**: HN/dev distribution -> fork -> deploy = organic word-of-mouth among practice operators
 - **Trust loop**: `vqol` can collect Device Lab reports from actual operators, turning physical-device gaps into public proof artifacts instead of vague launch blockers
-- **Vein industry conferences**: AVF, AVLS, ACP — surgeons + practice managers all attend; a free open-source toolkit is unusual + buzzy
+- **Vein industry conferences**: AVF, AVLS, ACP. surgeons + practice managers all attend; a free open-source toolkit is unusual + buzzy
 
 ## Personal-utility note
 
@@ -54,13 +54,13 @@ This is the explicit anti-pattern from earlier rounds where ideas were "tools an
 
 | Tool | Effort | Long pole |
 |---|---|---|
-| veinquest | 1–2 weeks | Content authoring + per-practice config UX |
-| stockingfit | 2–3 weeks | CV reliability across lighting/skin tones |
+| veinquest | 1-2 weeks | Content authoring + per-practice config UX |
+| stockingfit | 2-3 weeks | CV reliability across lighting/skin tones |
 | postsclera | 2 weeks | Content authoring + notification cadence |
-| vqol | 1–2 weeks | Licensing research; multi-language validation |
-| veinmap | 3–4 weeks | CV reliability + composition-lock UX |
+| vqol | 1-2 weeks | Licensing research; multi-language validation |
+| veinmap | 3-4 weeks | CV reliability + composition-lock UX |
 
-Cluster total: ~10–13 weeks for all five at production polish. v0.1 of any single tool: 1–2 weeks.
+Cluster total: ~10-13 weeks for all five at production polish. v0.1 of any single tool: 1-2 weeks.
 
 ## Sequencing recommendation
 
@@ -72,8 +72,8 @@ Cluster total: ~10–13 weeks for all five at production polish. v0.1 of any sin
 
 ## Public data + licensing notes
 
-- **Brand size charts** (`stockingfit`) — publicly published; verify retail-spec-sheet usage rights
-- **VEINES-QOL/Sym** (`vqol`) — research published; verify licensing for free non-commercial use; clinical-practice use is generally permitted but commercial SaaS hosting may need permission
-- **Society of Vascular Surgery / American Venous Forum guidelines** (`veinquest`, `postsclera`) — public; cite directly
-- **ArUco markers + ISO/IEC 7810** (`stockingfit`, `veinmap`) — public standards
+- **Brand size charts** (`stockingfit`). publicly published; verify retail-spec-sheet usage rights
+- **VEINES-QOL/Sym** (`vqol`). research published; verify licensing for free non-commercial use; clinical-practice use is generally permitted but commercial SaaS hosting may need permission
+- **Society of Vascular Surgery / American Venous Forum guidelines** (`veinquest`, `postsclera`). public; cite directly
+- **ArUco markers + ISO/IEC 7810** (`stockingfit`, `veinmap`). public standards
 - All other content user-authored as practicing operator

@@ -82,7 +82,7 @@ function validateContact(
       });
     }
   }
-  // phone is free-form — not validated at the schema level
+  // phone is free-form. not validated at the schema level
 }
 
 function validateLocale(
@@ -152,7 +152,7 @@ function validateFeatures(
       errors.push({
         path: 'features.aggregateEndpoint',
         message:
-          'aggregateSubmit is enabled — endpoint must be an https:// URL. The deploying practice owns the BAA for this endpoint.',
+          'aggregateSubmit is enabled. endpoint must be an https:// URL. The deploying practice owns the BAA for this endpoint.',
       });
     }
   } else if (ep !== null && ep !== undefined && (!isString(ep) || !HTTPS_URL.test(ep))) {

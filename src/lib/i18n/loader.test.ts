@@ -23,7 +23,7 @@ describe('i18n', () => {
   });
 
   it('preferredLocale honors the practice default when no localStorage / nav match', () => {
-    // jsdom navigator.language is usually "en-US" — pass in available without "en"
+    // jsdom navigator.language is usually "en-US". pass in available without "en"
     const result = preferredLocale('fr', ['fr', 'de']);
     expect(['fr', 'de']).toContain(result);
   });

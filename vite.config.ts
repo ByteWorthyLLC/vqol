@@ -18,7 +18,7 @@ export default defineConfig({
         navigateFallbackDenylist: [/^\/api/],
       },
       manifest: {
-        name: 'vqol — VEINES-QOL/Sym tracker',
+        name: 'vqol. VEINES-QOL/Sym tracker',
         short_name: 'vqol',
         description:
           'Patient-owned VEINES-QOL/Sym tracker. Local-only, no telemetry, MIT-licensed.',

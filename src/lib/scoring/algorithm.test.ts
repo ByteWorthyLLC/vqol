@@ -84,7 +84,7 @@ describe('VEINES-QOL/Sym scoring engine', () => {
 
   it('scores when exactly at the threshold (≥ 80% items present)', () => {
     const m = answersAtScaleMid();
-    // Drop only items unique to QOL (Q4.x — qol-only) so the Sym subscale stays at 100%.
+    // Drop only items unique to QOL (Q4.x. qol-only) so the Sym subscale stays at 100%.
     // QOL has 25 items; 80% threshold means we can drop up to 5 and still score.
     const qolOnly = allItemIds().filter((id) => id.startsWith('Q4.'));
     for (let i = 0; i < 5; i += 1) {
@@ -97,7 +97,7 @@ describe('VEINES-QOL/Sym scoring engine', () => {
   it('reverse-scoring inverts the contribution of Q3', () => {
     // Provide max answers to all items
     const allMax = answersAtScaleMax();
-    // Then flip Q3 to min — because Q3 is reverse-scored, this should HELP the QOL score
+    // Then flip Q3 to min. because Q3 is reverse-scored, this should HELP the QOL score
     const allMaxExceptQ3 = new Map(allMax);
     const q3 = itemDefinition('Q3');
     if (!q3) throw new Error('Q3 missing');

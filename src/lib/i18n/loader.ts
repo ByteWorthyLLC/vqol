@@ -5,7 +5,7 @@ export type Messages = Record<string, string>;
 const STORAGE_KEY = 'vqol.locale';
 const cache = new Map<Locale, Messages>();
 
-// Eagerly registered loaders — Vite generates a separate JSON chunk per locale.
+// Eagerly registered loaders. Vite generates a separate JSON chunk per locale.
 // Adding a new locale = add an entry here + a messages/{locale}.json file.
 const LOADERS: Record<Locale, () => Promise<{ default: Messages }>> = {
   en: () => import('../../../messages/en.json'),
@@ -37,7 +37,7 @@ export function preferredLocale(
       return stored as Locale;
     }
   } catch {
-    // localStorage unavailable (private mode, etc.) — fall through
+    // localStorage unavailable (private mode, etc.). fall through
   }
   // 2. Browser preference if available
   const navLocale = navigator.language?.slice(0, 2).toLowerCase() as Locale;

@@ -1,6 +1,6 @@
 import type { ItemDefinition, NormativeConstants } from './types';
 
-// PLACEHOLDER constants — see INSTRUMENT-LICENSE.md.
+// PLACEHOLDER constants. see INSTRUMENT-LICENSE.md.
 // Real per-item normative means and SDs come from the LSHTM Scoring Manual
 // (Lamping & Schroter, 2007). These placeholders preserve the algorithm shape
 // so the engine produces deterministic outputs for testing without leaking
@@ -24,34 +24,34 @@ function buildItem(
 
 const itemDefs: ItemDefinition[] = [];
 
-// Q1.1..Q1.9 — symptom frequency, scale 1-6, both subscales (NOT reverse-scored)
+// Q1.1..Q1.9. symptom frequency, scale 1-6, both subscales (NOT reverse-scored)
 for (let i = 1; i <= Q1_SUBITEMS; i += 1) {
   itemDefs.push(buildItem(`Q1.${i}`, 'both', false, [1, 6]));
 }
 
-// Q3 — change over past year, scale 1-5, qol only, REVERSE-scored
+// Q3. change over past year, scale 1-5, qol only, REVERSE-scored
 itemDefs.push(buildItem('Q3', 'qol', true, [1, 5]));
 
-// Q4.1..Q4.11 — daily-activity limitations, scale 1-5, qol only
+// Q4.1..Q4.11. daily-activity limitations, scale 1-5, qol only
 for (let i = 1; i <= Q4_SUBITEMS; i += 1) {
   itemDefs.push(buildItem(`Q4.${i}`, 'qol', false, [1, 5]));
 }
 
-// Q5 — felt depressed, scale 1-6, qol only
+// Q5. felt depressed, scale 1-6, qol only
 itemDefs.push(buildItem('Q5', 'qol', false, [1, 6]));
 
-// Q6 — worried about appearance, scale 1-6, qol only, REVERSE-scored
+// Q6. worried about appearance, scale 1-6, qol only, REVERSE-scored
 itemDefs.push(buildItem('Q6', 'qol', true, [1, 6]));
 
-// Q7 — felt irritable, scale 1-6, both subscales, REVERSE-scored
+// Q7. felt irritable, scale 1-6, both subscales, REVERSE-scored
 itemDefs.push(buildItem('Q7', 'both', true, [1, 6]));
 
-// Q8 — interfered with social activities, scale 1-6, qol only
+// Q8. interfered with social activities, scale 1-6, qol only
 itemDefs.push(buildItem('Q8', 'qol', false, [1, 6]));
 
 export const ITEM_DEFINITIONS: readonly ItemDefinition[] = Object.freeze(itemDefs);
 
-// PLACEHOLDER normative constants — uniform mean/SD across items so the
+// PLACEHOLDER normative constants. uniform mean/SD across items so the
 // algorithm shape is verifiable in tests. Real constants from Scoring Manual
 // will replace these once LSHTM permission lands. The mid-point and reasonable
 // SD let unit tests confirm: identical answers across all items -> T-score 50,

@@ -15,7 +15,7 @@ vqol is already through the product-build phases. The remaining work is launch r
 | 4 | Curiosity-Led Virality + GH Pages Deploy | Active | Public repo and Pages demo live; screenshots/GIF/discussions pending |
 | 5 | Aggregate Submit + Cluster Extraction | Started | Optional aggregate path and receiver example implemented |
 | 6 | Creative Application Amplification Studio | Complete | Outcomes Studio and Practice Forge implemented and deployed |
-| 7 | Viral Functionality and Marketing Loop | Active | Launch Kit implemented locally; verification/deploy pending |
+| 7 | Viral Functionality and Marketing Loop | Complete | Launch Kit and SW update prompt implemented and deployed |
 
 ## Phase 0: Legal Gate
 
@@ -156,4 +156,4 @@ Open:
 Plans:
 - [x] Launch Kit route and launch/remix artifact generator.
 - [x] Viral playbook and weird experiment issue template.
-- [ ] Verify and deploy Phase 7 route.
+- [x] Verify and deploy Phase 7 route.

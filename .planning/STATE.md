@@ -6,15 +6,15 @@ See `.planning/PROJECT.md`.
 
 **Core value:** Patient-owned VEINES-QOL/Sym tracking as a static, forkable PWA for vein and vascular practices.
 
-**Current focus:** Phase 7 viral functionality and marketing loop.
+**Current focus:** Post-Phase 7 launch polish: legal gate, screenshots/GIF, real-device verification.
 
 ## Current Position
 
 Phase: 7
-Status: Launch Kit implemented and deployed; service-worker update prompt added locally for stale-client refresh
+Status: Phase 7 deployed
 Last activity: 2026-04-27 - Added a functional viral marketing workbench that generates share artifacts, AI citation text, clinical pilot outreach, contributor prompts, and remix links from real app routes; then added the SW update prompt so returning visitors can refresh into new launch surfaces.
 
-Progress: [█████████░] 90%
+Progress: [█████████░] 92%
 
 ## Completed Phases
 
@@ -78,11 +78,12 @@ Phase 7 success means attention converts into functional use:
 - Generate deployed screenshots/GIF/social preview.
 - Run iOS Safari, Android Chrome, desktop print, and screen-reader checks.
 - Tag v0.1.0 only after the legal/public-demo gates are closed.
-- Verify and deploy Phase 7 Launch Kit route.
+- Generate deployed screenshots/GIF from the Launch Kit, Studio, Forge, and proof routes.
+- Upgrade GitHub Actions JavaScript actions before the Node 20 runner deprecation dates.
 
 ## Session Continuity
 
-Resume from Phase 7. Start with `npm run verify`, browser-smoke `#/launch`, then push and verify GitHub Pages deployment.
+Resume from post-Phase 7 polish. Start with the legal gate, public screenshots/GIF, and real-device verification.
 
 ## Accumulated Context
 

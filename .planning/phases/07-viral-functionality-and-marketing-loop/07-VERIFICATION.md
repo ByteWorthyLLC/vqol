@@ -2,7 +2,7 @@
 
 ## Automated
 
-Passed on 2026-04-27:
+Passed on 2026-04-27 after Launch Kit and SW update prompt changes:
 
 ```bash
 npm run verify
@@ -28,6 +28,7 @@ Passed locally on 2026-04-27 at `http://127.0.0.1:5173/#/launch`:
 - Confirm artifact selector and default artifact render.
 - Confirm launch brief download action is present.
 - Desktop and mobile viewport accessibility snapshots rendered the route.
+- Route smoke still passed after adding the virtual PWA update-registration module.
 
 ## Deployment
 

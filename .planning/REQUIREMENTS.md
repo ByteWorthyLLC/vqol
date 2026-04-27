@@ -90,6 +90,7 @@ Updated: 2026-04-27
 - [x] **PWA-05**: IndexedDB is not proxied through service worker.
 - [x] **PWA-06**: Outdated cache cleanup is enabled.
 - [x] **PWA-07**: Install prompt component exists.
+- [x] **PWA-08**: Service-worker update prompt renders and disables reload during an active survey.
 - [x] **A11Y-01**: Brand colors are checked for WCAG contrast.
 - [x] **A11Y-02**: 44px tap target baseline exists.
 - [ ] **A11Y-03**: Lighthouse accessibility gate runs in CI.

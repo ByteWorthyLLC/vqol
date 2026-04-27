@@ -12,6 +12,7 @@
   import Poster from './routes/Poster.svelte';
   import LocaleSwitcher from './routes/LocaleSwitcher.svelte';
   import InAppReminderBanner from './routes/InAppReminderBanner.svelte';
+  import SwUpdatePrompt from './routes/SwUpdatePrompt.svelte';
   import {
     loadPracticeConfig,
     applyBrandingToDocument,
@@ -140,6 +141,8 @@
       {/if}
     </div>
   </header>
+
+  <SwUpdatePrompt {t} busy={route === 'survey'} />
 
   <main>
     {#if route === 'home'}

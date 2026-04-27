@@ -10,6 +10,8 @@
 - Added locale keys for the new route.
 - Added `docs/VIRALITY-PLAYBOOK.md`.
 - Added a GitHub issue template for weird functional experiments.
+- Rendered the service-worker update prompt so returning visitors can refresh
+  into new launch surfaces without reloading mid-survey.
 - Updated README, public roadmap, Curiosity Lab docs, requirements, roadmap,
   and project state.
 

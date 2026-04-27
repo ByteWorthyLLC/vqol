@@ -24,6 +24,7 @@ The working app includes:
 - Follow-up calendar export with local `.ics` generation.
 - Follow-up reminder scheduling helpers and in-app reminder banner.
 - PWA manifest, icons, service worker, and install prompt.
+- Service-worker update prompt so returning visitors can refresh into new routes without losing an active survey.
 - Optional aggregate submission module, disabled by default.
 
 Remaining launch blockers:

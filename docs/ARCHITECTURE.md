@@ -42,6 +42,8 @@ Routes:
 - `src/lib/aggregate/`: optional de-identified aggregate submit path, disabled by default.
 - `src/lib/pdf/`: snapshots the chart canvas and calls `window.print()`.
 - `src/lib/notifications/`: computes follow-up reminders and notification caps.
+- `src/routes/SwUpdatePrompt.svelte`: renders the service-worker refresh prompt and
+  disables reload while a survey is active.
 
 ## Data Model
 

@@ -11,8 +11,8 @@ See `.planning/PROJECT.md`.
 ## Current Position
 
 Phase: 7
-Status: Launch Kit implemented locally; verification/deploy pending
-Last activity: 2026-04-27 - Added a functional viral marketing workbench that generates share artifacts, AI citation text, clinical pilot outreach, contributor prompts, and remix links from real app routes.
+Status: Launch Kit implemented and deployed; service-worker update prompt added locally for stale-client refresh
+Last activity: 2026-04-27 - Added a functional viral marketing workbench that generates share artifacts, AI citation text, clinical pilot outreach, contributor prompts, and remix links from real app routes; then added the SW update prompt so returning visitors can refresh into new launch surfaces.
 
 Progress: [█████████░] 90%
 
@@ -54,6 +54,7 @@ Phase 7 success means attention converts into functional use:
 - Aggregate submission is implemented but disabled by default and non-blocking.
 - Phase 6 turns the demo into an operator tool: synthetic outcomes planning and local config forging.
 - Phase 7 treats marketing as product functionality: share copy and launch briefs must be generated from working demo/proof/studio/forge/poster routes.
+- Returning visitors need a visible service-worker update prompt; otherwise old cached shells can hide new launch routes until a manual hard refresh.
 
 ## Open Blockers
 

@@ -12,7 +12,7 @@ See `.planning/PROJECT.md`.
 
 Phase: 7
 Status: Legal inquiry sent; launch assets, Lighthouse CI, and automated device smoke complete
-Last activity: 2026-04-27 - Sent the LSHTM licensing inquiry, added launch assets, added Lighthouse accessibility to verify, added automated device smoke, and opted GitHub Actions into Node 24.
+Last activity: 2026-04-27 - Sent the LSHTM licensing inquiry, added launch assets, added Lighthouse accessibility to verify, added automated device smoke, and upgraded GitHub Actions to Node 24-compatible majors.
 
 Progress: [█████████░] 95%
 

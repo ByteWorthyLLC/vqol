@@ -135,7 +135,7 @@ Updated: 2026-04-27
 - [ ] **LAUN-03**: Reddit moderator pre-contact completed.
 - [x] **LAUN-04**: Outcome claims reviewed for instrument-vs-tool distinction.
 - [x] **LAUN-05**: Deployed screenshots and launch GIF generated from live app routes.
-- [x] **LAUN-06**: GitHub Actions JavaScript actions are opted into Node 24 ahead of Node 20 deprecation.
+- [x] **LAUN-06**: GitHub Actions JavaScript actions use current Node 24-compatible majors.
 
 ## Phase 4: Curiosity-Led Virality
 

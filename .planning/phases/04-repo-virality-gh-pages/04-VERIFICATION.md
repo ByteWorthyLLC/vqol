@@ -20,7 +20,7 @@ Results:
 - Translation validation: all four locale files aligned.
 - Vitest: current suite passing.
 - Production build: successful.
-- Lighthouse accessibility: all checked routes at or above 95%.
+- Lighthouse accessibility: CI representative routes and local full route set at or above 95%.
 - Telemetry audit: no analytics, monitoring, or beacon signatures.
 - Dependency audit: 0 vulnerabilities.
 - Launch screenshots and GIF generated from deployed routes in `docs/assets/`.

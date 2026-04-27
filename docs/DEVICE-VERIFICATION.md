@@ -40,9 +40,10 @@ Run:
 npm run check:lighthouse
 ```
 
-The CI `npm run verify` gate now runs Lighthouse accessibility checks against
-the production build for home, demo results, lab, studio, forge, launch, proof,
-and poster routes. The current threshold is `95%`.
+The CI `npm run verify` gate runs Lighthouse accessibility checks against a
+representative production route set: home, fake demo results, launch, and proof.
+Local `npm run check:lighthouse` checks the wider route set: home, demo results,
+lab, studio, forge, launch, proof, and poster. The current threshold is `95%`.
 
 ## Physical Device Boundary
 

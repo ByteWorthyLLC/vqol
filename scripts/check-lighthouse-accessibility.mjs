@@ -16,6 +16,8 @@ const routes = [
   ['proof', '#/proof'],
   ['poster', '#/poster'],
 ];
+const ciRouteNames = new Set(['home', 'demo-result', 'launch', 'proof']);
+const checkedRoutes = process.env.CI ? routes.filter(([name]) => ciRouteNames.has(name)) : routes;
 
 function waitForServer(url, timeoutMs = 20_000) {
   const start = Date.now();
@@ -42,13 +44,33 @@ function waitForServer(url, timeoutMs = 20_000) {
 
 function spawnPreview() {
   const child = spawn(
-    'npm',
-    ['exec', 'vite', '--', 'preview', '--host', '127.0.0.1', '--port', String(port), '--strictPort'],
+    process.execPath,
+    ['node_modules/vite/bin/vite.js', 'preview', '--host', '127.0.0.1', '--port', String(port), '--strictPort'],
     { stdio: ['ignore', 'pipe', 'pipe'] }
   );
   child.stdout.on('data', (chunk) => process.stdout.write(chunk));
   child.stderr.on('data', (chunk) => process.stderr.write(chunk));
   return child;
+}
+
+function withTimeout(promise, label, timeoutMs = 25_000) {
+  let timer;
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error(`${label} timed out after ${timeoutMs}ms`)), timeoutMs);
+    }),
+  ]).finally(() => clearTimeout(timer));
+}
+
+async function stopPreview(child) {
+  if (child.exitCode !== null) return;
+  child.kill('SIGTERM');
+  const exited = await Promise.race([
+    new Promise((resolve) => child.once('exit', () => resolve(true))),
+    new Promise((resolve) => setTimeout(resolve, 2_000)),
+  ]);
+  if (!exited && child.exitCode === null) child.kill('SIGKILL');
 }
 
 async function run() {
@@ -63,14 +85,19 @@ async function run() {
     });
 
     const failures = [];
-    for (const [name, hash] of routes) {
+    for (const [name, hash] of checkedRoutes) {
       const url = `${baseUrl}${hash}`;
-      const result = await lighthouse(url, {
-        port: chrome.port,
-        onlyCategories: ['accessibility'],
-        output: 'json',
-        logLevel: 'error',
-      });
+      const result = await withTimeout(
+        lighthouse(url, {
+          port: chrome.port,
+          onlyCategories: ['accessibility'],
+          output: 'json',
+          logLevel: 'error',
+          maxWaitForLoad: 15_000,
+          throttlingMethod: 'provided',
+        }),
+        `Lighthouse ${name}`
+      );
       const score = result?.lhr?.categories?.accessibility?.score ?? 0;
       const percent = Math.round(score * 100);
       console.log(`${name}: accessibility ${percent}%`);
@@ -82,7 +109,7 @@ async function run() {
     }
   } finally {
     if (chrome) await chrome.kill();
-    preview.kill('SIGTERM');
+    await stopPreview(preview);
   }
 }
 

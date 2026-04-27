@@ -86,8 +86,11 @@
 </script>
 
 <section>
-  <h1>{t('launch.title')}</h1>
-  <p>{t('launch.body')}</p>
+  <header class="page-header">
+    <span class="eyebrow">{t('lab.eyebrow')}</span>
+    <h1>{t('launch.title')}</h1>
+    <p class="lede">{t('launch.body')}</p>
+  </header>
 
   <div class="score-panel">
     <div>
@@ -199,11 +202,19 @@
 </section>
 
 <style>
+  .page-header {
+    margin-bottom: var(--space-6);
+  }
+  .page-header .lede {
+    margin: 0;
+  }
   .score-panel {
+    background: var(--surface-elevated);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 1.25rem 0;
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    margin: var(--space-2) 0 var(--space-5);
+    box-shadow: var(--shadow-sm);
   }
   .score-panel span,
   label span,

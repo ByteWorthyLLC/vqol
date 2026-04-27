@@ -32,13 +32,18 @@
 </script>
 
 <section>
-  <h1>{t('proof.title')}</h1>
-  <p>{t('proof.body')}</p>
+  <header class="page-header">
+    <span class="eyebrow">{t('lab.eyebrow')}</span>
+    <h1>{t('proof.title')}</h1>
+    <p class="lede">{t('proof.body')}</p>
+  </header>
 
   <div class="checks">
     {#each checks as check}
       <article class="check">
-        <span class="mark" aria-hidden="true">OK</span>
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>
+        </span>
         <div>
           <h2>{t(check[0])}</h2>
           <p class="muted">{t(check[1])}</p>
@@ -66,56 +71,65 @@
 </section>
 
 <style>
+  .page-header {
+    margin-bottom: var(--space-6);
+  }
+  .page-header .lede {
+    margin: 0;
+  }
   .checks {
     display: grid;
-    gap: 0.75rem;
-    margin: 1.25rem 0;
+    gap: var(--space-3);
+    margin: var(--space-2) 0 var(--space-6);
   }
   .check {
     display: grid;
     grid-template-columns: 44px 1fr;
-    gap: 0.75rem;
+    gap: var(--space-3);
     align-items: start;
+    background: var(--surface-elevated);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-sm);
   }
   .mark {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 44px;
-    min-height: 44px;
-    border-radius: 8px;
-    background: color-mix(in oklab, var(--accent) 12%, transparent);
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 0.85rem;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--success-soft);
+    color: var(--success);
   }
   .check h2,
   .commands h2,
   .offline h2 {
-    font-size: 1.05rem;
-    margin-bottom: 0.25rem;
+    font-size: var(--text-base);
+    margin: 0 0 var(--space-1);
   }
   .commands {
     border-top: 1px solid var(--border);
-    padding-top: 1rem;
-    margin: 1.5rem 0;
+    padding-top: var(--space-4);
+    margin: var(--space-6) 0;
     display: grid;
-    gap: 0.5rem;
+    gap: var(--space-2);
   }
-  code {
+  .commands code {
     display: block;
     overflow-x: auto;
-    padding: 0.65rem 0.75rem;
-    border-radius: 8px;
-    background: var(--border);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    font-size: var(--text-sm);
   }
   .offline {
+    background: var(--surface-elevated);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 1rem 0 1.5rem;
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    margin: var(--space-4) 0 var(--space-6);
   }
 </style>

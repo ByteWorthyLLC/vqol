@@ -126,8 +126,11 @@
 </script>
 
 <section>
-  <h1>{t('device.title')}</h1>
-  <p>{t('device.body')}</p>
+  <header class="page-header">
+    <span class="eyebrow">{t('lab.eyebrow')}</span>
+    <h1>{t('device.title')}</h1>
+    <p class="lede">{t('device.body')}</p>
+  </header>
 
   <div class="score">
     <div>
@@ -232,11 +235,17 @@
 </section>
 
 <style>
+  .page-header {
+    margin-bottom: var(--space-6);
+  }
+  .page-header .lede {
+    margin: 0;
+  }
   .score {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-    margin: 1.25rem 0;
+    gap: var(--space-3);
+    margin: var(--space-2) 0 var(--space-5);
   }
   .score div,
   fieldset,

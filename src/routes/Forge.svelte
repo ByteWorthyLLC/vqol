@@ -63,8 +63,11 @@
 </script>
 
 <section>
-  <h1>{t('forge.title')}</h1>
-  <p>{t('forge.body')}</p>
+  <header class="page-header">
+    <span class="eyebrow">{t('lab.eyebrow')}</span>
+    <h1>{t('forge.title')}</h1>
+    <p class="lede">{t('forge.body')}</p>
+  </header>
 
   <div class="preview" style={`--preview-accent: ${primaryColor}`}>
     <span>{t('forge.preview')}</span>
@@ -141,12 +144,20 @@
 </section>
 
 <style>
+  .page-header {
+    margin-bottom: var(--space-6);
+  }
+  .page-header .lede {
+    margin: 0;
+  }
   .preview {
+    background: var(--surface-elevated);
     border: 1px solid var(--border);
     border-left: 8px solid var(--preview-accent);
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 1.25rem 0;
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    margin: var(--space-2) 0 var(--space-5);
+    box-shadow: var(--shadow-sm);
   }
   .preview span,
   label span {

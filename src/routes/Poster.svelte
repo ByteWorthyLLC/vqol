@@ -71,10 +71,12 @@
     margin-bottom: 1rem;
   }
   .poster {
+    background: var(--surface-elevated);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: clamp(1.25rem, 4vw, 2rem);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 5vw, 2.5rem);
     text-align: center;
+    box-shadow: var(--shadow-sm);
   }
   .eyebrow {
     color: var(--muted);

@@ -66,8 +66,11 @@
 </script>
 
 <section>
-  <h1>{t('studio.title')}</h1>
-  <p>{t('studio.body')}</p>
+  <header class="page-header">
+    <span class="eyebrow">{t('lab.eyebrow')}</span>
+    <h1>{t('studio.title')}</h1>
+    <p class="lede">{t('studio.body')}</p>
+  </header>
 
   <div class="controls" aria-label={t('studio.controls')}>
     <label>
@@ -143,10 +146,21 @@
 </section>
 
 <style>
+  .page-header {
+    margin-bottom: var(--space-6);
+  }
+  .page-header .lede {
+    margin: 0;
+  }
   .controls {
     display: grid;
-    gap: 0.75rem;
-    margin: 1.25rem 0;
+    gap: var(--space-3);
+    margin: var(--space-2) 0 var(--space-6);
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-sm);
   }
   label {
     display: grid;

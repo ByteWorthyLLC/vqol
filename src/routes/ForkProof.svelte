@@ -17,8 +17,11 @@
 </script>
 
 <section>
-  <h1>{t('fork.title')}</h1>
-  <p>{t('fork.body')}</p>
+  <header class="page-header">
+    <span class="eyebrow">{t('lab.eyebrow')}</span>
+    <h1>{t('fork.title')}</h1>
+    <p class="lede">{t('fork.body')}</p>
+  </header>
 
   <div class="readiness">
     <span>{t('fork.readiness')}</span>
@@ -59,15 +62,23 @@
 </section>
 
 <style>
+  .page-header {
+    margin-bottom: var(--space-6);
+  }
+  .page-header .lede {
+    margin: 0;
+  }
   .readiness {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    gap: 1rem;
+    gap: var(--space-4);
+    background: var(--surface-elevated);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 1.25rem 0;
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    margin: var(--space-2) 0 var(--space-5);
+    box-shadow: var(--shadow-sm);
   }
   .readiness strong {
     font-size: 2rem;

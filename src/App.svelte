@@ -6,6 +6,8 @@
   import Lab from './routes/Lab.svelte';
   import ProofPanel from './routes/ProofPanel.svelte';
   import ForkProof from './routes/ForkProof.svelte';
+  import Studio from './routes/Studio.svelte';
+  import Forge from './routes/Forge.svelte';
   import Poster from './routes/Poster.svelte';
   import LocaleSwitcher from './routes/LocaleSwitcher.svelte';
   import InAppReminderBanner from './routes/InAppReminderBanner.svelte';
@@ -17,7 +19,16 @@
   import type { PracticeConfig } from './lib/practice-config/types';
   import type { Locale } from './lib/storage/types';
 
-  type Route = 'home' | 'survey' | 'results' | 'lab' | 'proof' | 'fork' | 'poster';
+  type Route =
+    | 'home'
+    | 'survey'
+    | 'results'
+    | 'lab'
+    | 'proof'
+    | 'fork'
+    | 'studio'
+    | 'forge'
+    | 'poster';
   interface ParsedLocation {
     route: Route;
     demo: boolean;
@@ -42,6 +53,8 @@
     if (path === 'lab') return { route: 'lab', demo };
     if (path === 'proof') return { route: 'proof', demo };
     if (path === 'fork') return { route: 'fork', demo };
+    if (path === 'studio') return { route: 'studio', demo };
+    if (path === 'forge') return { route: 'forge', demo };
     if (path === 'poster') return { route: 'poster', demo };
     return { route: 'home', demo: false };
   }
@@ -109,6 +122,7 @@
       {#if route !== 'survey'}
         <nav class="top-nav" aria-label="Project tools">
           <button onclick={() => navigate('lab')}>{t('nav.lab')}</button>
+          <button onclick={() => navigate('studio')}>{t('nav.studio')}</button>
           <button onclick={() => navigate('proof')}>{t('nav.proof')}</button>
         </nav>
         <span class="spacer"></span>
@@ -132,6 +146,7 @@
         onview={() => navigate('results')}
         ondemo={() => navigate('results', { demo: true })}
         onlab={() => navigate('lab')}
+        onstudio={() => navigate('studio')}
       />
     {:else if route === 'survey'}
       <Survey
@@ -147,6 +162,8 @@
         ondemo={() => navigate('results', { demo: true })}
         onproof={() => navigate('proof')}
         onfork={() => navigate('fork')}
+        onstudio={() => navigate('studio')}
+        onforge={() => navigate('forge')}
         onposter={() => navigate('poster')}
         onhome={() => navigate('home')}
       />
@@ -154,6 +171,10 @@
       <ProofPanel {t} onback={() => navigate('lab')} />
     {:else if route === 'fork'}
       <ForkProof {t} {config} onback={() => navigate('lab')} />
+    {:else if route === 'studio'}
+      <Studio {t} onback={() => navigate('lab')} onforge={() => navigate('forge')} />
+    {:else if route === 'forge'}
+      <Forge {t} {config} onback={() => navigate('lab')} onposter={() => navigate('poster')} />
     {:else if route === 'poster'}
       <Poster {t} {config} onback={() => navigate('lab')} />
     {:else}

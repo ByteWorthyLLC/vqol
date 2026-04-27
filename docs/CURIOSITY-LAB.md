@@ -6,15 +6,20 @@ the system before trusting it.
 Routes:
 
 - `#/lab` opens the tool index.
+- `#/studio` opens the fake cohort and protocol workbench.
+- `#/forge` opens the local practice config builder.
 - `#/results?demo=1` shows deterministic fake longitudinal data.
 - `#/proof` explains the local-first and no-telemetry claims.
 - `#/fork` audits whether `public/practice.json` is enough to rebrand a fork.
 - `#/poster` generates a printable QR poster for the current deployed URL.
 
 The lab intentionally avoids real patient answers. The demo data is generated
-from `src/lib/demo/scores.ts`, and the poster QR is generated locally in the
+from `src/lib/demo/scores.ts`, synthetic cohorts are generated in
+`src/lib/studio/cohort.ts`, practice configs are forged locally in
+`src/lib/forge/config.ts`, and the poster QR is generated locally in the
 browser. A deployment can use these routes to test charts, PDF export, calendar
-export, installation, and print behavior without creating clinical records.
+export, config generation, installation, and print behavior without creating
+clinical records.
 
 Verification:
 

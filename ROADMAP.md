@@ -18,6 +18,8 @@ Done in the repo:
 - README and repo hygiene.
 - CI and deploy workflows.
 - Seeded demo mode.
+- Outcomes Studio for fake cohorts and protocol comparison.
+- Practice Forge for local `practice.json` generation.
 - Local-first proof panel.
 - One-file fork proof.
 - Runtime offline-readiness inspector and offline challenge docs.

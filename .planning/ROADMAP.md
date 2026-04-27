@@ -14,6 +14,7 @@ vqol is already through the product-build phases. The remaining work is launch r
 | 3 | Patient/Clinician Value | Complete | `.planning/phases/03-patient-clinician-value/` |
 | 4 | Curiosity-Led Virality + GH Pages Deploy | Active | Public repo and Pages demo live; screenshots/GIF/discussions pending |
 | 5 | Aggregate Submit + Cluster Extraction | Started | Optional aggregate path and receiver example implemented |
+| 6 | Creative Application Amplification Studio | Complete locally | Outcomes Studio and Practice Forge implemented |
 
 ## Phase 0: Legal Gate
 
@@ -127,3 +128,20 @@ Success criteria:
 ## Execution Order
 
 Phase 4 must close before Phase 5 starts. Legal gate resolution can happen at any point, but public release cannot proceed without either written permission or reference-only mode.
+
+## Phase 6: Creative Application Amplification Studio
+
+Goal: make the project feel like a real creative application by adding useful,
+safe, fake-data operator tooling.
+
+Done:
+
+- Outcomes Studio at `#/studio`.
+- Practice Forge at `#/forge`.
+- Fake cohort simulation, protocol comparison, CSV export, and protocol brief.
+- Live `practice.json` builder with validation and fork-readiness scoring.
+
+Open:
+
+- Verify deployed routes after push.
+- Consider social share-card generation as a later phase.

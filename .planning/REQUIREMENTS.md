@@ -22,6 +22,7 @@ Updated: 2026-04-26
 | Curiosity-led virality | Core artifacts implemented and deployed, assets pending |
 | Aggregate submit | Implemented, disabled by default |
 | Operator deployment | Pending |
+| Creative application tooling | Active in Phase 6 |
 
 ## Phase 0: Legal Gate
 
@@ -153,6 +154,19 @@ Updated: 2026-04-26
 - [x] **AGG-05**: Cloudflare Worker receiver example exists.
 - [ ] **OPER-01**: First operator deployment is live.
 - [ ] **OPER-02**: First operator deployment is listed in `FORKS.md`.
+
+## Phase 6: Creative Application Amplification
+
+- [x] **STUD-01**: Synthetic cohort generator is deterministic by seed.
+- [x] **STUD-02**: Outcomes Studio exposes adjustable cohort assumptions.
+- [x] **STUD-03**: Outcomes Studio compares current and stronger follow-up protocols.
+- [x] **STUD-04**: Outcomes Studio exports fake CSV.
+- [x] **STUD-05**: Outcomes Studio exports a protocol brief with synthetic-data caveat.
+- [x] **FORG-01**: Practice Forge builds a usable `practice.json`.
+- [x] **FORG-02**: Practice Forge validates generated config with the runtime validator.
+- [x] **FORG-03**: Practice Forge surfaces fork-readiness score.
+- [x] **FORG-04**: Practice Forge can copy or download generated JSON.
+- [x] **FORG-05**: Studio/Forge do not write patient IndexedDB records.
 
 ## Deferred v2
 

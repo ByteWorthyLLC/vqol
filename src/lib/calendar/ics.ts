@@ -1,5 +1,6 @@
 import type { PracticeConfig } from '../practice-config/types';
 import type { ScoreRecord } from '../storage/types';
+export { downloadTextFile } from '../download/text';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -76,14 +77,4 @@ export function buildFollowUpIcs(
 
 export function calendarFilename(score: ScoreRecord): string {
   return `vqol-followups-${dateStamp(score.calculatedAt)}.ics`;
-}
-
-export function downloadTextFile(filename: string, body: string, mime: string): void {
-  const blob = new Blob([body], { type: mime });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = filename;
-  link.click();
-  URL.revokeObjectURL(url);
 }

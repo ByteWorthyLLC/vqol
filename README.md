@@ -20,7 +20,7 @@ The working app includes:
 - Longitudinal uPlot chart on the results screen.
 - Print/PDF export through `window.print()` and print CSS.
 - Seeded fake-data demo at `#/results?demo=1`.
-- Curiosity lab, local-first proof panel, one-file fork audit, and QR poster route.
+- Curiosity lab, Outcomes Studio, Practice Forge, local-first proof panel, one-file fork audit, and QR poster route.
 - Follow-up calendar export with local `.ics` generation.
 - Follow-up reminder scheduling helpers and in-app reminder banner.
 - PWA manifest, icons, service worker, and install prompt.
@@ -110,6 +110,8 @@ src/
     aggregate/         optional de-identified aggregate submission
     calendar/          follow-up .ics export
     demo/              deterministic fake score histories
+    download/          client-side file download helper
+    forge/             practice.json draft and serialization helpers
     fork/              one-file fork readiness audit
     i18n/              locale loading and translation helper
     notifications/     reminder scheduling and notification helpers
@@ -138,12 +140,14 @@ Optional aggregate submission is implemented but off by default. When enabled, i
 Useful fake-data and proof routes:
 
 - `#/lab` - tool index
+- `#/studio` - synthetic cohort and protocol workbench
+- `#/forge` - live `practice.json` builder
 - `#/results?demo=1` - seeded fake longitudinal result
 - `#/proof` - local-first and telemetry proof panel
 - `#/fork` - one-file `practice.json` fork audit
 - `#/poster` - printable waiting-room QR poster
 
-See [docs/CURIOSITY-LAB.md](docs/CURIOSITY-LAB.md), [docs/INSTRUMENT-MODES.md](docs/INSTRUMENT-MODES.md), and [docs/AGGREGATE-SUBMISSION.md](docs/AGGREGATE-SUBMISSION.md).
+See [docs/CURIOSITY-LAB.md](docs/CURIOSITY-LAB.md), [docs/OUTCOMES-STUDIO.md](docs/OUTCOMES-STUDIO.md), [docs/PRACTICE-FORGE.md](docs/PRACTICE-FORGE.md), [docs/INSTRUMENT-MODES.md](docs/INSTRUMENT-MODES.md), and [docs/AGGREGATE-SUBMISSION.md](docs/AGGREGATE-SUBMISSION.md).
 
 ## What This Is Not
 

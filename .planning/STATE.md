@@ -10,11 +10,11 @@ See `.planning/PROJECT.md`.
 
 ## Current Position
 
-Phase: 4/5 overlap
-Status: Public repo and Pages demo live; final launch assets/checks pending
-Last activity: 2026-04-26 - Added demo mode, curiosity lab, proof panel, fork audit, QR poster, calendar export, explicit instrument modes, aggregate submission, receiver example, dependency audit cleanup, planning normalization, public GitHub repo, and GitHub Pages deploy.
+Phase: 6
+Status: Creative application amplification implemented locally; verification/deploy pending
+Last activity: 2026-04-27 - Added Outcomes Studio and Practice Forge for deeper creative functionality after feedback that the project still felt too weak as an application.
 
-Progress: [████████░░] 80%
+Progress: [████████░░] 82%
 
 ## Completed Phases
 
@@ -51,6 +51,7 @@ Phase 4 success means the repo is safe and understandable enough to make public:
 - Public launch copy must lead with constraints, proofs, implementation details, and failure modes. No "please star this" posture.
 - `instrument.mode` keeps reference-only, permissioned VEINES, and bring-your-own-instrument deployments explicit.
 - Aggregate submission is implemented but disabled by default and non-blocking.
+- Phase 6 turns the demo into an operator tool: synthetic outcomes planning and local config forging.
 
 ## Open Blockers
 
@@ -74,7 +75,14 @@ Phase 4 success means the repo is safe and understandable enough to make public:
 - Generate deployed screenshots/GIF/social preview.
 - Run iOS Safari, Android Chrome, desktop print, and screen-reader checks.
 - Tag v0.1.0 only after the legal/public-demo gates are closed.
+- Verify and deploy Phase 6 Studio/Forge routes.
 
 ## Session Continuity
 
 Resume from Phase 4. Start with `npm run verify`, then resolve the legal gate and public deployment path.
+
+## Accumulated Context
+
+### Roadmap Evolution
+
+- Phase 6 added: Creative application amplification studio.

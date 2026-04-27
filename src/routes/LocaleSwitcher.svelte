@@ -35,13 +35,17 @@
 
 <style>
   .switcher select {
-    min-height: 36px;
-    padding: 0.4rem 0.6rem;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background: var(--bg);
+    min-height: 38px;
+    padding: 0.4rem 0.7rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-strong);
+    background: var(--surface-elevated);
     color: var(--fg);
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+  }
+  .switcher select:hover {
+    border-color: var(--accent);
   }
   .visually-hidden {
     position: absolute;

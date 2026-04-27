@@ -40,20 +40,22 @@
 
 <style>
   .install-prompt {
-    margin: 1.25rem 0;
-    padding: 1rem 1.25rem;
-    border: 1px solid var(--accent);
-    border-radius: 12px;
-    background: color-mix(in oklab, var(--accent) 6%, transparent);
+    margin: var(--space-5) 0;
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid color-mix(in oklab, var(--accent) 30%, var(--border));
+    border-radius: var(--radius-lg);
+    background: var(--accent-soft);
+    box-shadow: var(--shadow-sm);
   }
   .install-prompt h3 {
-    margin: 0 0 0.5rem;
+    margin: 0 0 var(--space-2);
+    font-size: var(--text-base);
   }
   .install-prompt ol {
-    margin: 0.5rem 0 1rem 1.25rem;
+    margin: var(--space-2) 0 var(--space-4) 1.25rem;
     padding: 0;
   }
   .install-prompt li {
-    margin: 0.25rem 0;
+    margin: var(--space-1) 0;
   }
 </style>

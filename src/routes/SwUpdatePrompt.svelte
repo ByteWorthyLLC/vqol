@@ -50,30 +50,33 @@
 <style>
   .sw-update {
     max-width: var(--max-content);
-    margin: 0.75rem auto 0;
-    border: 1px solid var(--accent);
-    border-radius: 8px;
-    padding: 0.9rem 1rem;
+    margin: var(--space-3) auto 0;
+    border: 1px solid color-mix(in oklab, var(--accent) 30%, var(--border));
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
     display: grid;
-    gap: 0.75rem;
-    background: var(--bg);
+    gap: var(--space-3);
+    background: var(--accent-soft);
+    box-shadow: var(--shadow-sm);
   }
   .sw-update strong {
     display: block;
-    margin-bottom: 0.15rem;
+    margin-bottom: var(--space-1);
+    color: var(--fg-strong);
   }
   .sw-update p {
     margin: 0;
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
   }
   .actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: var(--space-2);
   }
   .actions button {
-    padding: 0.5rem 0.8rem;
+    padding: 0.5rem 0.85rem;
+    min-height: 38px;
   }
   @media (min-width: 560px) {
     .sw-update {

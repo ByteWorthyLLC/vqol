@@ -68,6 +68,13 @@ The route turns manual hard gates into a repeatable evidence workflow:
 The related intake template is
 `.github/ISSUE_TEMPLATE/device_verification.yml`.
 
+Open tracking issues:
+
+- iOS Safari Home Screen, persistence, PDF/share: <https://github.com/ByteWorthyLLC/vqol/issues/6>
+- Android Chrome install, offline, notifications: <https://github.com/ByteWorthyLLC/vqol/issues/7>
+- Desktop Chrome/Firefox native print output: <https://github.com/ByteWorthyLLC/vqol/issues/8>
+- VoiceOver, NVDA, or TalkBack navigation: <https://github.com/ByteWorthyLLC/vqol/issues/9>
+
 ## Physical Device Boundary
 
 The automated checks above cover layout, routing, PDF-export invocation, and

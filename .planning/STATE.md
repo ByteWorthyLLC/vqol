@@ -73,6 +73,11 @@ Phase 7 success means attention converts into functional use:
   - `https://github.com/ByteWorthyLLC/vqol/discussions/4`
   - `https://github.com/ByteWorthyLLC/vqol/discussions/5`
 - Real-device PDF/PWA verification remains open, now tracked through `#/device` reports and the device-verification issue template.
+- Device verification tracking issues:
+  - iOS Safari: https://github.com/ByteWorthyLLC/vqol/issues/6
+  - Android Chrome: https://github.com/ByteWorthyLLC/vqol/issues/7
+  - Desktop print: https://github.com/ByteWorthyLLC/vqol/issues/8
+  - Assistive technology: https://github.com/ByteWorthyLLC/vqol/issues/9
 
 ## Pending Todos
 

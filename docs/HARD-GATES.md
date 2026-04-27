@@ -26,10 +26,10 @@ These cannot be truthfully completed from the headless repo environment:
 |---|---|
 | LSHTM written permission | Waiting on external rights-holder response |
 | GitHub repository social-preview upload | Optional manual repository-settings upload remains unavailable here; app-link preview is now deployed through `public/assets/social-preview.png` |
-| Physical iOS Safari install/persistence | Requires actual iOS hardware, device cloud, or a trusted `#/device` report |
-| Physical Android Chrome install/notification | Requires actual Android hardware, device cloud, or a trusted `#/device` report |
-| Native print/save dialogs | Headless automation verifies `window.print()` invocation; OS-native dialogs require `#/device` reports |
-| VoiceOver/NVDA manual audit | Requires assistive-technology runtime and human navigation, now tracked through `#/device` reports |
+| Physical iOS Safari install/persistence | Requires actual iOS hardware, device cloud, or a trusted `#/device` report; tracking issue #6 |
+| Physical Android Chrome install/notification | Requires actual Android hardware, device cloud, or a trusted `#/device` report; tracking issue #7 |
+| Native print/save dialogs | Headless automation verifies `window.print()` invocation; OS-native dialogs require `#/device` reports; tracking issue #8 |
+| VoiceOver/NVDA manual audit | Requires assistive-technology runtime and human navigation, now tracked through `#/device` reports; tracking issue #9 |
 
 ## Release Rule
 

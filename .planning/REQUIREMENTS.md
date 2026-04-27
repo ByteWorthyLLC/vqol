@@ -199,10 +199,10 @@ Updated: 2026-04-27
 - [x] **DEVC-04**: Device Lab generates a prefilled GitHub issue URL.
 - [x] **DEVC-05**: Automated smoke and Lighthouse route coverage include `#/device`.
 - [x] **DEVC-06**: Device verification docs and issue template describe the report workflow.
-- [ ] **DEVC-07**: First trusted iOS Safari report recorded.
-- [ ] **DEVC-08**: First trusted Android Chrome report recorded.
-- [ ] **DEVC-09**: First trusted desktop print report recorded.
-- [ ] **DEVC-10**: First trusted VoiceOver or NVDA report recorded.
+- [ ] **DEVC-07**: First trusted iOS Safari report recorded (tracking: #6).
+- [ ] **DEVC-08**: First trusted Android Chrome report recorded (tracking: #7).
+- [ ] **DEVC-09**: First trusted desktop print report recorded (tracking: #8).
+- [ ] **DEVC-10**: First trusted VoiceOver or NVDA report recorded (tracking: #9).
 
 ## Deferred v2
 

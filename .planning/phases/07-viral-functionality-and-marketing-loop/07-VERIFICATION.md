@@ -57,6 +57,7 @@ Passed on 2026-04-27:
 - Live `index.html` references `assets/index-Bbi3jpDw.js` and
   `assets/social-preview.png`.
 - Live Device smoke passed against `https://byteworthyllc.github.io/vqol/`.
+- Device verification hard gates are tracked in issues #6, #7, #8, and #9.
 
 Note: an already-open browser controlled by the pre-Phase-7 service worker can
 still show the old shell until it refreshes. The new deployed shell now renders a

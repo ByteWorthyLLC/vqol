@@ -1,7 +1,7 @@
 # Requirements: vqol
 
 Defined: 2026-04-25
-Updated: 2026-04-26
+Updated: 2026-04-27
 
 ## Status Summary
 
@@ -22,7 +22,8 @@ Updated: 2026-04-26
 | Curiosity-led virality | Core artifacts implemented and deployed, assets pending |
 | Aggregate submit | Implemented, disabled by default |
 | Operator deployment | Pending |
-| Creative application tooling | Active in Phase 6 |
+| Creative application tooling | Complete |
+| Viral functionality and marketing | Active in Phase 7 |
 
 ## Phase 0: Legal Gate
 
@@ -167,6 +168,17 @@ Updated: 2026-04-26
 - [x] **FORG-03**: Practice Forge surfaces fork-readiness score.
 - [x] **FORG-04**: Practice Forge can copy or download generated JSON.
 - [x] **FORG-05**: Studio/Forge do not write patient IndexedDB records.
+
+## Phase 7: Viral Functionality and Marketing
+
+- [x] **VIRL-01**: Launch Kit route generates share artifacts from real app routes.
+- [x] **VIRL-02**: Launch artifacts include technical post, clinician pilot email, contributor challenge, AI citation block, and remix loop.
+- [x] **VIRL-03**: Generated links point to demo, proof, studio, forge, poster, and repo.
+- [x] **VIRL-04**: Launch Kit exposes a utility-first readiness rubric.
+- [x] **VIRL-05**: Launch brief can be copied or downloaded as Markdown.
+- [x] **VIRL-06**: Weird experiment issue template exists for contributor conversion.
+- [x] **VIRL-07**: Viral playbook documents what can and cannot be claimed.
+- [x] **VIRL-08**: Launch Kit does not add analytics, accounts, patient-data writes, or backend dependency.
 
 ## Deferred v2
 

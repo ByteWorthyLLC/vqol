@@ -20,6 +20,11 @@ Routes:
 - `#/` renders `Home.svelte`.
 - `#/survey` renders `Survey.svelte`.
 - `#/results` renders `Results.svelte`.
+- `#/lab` renders the fake-data and proof tool index.
+- `#/studio` renders the synthetic outcomes workbench.
+- `#/forge` renders the local `practice.json` builder.
+- `#/launch` renders the viral functionality and marketing artifact generator.
+- `#/proof`, `#/fork`, and `#/poster` render proof, fork-audit, and QR poster tools.
 
 ## Core Modules
 
@@ -29,6 +34,12 @@ Routes:
 - `src/lib/scoring/`: defines item metadata, constants, and pure scoring functions.
 - `src/lib/survey/`: maps scoring item metadata to survey prompt and answer-scale keys.
 - `src/lib/chart/`: lazy-loads uPlot on the results route.
+- `src/lib/demo/`: creates deterministic fake score histories.
+- `src/lib/studio/`: creates deterministic fake cohorts and protocol summaries.
+- `src/lib/forge/`: creates and serializes local practice config drafts.
+- `src/lib/fork/`: audits whether `practice.json` is fork-ready.
+- `src/lib/marketing/`: generates Launch Kit links, copy, rubrics, and briefs.
+- `src/lib/aggregate/`: optional de-identified aggregate submit path, disabled by default.
 - `src/lib/pdf/`: snapshots the chart canvas and calls `window.print()`.
 - `src/lib/notifications/`: computes follow-up reminders and notification caps.
 
@@ -48,7 +59,7 @@ No patient data leaves the device in the default app.
 
 Network access is limited to static assets and `practice.json`. There is no default API endpoint, account system, analytics provider, or error-monitoring SDK.
 
-Aggregate submission is planned for a later phase and must stay opt-in.
+Aggregate submission exists but stays opt-in and requires an HTTPS practice endpoint.
 
 ## Instrument Boundary
 

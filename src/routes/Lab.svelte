@@ -8,11 +8,13 @@
     onfork: () => void;
     onstudio: () => void;
     onforge: () => void;
+    onlaunch: () => void;
     onposter: () => void;
     onhome: () => void;
   }
 
-  let { t, ondemo, onproof, onfork, onstudio, onforge, onposter, onhome }: Props = $props();
+  let { t, ondemo, onproof, onfork, onstudio, onforge, onlaunch, onposter, onhome }: Props =
+    $props();
 </script>
 
 <section>
@@ -30,6 +32,12 @@
       <h2>{t('lab.forge.title')}</h2>
       <p class="muted">{t('lab.forge.body')}</p>
       <button onclick={onforge}>{t('lab.forge.cta')}</button>
+    </article>
+
+    <article class="tool">
+      <h2>{t('lab.launch.title')}</h2>
+      <p class="muted">{t('lab.launch.body')}</p>
+      <button onclick={onlaunch}>{t('lab.launch.cta')}</button>
     </article>
 
     <article class="tool">

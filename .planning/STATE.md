@@ -6,15 +6,15 @@ See `.planning/PROJECT.md`.
 
 **Core value:** Patient-owned VEINES-QOL/Sym tracking as a static, forkable PWA for vein and vascular practices.
 
-**Current focus:** Phase 4 public deploy plus Phase 5 aggregate hardening.
+**Current focus:** Phase 7 viral functionality and marketing loop.
 
 ## Current Position
 
-Phase: 6
-Status: Creative application amplification implemented locally; verification/deploy pending
-Last activity: 2026-04-27 - Added Outcomes Studio and Practice Forge for deeper creative functionality after feedback that the project still felt too weak as an application.
+Phase: 7
+Status: Launch Kit implemented locally; verification/deploy pending
+Last activity: 2026-04-27 - Added a functional viral marketing workbench that generates share artifacts, AI citation text, clinical pilot outreach, contributor prompts, and remix links from real app routes.
 
-Progress: [████████░░] 82%
+Progress: [█████████░] 90%
 
 ## Completed Phases
 
@@ -24,19 +24,20 @@ Progress: [████████░░] 82%
 | 1. Vertical Slice | Complete | `.planning/phases/01-vertical-slice/` |
 | 2. White-label + i18n | Complete | `.planning/phases/02-white-label-i18n/` |
 | 3. Patient/Clinician Value | Complete | `.planning/phases/03-patient-clinician-value/` |
+| 4. Repo Virality + GH Pages | Complete, launch assets pending | `.planning/phases/04-repo-virality-gh-pages/` |
+| 5. Aggregate Submit + Cluster Extraction | Complete, operator listing pending | `.planning/phases/05-aggregate-submit-cluster-extraction/` |
+| 6. Creative Application Amplification Studio | Complete | `.planning/phases/06-creative-application-amplification-studio/` |
 
 ## Active Phase
 
-Phase 4 success means the repo is safe and understandable enough to make public:
+Phase 7 success means attention converts into functional use:
 
-- Public README and repo hygiene files exist.
-- CI verifies the current build.
-- GitHub Pages deploy workflow exists.
-- Instrument licensing status is explicit.
-- Real-device launch checklist is documented.
-- The app avoids telemetry, accounts, backend dependencies, and clinical interpretation.
-- The viral strategy leads with intellectual curiosity over promotion.
-- The local demo proves weird constraints: static files, local storage, no backend by default, no analytics, one-file fork, fake data lab, offline readiness, and optional aggregate opt-in.
+- Generated artifacts are based on live app routes.
+- Public copy leads with inspectable constraints and proof.
+- Developers get a contributor challenge instead of a vague feature ask.
+- Practices get a forge/poster pilot path.
+- Clinicians get a fake-data review path before patient use.
+- AI citation text is short, extractable, and claim-bounded.
 
 ## Decisions
 
@@ -52,6 +53,7 @@ Phase 4 success means the repo is safe and understandable enough to make public:
 - `instrument.mode` keeps reference-only, permissioned VEINES, and bring-your-own-instrument deployments explicit.
 - Aggregate submission is implemented but disabled by default and non-blocking.
 - Phase 6 turns the demo into an operator tool: synthetic outcomes planning and local config forging.
+- Phase 7 treats marketing as product functionality: share copy and launch briefs must be generated from working demo/proof/studio/forge/poster routes.
 
 ## Open Blockers
 
@@ -75,14 +77,15 @@ Phase 4 success means the repo is safe and understandable enough to make public:
 - Generate deployed screenshots/GIF/social preview.
 - Run iOS Safari, Android Chrome, desktop print, and screen-reader checks.
 - Tag v0.1.0 only after the legal/public-demo gates are closed.
-- Verify and deploy Phase 6 Studio/Forge routes.
+- Verify and deploy Phase 7 Launch Kit route.
 
 ## Session Continuity
 
-Resume from Phase 4. Start with `npm run verify`, then resolve the legal gate and public deployment path.
+Resume from Phase 7. Start with `npm run verify`, browser-smoke `#/launch`, then push and verify GitHub Pages deployment.
 
 ## Accumulated Context
 
 ### Roadmap Evolution
 
 - Phase 6 added: Creative application amplification studio.
+- Phase 7 added: Viral functionality and marketing loop with Launch Kit, AI citation block, remix links, and weird experiment issue template.

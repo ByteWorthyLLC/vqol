@@ -8,6 +8,7 @@
   import ForkProof from './routes/ForkProof.svelte';
   import Studio from './routes/Studio.svelte';
   import Forge from './routes/Forge.svelte';
+  import LaunchKit from './routes/LaunchKit.svelte';
   import Poster from './routes/Poster.svelte';
   import LocaleSwitcher from './routes/LocaleSwitcher.svelte';
   import InAppReminderBanner from './routes/InAppReminderBanner.svelte';
@@ -28,6 +29,7 @@
     | 'fork'
     | 'studio'
     | 'forge'
+    | 'launch'
     | 'poster';
   interface ParsedLocation {
     route: Route;
@@ -55,6 +57,7 @@
     if (path === 'fork') return { route: 'fork', demo };
     if (path === 'studio') return { route: 'studio', demo };
     if (path === 'forge') return { route: 'forge', demo };
+    if (path === 'launch') return { route: 'launch', demo };
     if (path === 'poster') return { route: 'poster', demo };
     return { route: 'home', demo: false };
   }
@@ -123,6 +126,7 @@
         <nav class="top-nav" aria-label="Project tools">
           <button onclick={() => navigate('lab')}>{t('nav.lab')}</button>
           <button onclick={() => navigate('studio')}>{t('nav.studio')}</button>
+          <button onclick={() => navigate('launch')}>{t('nav.launch')}</button>
           <button onclick={() => navigate('proof')}>{t('nav.proof')}</button>
         </nav>
         <span class="spacer"></span>
@@ -147,6 +151,7 @@
         ondemo={() => navigate('results', { demo: true })}
         onlab={() => navigate('lab')}
         onstudio={() => navigate('studio')}
+        onlaunch={() => navigate('launch')}
       />
     {:else if route === 'survey'}
       <Survey
@@ -164,6 +169,7 @@
         onfork={() => navigate('fork')}
         onstudio={() => navigate('studio')}
         onforge={() => navigate('forge')}
+        onlaunch={() => navigate('launch')}
         onposter={() => navigate('poster')}
         onhome={() => navigate('home')}
       />
@@ -175,6 +181,13 @@
       <Studio {t} onback={() => navigate('lab')} onforge={() => navigate('forge')} />
     {:else if route === 'forge'}
       <Forge {t} {config} onback={() => navigate('lab')} onposter={() => navigate('poster')} />
+    {:else if route === 'launch'}
+      <LaunchKit
+        {t}
+        onback={() => navigate('lab')}
+        onstudio={() => navigate('studio')}
+        onforge={() => navigate('forge')}
+      />
     {:else if route === 'poster'}
       <Poster {t} {config} onback={() => navigate('lab')} />
     {:else}

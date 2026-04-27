@@ -20,6 +20,7 @@ Done in the repo:
 - Seeded demo mode.
 - Outcomes Studio for fake cohorts and protocol comparison.
 - Practice Forge for local `practice.json` generation.
+- Launch Kit for functional marketing artifacts, AI citation text, remix links, and clinic outreach.
 - Local-first proof panel.
 - One-file fork proof.
 - Runtime offline-readiness inspector and offline challenge docs.

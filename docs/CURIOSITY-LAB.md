@@ -8,6 +8,7 @@ Routes:
 - `#/lab` opens the tool index.
 - `#/studio` opens the fake cohort and protocol workbench.
 - `#/forge` opens the local practice config builder.
+- `#/launch` opens the viral functionality and marketing artifact generator.
 - `#/results?demo=1` shows deterministic fake longitudinal data.
 - `#/proof` explains the local-first and no-telemetry claims.
 - `#/fork` audits whether `public/practice.json` is enough to rebrand a fork.
@@ -18,8 +19,8 @@ from `src/lib/demo/scores.ts`, synthetic cohorts are generated in
 `src/lib/studio/cohort.ts`, practice configs are forged locally in
 `src/lib/forge/config.ts`, and the poster QR is generated locally in the
 browser. A deployment can use these routes to test charts, PDF export, calendar
-export, config generation, installation, and print behavior without creating
-clinical records.
+export, config generation, launch copy, installation, and print behavior without
+creating clinical records.
 
 Verification:
 

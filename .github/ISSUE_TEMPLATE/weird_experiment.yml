@@ -1,0 +1,53 @@
+name: Weird functional experiment
+description: Propose a creative feature that increases utility, proof, or remixability without weakening the privacy boundary.
+title: "[Experiment]: "
+labels:
+  - experiment
+  - curiosity
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Good experiments make the project more useful or falsifiable. They do not add accounts, analytics, backend dependency, clinical interpretation, or opaque growth mechanics by default.
+  - type: textarea
+    id: weirdness
+    attributes:
+      label: What is the weird idea?
+      description: Describe the creative mechanic in concrete user terms.
+      placeholder: "Example: generate a public offline challenge card from the proof panel..."
+    validations:
+      required: true
+  - type: textarea
+    id: utility
+    attributes:
+      label: What does it help someone do?
+      description: Tie the idea to a patient, clinician, practice operator, developer, or researcher action.
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: What would make it falsifiable?
+      description: List the route, test, exported artifact, or command that would let another person verify it.
+    validations:
+      required: true
+  - type: dropdown
+    id: boundary
+    attributes:
+      label: Which boundary does it preserve?
+      options:
+        - No telemetry
+        - No account system
+        - No backend by default
+        - No clinical interpretation
+        - Patient-controlled export
+        - One-file practice fork
+    validations:
+      required: true
+  - type: textarea
+    id: risk
+    attributes:
+      label: What could go wrong?
+      description: Include privacy, legal, accessibility, and clinical-safety risks.
+    validations:
+      required: true

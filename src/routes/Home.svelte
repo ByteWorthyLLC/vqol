@@ -12,9 +12,10 @@
     ondemo: () => void;
     onlab: () => void;
     onstudio: () => void;
+    onlaunch: () => void;
   }
 
-  let { t, onstart, onview, ondemo, onlab, onstudio }: Props = $props();
+  let { t, onstart, onview, ondemo, onlab, onstudio, onlaunch }: Props = $props();
 
   let draft = $state<SessionRecord | undefined>(undefined);
   let prior = $state<ScoreRecord | undefined>(undefined);
@@ -77,6 +78,7 @@
       <p class="muted">{t('home.tools.body')}</p>
       <div class="actions">
         <button class="primary" onclick={onstudio}>{t('home.tools.studio')}</button>
+        <button onclick={onlaunch}>{t('home.tools.launch')}</button>
         <button onclick={ondemo}>{t('home.tools.demo')}</button>
         <button onclick={onlab}>{t('home.tools.lab')}</button>
       </div>

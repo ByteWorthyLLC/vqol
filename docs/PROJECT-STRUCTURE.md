@@ -16,6 +16,14 @@
 - `src/app.css`: global layout, controls, print CSS.
 - `src/routes/`: route-level Svelte components.
 - `src/lib/`: reusable domain modules.
+  - `aggregate/`: optional de-identified aggregate submission.
+  - `calendar/`: local follow-up `.ics` export.
+  - `demo/`: deterministic fake score history.
+  - `download/`: browser file download helper.
+  - `forge/`: practice config builder helpers.
+  - `fork/`: one-file fork readiness audit.
+  - `marketing/`: Launch Kit URL, artifact, and brief generation.
+  - `studio/`: synthetic cohort generation and protocol summaries.
 
 ## Data and Config
 

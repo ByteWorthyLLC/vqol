@@ -14,7 +14,8 @@ vqol is already through the product-build phases. The remaining work is launch r
 | 3 | Patient/Clinician Value | Complete | `.planning/phases/03-patient-clinician-value/` |
 | 4 | Curiosity-Led Virality + GH Pages Deploy | Active | Public repo and Pages demo live; screenshots/GIF/discussions pending |
 | 5 | Aggregate Submit + Cluster Extraction | Started | Optional aggregate path and receiver example implemented |
-| 6 | Creative Application Amplification Studio | Complete locally | Outcomes Studio and Practice Forge implemented |
+| 6 | Creative Application Amplification Studio | Complete | Outcomes Studio and Practice Forge implemented and deployed |
+| 7 | Viral Functionality and Marketing Loop | Active | Launch Kit implemented locally; verification/deploy pending |
 
 ## Phase 0: Legal Gate
 
@@ -143,5 +144,16 @@ Done:
 
 Open:
 
-- Verify deployed routes after push.
 - Consider social share-card generation as a later phase.
+
+### Phase 7: Viral functionality and marketing loop
+
+**Goal:** turn working application surfaces into useful viral mechanics.
+**Requirements**: VIRL-01 through VIRL-08
+**Depends on:** Phase 6
+**Plans:** 1 plan
+
+Plans:
+- [x] Launch Kit route and launch/remix artifact generator.
+- [x] Viral playbook and weird experiment issue template.
+- [ ] Verify and deploy Phase 7 route.

@@ -39,6 +39,7 @@ async function runContext(browser, device) {
     ['#/studio', 'Outcomes studio'],
     ['#/forge', 'Practice forge'],
     ['#/proof', 'Local-first proof'],
+    ['#/device', 'Device verification lab'],
     ['#/results?demo=1', 'Demo data'],
   ]) {
     await page.goto(routeUrl(route), { waitUntil: 'networkidle' });

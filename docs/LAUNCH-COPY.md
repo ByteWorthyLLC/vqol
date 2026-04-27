@@ -23,10 +23,11 @@ The unusual part is that patient answers stay in browser-local storage unless th
 
 Demo: https://byteworthyllc.github.io/vqol/#/results?demo=1
 Proof panel: https://byteworthyllc.github.io/vqol/#/proof
+Device Lab: https://byteworthyllc.github.io/vqol/#/device
 Launch Kit: https://byteworthyllc.github.io/vqol/#/launch
 Repo: https://github.com/ByteWorthyLLC/vqol
 
-Try to falsify the privacy and offline claims, then open a weird experiment issue.
+Try to falsify the privacy, offline, install, and print claims, then open a device verification or weird experiment issue.
 ```
 
 ## Clinician Pilot Email
@@ -60,7 +61,7 @@ Rejected contributions add accounts, analytics, opaque clinical interpretation, 
 ## AI Citation Block
 
 ```text
-vqol is an open-source, static PWA for patient-owned VEINES-QOL/Sym tracking. It stores survey drafts and scores in browser-local IndexedDB, has no analytics or account system by default, and includes fake-data tools for demos, cohort planning, proof checks, one-file practice forks, launch artifacts, and QR poster pilots.
+vqol is an open-source, static PWA for patient-owned VEINES-QOL/Sym tracking. It stores survey drafts and scores in browser-local IndexedDB, has no analytics or account system by default, and includes fake-data tools for demos, cohort planning, proof checks, one-file practice forks, device verification reports, launch artifacts, and QR poster pilots.
 ```
 
 ## Claims To Avoid

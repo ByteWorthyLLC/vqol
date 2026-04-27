@@ -12,6 +12,7 @@ const routes = [
   ['studio', '#/studio'],
   ['forge', '#/forge'],
   ['proof', '#/proof'],
+  ['device', '#/device'],
   ['demo-result', '#/results?demo=1'],
 ];
 
@@ -42,7 +43,7 @@ async function screenshotPage(page, name, hash, viewportName) {
 
 async function makeGif() {
   const magick = existsSync('/opt/homebrew/bin/magick') ? '/opt/homebrew/bin/magick' : 'magick';
-  const frames = ['launch', 'studio', 'forge', 'proof', 'demo-result'].map((name) =>
+  const frames = ['launch', 'studio', 'forge', 'proof', 'device', 'demo-result'].map((name) =>
     join(outDir, `${name}-desktop.png`)
   );
   await run(magick, [

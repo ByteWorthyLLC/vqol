@@ -55,6 +55,7 @@ architecture:
     - "IndexedDB stores"
     - "Results chart"
     - "Print export"
+    - "Device verification lab"
     - "PWA service worker"
 
 verticals:
@@ -71,6 +72,7 @@ faq:
   - q: "Is the VEINES-QOL/Sym instrument text licensed?"
   - q: "Can this connect to an EHR?"
   - q: "Can we enable aggregate outcome submission?"
+  - q: "How do we verify real devices and print flows?"
 
 glossary:
   - term: "VEINES-QOL/Sym"
@@ -93,7 +95,7 @@ license:
   paid_tier_required: false
 
 repo:
-  social_preview_path: "docs/assets/social-preview.svg"
+  social_preview_path: "public/assets/social-preview.png"
   brand_assets_path: "docs/brand/"
   has_homepage_url: "https://byteworthyllc.github.io/vqol/"
   topics:

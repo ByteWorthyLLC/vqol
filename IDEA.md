@@ -18,6 +18,7 @@ The VEINES-QOL/Sym is a major patient-reported outcome instrument for chronic ve
 - Trend chart over baseline -> 1mo -> 6mo -> 1yr
 - Per-practice config for branding
 - Multi-language support built-in (English, Spanish, French, German validated translations)
+- Device Lab for install, offline, PDF, notification, and screen-reader evidence reports
 
 ## Audience
 - **Vein patients** — direct
@@ -36,7 +37,8 @@ The VEINES-QOL/Sym is a major patient-reported outcome instrument for chronic ve
 5. PDF export for clinician
 6. Per-practice white-label config
 7. Multi-language (en, es, fr, de)
-8. Optional anonymous aggregate submission for practice analytics in a later phase
+8. Optional anonymous aggregate submission for practice analytics
+9. Device Lab report loop for real-device verification
 
 ## Public data
 - VEINES-QOL/Sym is published in peer-reviewed literature.
@@ -50,7 +52,7 @@ The VEINES-QOL/Sym is a major patient-reported outcome instrument for chronic ve
 ## Why it could flop
 - Licensing on the instrument has to be clear before publishing — needs research
 - Patients won't come back for a survey unless reminded well — reminder cadence matters
-- Practices may not see the marketing-data play unless we make a "practice-side dashboard" mode obvious
+- Practices may not see the marketing-data play unless the Outcomes Studio, Device Lab, and eventual practice-side dashboard make the operating value obvious
 
 ## Differentiation
 - No good open-source PRO tracker exists at the patient-facing level

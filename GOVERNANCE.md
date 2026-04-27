@@ -25,4 +25,4 @@ Releases are manually tagged after:
 - `npm run verify` passes.
 - `CHANGELOG.md` is updated.
 - Instrument licensing status is reviewed.
-- Public demo and docs are checked.
+- Public demo, Device Lab reports, hard-gate docs, and release copy are checked.

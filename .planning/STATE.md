@@ -6,25 +6,25 @@ See `.planning/PROJECT.md`.
 
 **Core value:** Patient-owned VEINES-QOL/Sym tracking as a static, forkable PWA for vein and vascular practices.
 
-**Current focus:** Post-Phase 7 launch polish: physical device checks, LSHTM response, release tagging.
+**Current focus:** Post-Phase 7 device-evidence amplification: physical device reports, LSHTM response, release tagging.
 
 ## Current Position
 
 Phase: 7
-Status: Legal inquiry sent; launch assets, Lighthouse CI, and automated device smoke complete
-Last activity: 2026-04-27 - Sent the LSHTM licensing inquiry, added launch assets, added Lighthouse accessibility to verify, added automated device smoke, and upgraded GitHub Actions to Node 24-compatible majors.
+Status: Legal inquiry sent; launch assets, Lighthouse CI, automated device smoke, and Device Lab workflow complete
+Last activity: 2026-04-27 - Added Device Lab for runtime/manual verification reports, deployed app-link social preview metadata, added a device-verification issue template, and updated public/planning docs around the evidence workflow.
 
-Progress: [█████████░] 95%
+Progress: [█████████░] 96%
 
 ## Completed Phases
 
 | Phase | Status | Evidence |
 |---|---|---|
-| 0. Legal Gate | Deliverables complete, async send pending | `.planning/phases/00-legal-gate/` |
+| 0. Legal Gate | Inquiry sent, response pending | `.planning/phases/00-legal-gate/` |
 | 1. Vertical Slice | Complete | `.planning/phases/01-vertical-slice/` |
 | 2. White-label + i18n | Complete | `.planning/phases/02-white-label-i18n/` |
 | 3. Patient/Clinician Value | Complete | `.planning/phases/03-patient-clinician-value/` |
-| 4. Repo Virality + GH Pages | Complete, launch assets pending | `.planning/phases/04-repo-virality-gh-pages/` |
+| 4. Repo Virality + GH Pages | Complete, physical/legal reports pending | `.planning/phases/04-repo-virality-gh-pages/` |
 | 5. Aggregate Submit + Cluster Extraction | Complete, operator listing pending | `.planning/phases/05-aggregate-submit-cluster-extraction/` |
 | 6. Creative Application Amplification Studio | Complete | `.planning/phases/06-creative-application-amplification-studio/` |
 
@@ -57,6 +57,8 @@ Phase 7 success means attention converts into functional use:
 - Returning visitors need a visible service-worker update prompt; otherwise old cached shells can hide new launch routes until a manual hard refresh.
 - Lighthouse accessibility is now part of `npm run verify`.
 - Device smoke is automated through `npm run smoke:devices`, but physical iOS/Android and screen-reader checks remain external.
+- Device Lab at `#/device` converts physical install, print, notification, offline, and screen-reader gates into downloadable JSON reports and prefilled GitHub issues.
+- App-link social preview is served from `public/assets/social-preview.png`; repository-settings upload remains optional/manual.
 
 ## Open Blockers
 
@@ -70,20 +72,20 @@ Phase 7 success means attention converts into functional use:
   - `https://github.com/ByteWorthyLLC/vqol/discussions/3`
   - `https://github.com/ByteWorthyLLC/vqol/discussions/4`
   - `https://github.com/ByteWorthyLLC/vqol/discussions/5`
-- Real-device PDF/PWA verification remains open.
+- Real-device PDF/PWA verification remains open, now tracked through `#/device` reports and the device-verification issue template.
 
 ## Pending Todos
 
 - Decide whether v0.1 ships full in-app survey or reference-only mode.
-- Replace placeholder icons and add public demo screenshots or GIF.
-- Run iOS Safari, Android Chrome, desktop print, and screen-reader checks.
+- Replace placeholder icons if brand polish is needed before release.
+- Run iOS Safari, Android Chrome, desktop print, and screen-reader checks through `#/device`.
 - Tag v0.1.0 only after the legal/public-demo gates are closed.
 - Monitor LSHTM/BMJ response and update `INSTRUMENT-LICENSE.md`.
-- Upload `docs/assets/social-preview.svg` or a generated preview image as the GitHub repository social preview if GitHub exposes the UI/API in the authenticated account.
+- Upload `docs/assets/social-preview.svg` or `public/assets/social-preview.png` as the GitHub repository social preview if GitHub exposes the UI/API in the authenticated account.
 
 ## Session Continuity
 
-Resume from post-Phase 7 polish. Start with LSHTM response monitoring, physical device checks, and release tagging only if legal and device gates are acceptable.
+Resume from post-Phase 7 device-evidence polish. Start with LSHTM response monitoring, trusted `#/device` reports, and release tagging only if legal and device gates are acceptable.
 
 ## Accumulated Context
 
@@ -91,3 +93,4 @@ Resume from post-Phase 7 polish. Start with LSHTM response monitoring, physical 
 
 - Phase 6 added: Creative application amplification studio.
 - Phase 7 added: Viral functionality and marketing loop with Launch Kit, AI citation block, remix links, and weird experiment issue template.
+- Device-evidence amplification added: `#/device`, JSON reports, app-link preview metadata, and device-verification issue template.

@@ -8,6 +8,8 @@
 - `src/lib/i18n/loader.test.ts`
 - `src/lib/pdf/print.test.ts`
 - `src/lib/notifications/scheduler.test.ts`
+- `src/lib/marketing/launchKit.test.ts`
+- `src/lib/device/report.test.ts`
 
 ## Verification Commands
 
@@ -15,7 +17,10 @@
 npm run check
 npm test
 npm run build
+npm run check:lighthouse
 npm run audit:telemetry
+npm run audit:deps
+npm run smoke:devices
 npm run verify
 ```
 
@@ -26,7 +31,7 @@ npm run verify
 - Android Chrome notification behavior.
 - Desktop browser print output.
 - VoiceOver and NVDA navigation.
-- Lighthouse CI thresholds.
+- First trusted Device Lab reports for iOS Safari, Android Chrome, desktop print, and VoiceOver/NVDA.
 
 ## Risk-Based Test Guidance
 
@@ -35,3 +40,4 @@ npm run verify
 - Any practice config change needs validator tests.
 - Any user-visible string change needs translation validation.
 - Any chart/export change needs browser-level smoke testing.
+- Any device, install, print, or assistive-technology claim needs either automated coverage or a Device Lab report path.

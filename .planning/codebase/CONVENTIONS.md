@@ -25,3 +25,4 @@
 - Public operator docs live at root or `docs/`.
 - GSD planning docs live in `.planning/`.
 - Instrument licensing status must be updated in `INSTRUMENT-LICENSE.md`, not scattered through issues.
+- Device and assistive-technology verification should be routed through `#/device` and `docs/DEVICE-VERIFICATION.md`.

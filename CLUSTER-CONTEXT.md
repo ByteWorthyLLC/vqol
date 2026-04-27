@@ -37,7 +37,8 @@ Bundled, they're a vein-practice operational starter kit. Separately, each is a 
 - **TikTok**: visible vein before/after (`veinmap`) is the killer — every cosmetic procedure on TikTok is before/after content
 - **HN**: `stockingfit` is the dev-magnet ("phone-camera fiducial measurement, no install, no model")
 - **Reddit**: r/vascular, r/varicoseveins, r/lymphedema all active and underserved
-- **Practice owners**: HN/dev distribution → fork → deploy = organic word-of-mouth among practice operators
+- **Practice owners**: HN/dev distribution -> fork -> deploy = organic word-of-mouth among practice operators
+- **Trust loop**: `vqol` can collect Device Lab reports from actual operators, turning physical-device gaps into public proof artifacts instead of vague launch blockers
 - **Vein industry conferences**: AVF, AVLS, ACP — surgeons + practice managers all attend; a free open-source toolkit is unusual + buzzy
 
 ## Personal-utility note
@@ -63,11 +64,11 @@ Cluster total: ~10–13 weeks for all five at production polish. v0.1 of any sin
 
 ## Sequencing recommendation
 
-1. `vqol` first — easiest, biggest practice-marketing win, lowest engineering risk
-2. `postsclera` second — content-heavy but patterns mature
-3. `veinquest` third — content + branding template
-4. `stockingfit` fourth — CV work
-5. `veinmap` last — most ambitious; builds on `stockingfit` CV foundation
+1. `vqol` first - easiest, biggest practice-marketing win, lowest engineering risk
+2. `postsclera` second - content-heavy but patterns mature
+3. `veinquest` third - content + branding template
+4. `stockingfit` fourth - CV work
+5. `veinmap` last - most ambitious; builds on `stockingfit` CV foundation
 
 ## Public data + licensing notes
 

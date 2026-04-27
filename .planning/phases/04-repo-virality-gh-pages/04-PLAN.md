@@ -32,10 +32,11 @@
 
 ## Wave 4: Curiosity Assets
 
-- Create 5-8 second demo GIF.
-- Create social preview image.
-- Create comparison image: "Closed PRO SaaS vs static local-first fork."
-- Add README screenshot grid using fake data.
+- [x] Create launch GIF.
+- [x] Create social preview image.
+- [x] Serve app-link social preview image from deployed static assets.
+- [x] Add live screenshots/GIF using fake data.
+- [ ] Create comparison image: "Closed PRO SaaS vs static local-first fork."
 
 ## Wave 5: Channel Packet
 
@@ -54,7 +55,7 @@
 
 - Send LSHTM inquiry and update `INSTRUMENT-LICENSE.md`.
 - If permission is unresolved, implement reference-only/bring-your-own-instrument mode before public launch.
-- Run real-device iOS/Android/Desktop verification.
+- Run real-device iOS/Android/Desktop verification through `#/device`.
 - Enable GitHub Pages and tag v0.1.0 only after legal/demo gates pass.
 
 ## Anti-Goals

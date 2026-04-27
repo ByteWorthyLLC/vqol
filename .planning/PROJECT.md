@@ -19,7 +19,10 @@ Phases 0-3 are complete in the working codebase:
 - Practice branding and four-locale message system built.
 - Chart, print/PDF export, reminders, and PWA shell built.
 
-Phase 4 is active: repo hygiene, CI/CD, public demo readiness, release copy, and legal gate resolution.
+Phase 4-7 launch surfaces are implemented: repo hygiene, CI/CD, Pages demo,
+curiosity tools, Launch Kit, Device Lab, release copy, and evidence docs are in
+place. The remaining launch work is legal response, trusted real-device reports,
+and release tagging.
 
 The Phase 4 strategy is curiosity-led. The project should spread because it is technically strange and inspectable: patient outcomes from static files, local-only browser storage, no account system, no telemetry, one-file practice forks, and an explicit legal-safe instrument mode.
 
@@ -35,6 +38,7 @@ The Phase 4 strategy is curiosity-led. The project should spread because it is t
 - [x] App supports en/es/fr/de message files with key validation.
 - [x] Practice branding is configured through `public/practice.json`.
 - [x] PWA manifest and service worker build successfully.
+- [x] Device Lab collects runtime/manual verification evidence.
 - [ ] Real VEINES-QOL/Sym item text and normative constants are legally cleared or replaced by reference-only mode.
 - [ ] First production deployment is live at the operator practice.
 
@@ -45,11 +49,12 @@ The Phase 4 strategy is curiosity-led. The project should spread because it is t
 - [x] GitHub Actions CI and Pages deploy workflows exist.
 - [x] Issue templates and pull request template exist.
 - [x] `byteworthy.config.yaml` exists.
-- [ ] GitHub remote is configured and repository is public.
-- [ ] GitHub Pages demo is live.
-- [ ] Demo screenshots or GIF exist.
-- [ ] Seeded demo mode, local-first proof panel, one-file fork proof, offline challenge, and reference-only instrument mode exist as curiosity artifacts.
-- [ ] Public copy leads with implementation constraints and proofs rather than promotion.
+- [x] GitHub remote is configured and repository is public.
+- [x] GitHub Pages demo is live.
+- [x] Demo screenshots or GIF exist.
+- [x] Seeded demo mode, local-first proof panel, one-file fork proof, offline challenge, Device Lab, and reference-only instrument mode exist as curiosity artifacts.
+- [x] Public copy leads with implementation constraints and proofs rather than promotion.
+- [x] Device-verification issue template exists for real-device evidence.
 - [ ] v0.1.0 release is tagged after verification.
 
 ## Out of Scope
@@ -91,7 +96,8 @@ The Phase 4 strategy is curiosity-led. The project should spread because it is t
 | `window.print()` over jsPDF | Avoids large PDF dependency | Accepted |
 | `practice.json` over admin UI | Single-file fork workflow | Accepted |
 | Placeholder instrument content until permission | Avoids distributing unlicensed item text/constants | Accepted |
+| Device Lab over unverifiable claims | Turns physical hard gates into repeatable JSON reports and public issues | Accepted |
 
 ---
 
-Last updated: 2026-04-26 after GSD cleanup.
+Last updated: 2026-04-27 after Device Lab evidence amplification.

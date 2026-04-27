@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-27T03:16:05.668Z",
-  "baseUrl": "https://byteworthyllc.github.io/vqol/",
+  "generatedAt": "2026-04-27T03:59:56.734Z",
+  "baseUrl": "http://127.0.0.1:4173/",
   "report": [
     {
       "name": "desktop-chromium",
@@ -9,6 +9,7 @@
         "#/studio rendered Outcomes studio",
         "#/forge rendered Practice forge",
         "#/proof rendered Local-first proof",
+        "#/device rendered Device verification lab",
         "#/results?demo=1 rendered Demo data",
         "Export PDF button called window.print"
       ]
@@ -20,6 +21,7 @@
         "#/studio rendered Outcomes studio",
         "#/forge rendered Practice forge",
         "#/proof rendered Local-first proof",
+        "#/device rendered Device verification lab",
         "#/results?demo=1 rendered Demo data",
         "Export PDF button called window.print"
       ]
@@ -31,6 +33,7 @@
         "#/studio rendered Outcomes studio",
         "#/forge rendered Practice forge",
         "#/proof rendered Local-first proof",
+        "#/device rendered Device verification lab",
         "#/results?demo=1 rendered Demo data",
         "Export PDF button called window.print"
       ]

@@ -20,7 +20,7 @@ The working app includes:
 - Longitudinal uPlot chart on the results screen.
 - Print/PDF export through `window.print()` and print CSS.
 - Seeded fake-data demo at `#/results?demo=1`.
-- Curiosity lab, Outcomes Studio, Practice Forge, Launch Kit, local-first proof panel, one-file fork audit, and QR poster route.
+- Curiosity lab, Outcomes Studio, Practice Forge, Launch Kit, Device Lab, local-first proof panel, one-file fork audit, and QR poster route.
 - Follow-up calendar export with local `.ics` generation.
 - Follow-up reminder scheduling helpers and in-app reminder banner.
 - PWA manifest, icons, service worker, and install prompt.
@@ -29,21 +29,22 @@ The working app includes:
 
 Remaining launch blockers:
 
-- Send and resolve the LSHTM licensing inquiry, or ship reference-only mode.
-- Add final deployed screenshots/GIF/social preview after Pages is live.
-- Run real-device PDF/PWA testing on iOS Safari and Android Chrome.
+- Resolve the LSHTM licensing inquiry, or keep shipping reference-only mode.
+- Collect real-device Device Lab reports for iOS Safari, Android Chrome, desktop print, and screen-reader navigation.
 
 Live demo:
 
 - https://byteworthyllc.github.io/vqol/
 - https://byteworthyllc.github.io/vqol/#/results?demo=1
 - https://byteworthyllc.github.io/vqol/#/launch
+- https://byteworthyllc.github.io/vqol/#/device
 
 Launch assets:
 
 - [Launch tour GIF](docs/assets/vqol-launch-tour.gif)
 - [Launch Kit screenshot](docs/assets/screenshots/launch-desktop.png)
 - [Social preview PNG](docs/assets/social-preview.png)
+- [Deployable social preview PNG](public/assets/social-preview.png)
 - [Device smoke report](docs/assets/device-smoke-report.json)
 
 ## Why This Is Technically Interesting
@@ -56,6 +57,7 @@ vqol is meant to be inspected as much as used:
 - A clinic-branded fork through one JSON file.
 - An explicit legal-safe path when instrument text cannot be redistributed.
 - A falsifiable proof surface for offline behavior, telemetry absence, and fork readiness.
+- A real-device evidence loop that turns install, print, offline, and screen-reader gaps into JSON reports and GitHub issues.
 
 The project should spread through those constraints and proofs, not through growth copy.
 
@@ -121,6 +123,7 @@ src/
     aggregate/         optional de-identified aggregate submission
     calendar/          follow-up .ics export
     demo/              deterministic fake score histories
+    device/            runtime/manual device verification report helpers
     download/          client-side file download helper
     forge/             practice.json draft and serialization helpers
     fork/              one-file fork readiness audit
@@ -155,6 +158,7 @@ Useful fake-data and proof routes:
 - `#/studio` - synthetic cohort and protocol workbench
 - `#/forge` - live `practice.json` builder
 - `#/launch` - viral functionality and marketing artifact generator
+- `#/device` - runtime and real-device verification report lab
 - `#/results?demo=1` - seeded fake longitudinal result
 - `#/proof` - local-first and telemetry proof panel
 - `#/fork` - one-file `practice.json` fork audit

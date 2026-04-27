@@ -17,6 +17,9 @@
 - Custom scripts:
   - `scripts/validate-contrast.ts`
   - `scripts/validate-translations.ts`
+  - `scripts/check-lighthouse-accessibility.mjs`
+  - `scripts/device-smoke.mjs`
+  - `scripts/capture-launch-assets.mjs`
   - `scripts/audit-telemetry.ts`
 
 ## Deployment

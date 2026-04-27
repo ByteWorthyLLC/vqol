@@ -29,10 +29,12 @@ Done in the repo:
 - Follow-up calendar export.
 - Lighthouse accessibility gate in `npm run verify`.
 - Deployed screenshots, launch GIF, and device smoke report.
+- Device Lab for runtime checks, manual real-device evidence, JSON report download, and prefilled GitHub issues.
+- Deployed Open Graph/Twitter preview image for app-link sharing.
 
 Remaining:
 
-- Physical iOS/Android/browser print and screen-reader checks.
+- Physical iOS/Android/browser print and screen-reader Device Lab reports.
 - LSHTM written response, or continued reference-only mode.
 - v0.1.0 tag/release only after legal and physical-device gates are acceptable.
 
@@ -48,6 +50,7 @@ Planned work:
 - Cloudflare Worker aggregate receiver example.
 - Shared module documentation for practice config, i18n, PDF export, and aggregate submit.
 - First operator deployment entered in `FORKS.md`.
+- Real-device verification reports from the first operator deployment.
 
 ## Deferred
 

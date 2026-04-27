@@ -6,10 +6,12 @@
 - Browser Notification API
 - Browser service worker and PWA install surface
 - Browser print dialog
+- Browser clipboard for optional Device Lab issue URL copy
 
 ## Static Assets
 
 - `public/practice.json`
+- `public/assets/social-preview.png`
 - `public/icons/*.png`
 - `messages/*.json`
 
@@ -17,11 +19,12 @@
 
 None in the default app.
 
-## Planned Integrations
+## Implemented Optional Integrations
 
 - GitHub Pages public demo.
-- Optional practice-owned aggregate endpoint in Phase 5.
-- Optional Cloudflare Worker aggregate receiver example in Phase 5.
+- Optional practice-owned aggregate endpoint.
+- Optional Cloudflare Worker aggregate receiver example.
+- GitHub issue URL generation for tester-submitted Device Lab reports.
 
 ## Integration Rules
 

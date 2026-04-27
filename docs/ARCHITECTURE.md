@@ -24,6 +24,7 @@ Routes:
 - `#/studio` renders the synthetic outcomes workbench.
 - `#/forge` renders the local `practice.json` builder.
 - `#/launch` renders the viral functionality and marketing artifact generator.
+- `#/device` renders the runtime and physical-device evidence lab.
 - `#/proof`, `#/fork`, and `#/poster` render proof, fork-audit, and QR poster tools.
 
 ## Core Modules
@@ -37,6 +38,7 @@ Routes:
 - `src/lib/demo/`: creates deterministic fake score histories.
 - `src/lib/studio/`: creates deterministic fake cohorts and protocol summaries.
 - `src/lib/forge/`: creates and serializes local practice config drafts.
+- `src/lib/device/`: formats runtime/manual device verification reports and issue URLs.
 - `src/lib/fork/`: audits whether `practice.json` is fork-ready.
 - `src/lib/marketing/`: generates Launch Kit links, copy, rubrics, and briefs.
 - `src/lib/aggregate/`: optional de-identified aggregate submit path, disabled by default.
@@ -56,6 +58,8 @@ Stores:
 - `meta`: locale/install/reminder metadata.
 
 No patient data leaves the device in the default app.
+The Device Lab writes only a metadata probe to verify IndexedDB availability.
+Its JSON report is downloaded or submitted by the tester.
 
 ## Privacy Boundary
 

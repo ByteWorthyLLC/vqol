@@ -15,15 +15,16 @@ Updated: 2026-04-27
 | Visualization | Complete |
 | PDF export | Complete, automated smoke done, physical device testing pending |
 | Reminders | Core scheduling complete, real-device behavior pending |
-| PWA | Build artifacts and update prompt complete, physical device verification pending |
-| Accessibility | Lighthouse CI gate complete, screen-reader audits pending |
+| PWA | Build artifacts, update prompt, and Device Lab evidence workflow complete; physical reports pending |
+| Accessibility | Lighthouse CI gate and Device Lab report path complete; screen-reader audits pending |
 | Anti-features | Enforced by design and docs |
 | Repo launch | Public demo and assets complete, physical/legal gates pending |
 | Curiosity-led virality | Core artifacts implemented, deployed, and documented |
 | Aggregate submit | Implemented, disabled by default |
 | Operator deployment | Pending |
 | Creative application tooling | Complete |
-| Viral functionality and marketing | Active in Phase 7 |
+| Viral functionality and marketing | Phase 7 complete; Device Lab amplification added |
+| Device verification | Runtime/report workflow complete; trusted real-device reports pending |
 
 ## Phase 0: Legal Gate
 
@@ -79,6 +80,7 @@ Updated: 2026-04-27
 - [x] **PDF-04**: Print template includes practice info, scores, history, citation, and data ownership copy.
 - [ ] **PDF-05**: PDF export verified on Chrome, Firefox, and iOS Safari.
 - [x] **PDF-06**: Automated smoke verifies the export button calls `window.print()` and generates a Chromium PDF artifact.
+- [x] **PDF-07**: Device Lab can capture manual native print/share/save evidence and generate a report.
 - [x] **REM-01**: Notification permission helper exists and is not invoked before baseline.
 - [x] **REM-02**: 1mo, 3mo, 6mo, and 1yr intervals exist.
 - [x] **REM-03**: In-app reminder banner exists.
@@ -92,11 +94,13 @@ Updated: 2026-04-27
 - [x] **PWA-06**: Outdated cache cleanup is enabled.
 - [x] **PWA-07**: Install prompt component exists.
 - [x] **PWA-08**: Service-worker update prompt renders and disables reload during an active survey.
+- [x] **PWA-09**: Device Lab captures display-mode, service-worker, cache, storage, and offline-readiness evidence.
 - [x] **A11Y-01**: Brand colors are checked for WCAG contrast.
 - [x] **A11Y-02**: 44px tap target baseline exists.
 - [x] **A11Y-03**: Lighthouse accessibility gate runs in CI.
 - [x] **A11Y-04**: Native controls support keyboard navigation.
 - [ ] **A11Y-05**: VoiceOver and NVDA manual testing completed.
+- [x] **A11Y-06**: Device Lab provides a screen-reader/keyboard manual-check report path.
 - [x] **NOPE-01**: No clinical interpretation on results screen.
 - [x] **NOPE-02**: No severity labels or score color coding.
 - [x] **NOPE-03**: Telemetry audit script exists.
@@ -119,6 +123,7 @@ Updated: 2026-04-27
 - [x] **REPO-10**: Public roadmap exists.
 - [x] **REPO-11**: Changelog exists.
 - [x] **REPO-12**: Issue templates exist.
+- [x] **REPO-12A**: Device verification issue template exists.
 - [x] **REPO-13**: Discussions are enabled and seeded.
 - [x] **REPO-14**: Repo topics are documented in `byteworthy.config.yaml`.
 - [x] **REPO-15**: Fork registry exists.
@@ -136,6 +141,7 @@ Updated: 2026-04-27
 - [x] **LAUN-04**: Outcome claims reviewed for instrument-vs-tool distinction.
 - [x] **LAUN-05**: Deployed screenshots and launch GIF generated from live app routes.
 - [x] **LAUN-06**: GitHub Actions JavaScript actions use current Node 24-compatible majors.
+- [x] **LAUN-07**: App-link Open Graph/Twitter social preview is served from `public/assets/social-preview.png`.
 
 ## Phase 4: Curiosity-Led Virality
 
@@ -183,6 +189,20 @@ Updated: 2026-04-27
 - [x] **VIRL-06**: Weird experiment issue template exists for contributor conversion.
 - [x] **VIRL-07**: Viral playbook documents what can and cannot be claimed.
 - [x] **VIRL-08**: Launch Kit does not add analytics, accounts, patient-data writes, or backend dependency.
+- [x] **VIRL-09**: Device Lab converts physical verification gaps into JSON reports and prefilled GitHub issues.
+
+## Phase 7B: Device Evidence Amplification
+
+- [x] **DEVC-01**: `#/device` route captures runtime environment evidence.
+- [x] **DEVC-02**: Manual install, print, PDF, notification, and screen-reader checks can be recorded.
+- [x] **DEVC-03**: Device Lab downloads a JSON verification report.
+- [x] **DEVC-04**: Device Lab generates a prefilled GitHub issue URL.
+- [x] **DEVC-05**: Automated smoke and Lighthouse route coverage include `#/device`.
+- [x] **DEVC-06**: Device verification docs and issue template describe the report workflow.
+- [ ] **DEVC-07**: First trusted iOS Safari report recorded.
+- [ ] **DEVC-08**: First trusted Android Chrome report recorded.
+- [ ] **DEVC-09**: First trusted desktop print report recorded.
+- [ ] **DEVC-10**: First trusted VoiceOver or NVDA report recorded.
 
 ## Deferred v2
 

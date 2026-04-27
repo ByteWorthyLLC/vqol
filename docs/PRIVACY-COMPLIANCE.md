@@ -8,6 +8,7 @@ By default:
 
 - Patient answers are stored in browser IndexedDB.
 - Scores are stored in browser IndexedDB.
+- Device Lab runtime probes store only a non-patient metadata key to verify IndexedDB availability.
 - Report export is initiated by the patient through the browser print dialog.
 - vqol does not send patient data to ByteWorthy LLC.
 - vqol does not include analytics, telemetry, Sentry, or third-party tracking.
@@ -29,9 +30,16 @@ If a practice changes the architecture, adds data collection, or enables aggrega
 
 ByteWorthy LLC is not a Business Associate for a default fork-and-deploy installation. ByteWorthy LLC does not operate the practice's deployment and does not receive patient data from the default app.
 
+## Device Verification Reports
+
+The Device Lab generates runtime and manual-check evidence locally. Reports are
+downloaded, copied, or submitted to GitHub only when the tester chooses to do so.
+Do not paste patient answers, screenshots containing patient identifiers, or
+clinical notes into public issues.
+
 ## Aggregate Submit
 
-Aggregate submit is planned but off by default. If enabled later, it must remain:
+Aggregate submit is implemented but off by default. If enabled, it must remain:
 
 - Explicitly opt-in.
 - Practice-controlled.

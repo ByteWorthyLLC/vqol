@@ -3,9 +3,8 @@
 ## Launch Blockers
 
 - LSHTM permission for item text and normative constants is not resolved.
-- Public remote is not configured in the local repo.
-- GitHub Pages demo is not live.
-- Real-device PDF and PWA checks are incomplete.
+- Real-device PDF, PWA install, native print, and screen-reader reports are still pending.
+- v0.1.0 release should wait for legal posture and device evidence.
 
 ## Product Risks
 
@@ -15,10 +14,8 @@
 
 ## Technical Debt
 
-- No Lighthouse CI integration yet.
 - No ESLint or Prettier config.
-- No seed-data demo mode.
-- No SW update prompt UI despite `registerType: 'prompt'`.
+- Physical-device evidence is report-driven through `#/device`, not automatically closed.
 
 ## Safety Watchpoints
 

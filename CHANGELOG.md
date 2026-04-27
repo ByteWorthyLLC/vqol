@@ -18,9 +18,10 @@ All notable changes to this project are documented here.
 - PWA manifest, service worker, icons, and install prompt.
 - GSD planning artifacts for legal, vertical slice, white-label/i18n, and patient value phases.
 - Public repo hygiene files and GitHub workflow scaffolding.
+- Curiosity Lab, Outcomes Studio, Practice Forge, Launch Kit, QR poster, proof, and Device Lab routes.
+- Device verification report helper, GitHub issue template, deployed social preview asset, screenshots, launch GIF, and automated device smoke artifacts.
 
 ### Known Gaps
 
 - LSHTM permission for verbatim VEINES-QOL/Sym item text and scoring constants is not yet granted.
-- Public GitHub Pages demo is not deployed.
-- Real-device iOS Safari PDF/PWA verification is still required before launch.
+- Real-device iOS Safari, Android Chrome, native print, and screen-reader reports are still required before patient-facing launch.

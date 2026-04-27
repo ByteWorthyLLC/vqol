@@ -16,6 +16,8 @@ vqol is a client-only SPA with hash routing.
 - `Home.svelte`: reads draft/latest score, starts survey, opens results.
 - `Survey.svelte`: owns survey session lifecycle and answer persistence.
 - `Results.svelte`: reads score history, renders chart/report/export controls.
+- `Lab.svelte`: indexes fake-data, proof, launch, fork, poster, forge, studio, and device tools.
+- `DeviceLab.svelte`: collects runtime checks and manual physical-device evidence without patient data.
 
 ## Domain Boundaries
 
@@ -26,6 +28,7 @@ vqol is a client-only SPA with hash routing.
 - `chart/`: results-only chart rendering.
 - `pdf/`: print mode and chart snapshot injection.
 - `notifications/`: scheduling logic and browser notification wrappers.
+- `device/`: Device Lab report formatting, filenames, and GitHub issue URLs.
 
 ## Architectural Constraints
 

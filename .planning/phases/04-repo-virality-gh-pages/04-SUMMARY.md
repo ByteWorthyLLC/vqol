@@ -1,6 +1,6 @@
 # Phase 4 Summary: Curiosity-Led Virality + GH Pages
 
-Updated: 2026-04-26
+Updated: 2026-04-27
 
 ## Implemented
 
@@ -14,6 +14,9 @@ Updated: 2026-04-26
 - Explicit `instrument.mode` and `instrument.licenseStatus` in `practice.json`.
 - Reference-only / permissioned / bring-your-own instrument docs.
 - Repo-native social preview asset at `docs/assets/social-preview.svg`.
+- Deployed app-link social preview at `public/assets/social-preview.png`.
+- Device Lab evidence workflow at `#/device`.
+- Device-verification issue template.
 - Dependency audit gate (`npm run audit:deps`) with zero current findings.
 - Repo hygiene files, GitHub issue templates, CI, Pages deploy workflow, and
   public documentation.
@@ -29,6 +32,6 @@ Updated: 2026-04-26
 
 ## Remaining
 
-- Generate live screenshots/GIF from deployed demo and upload the social preview in GitHub settings.
+- Optional GitHub repository social preview upload in repository settings.
 - Complete LSHTM permission execution or keep public demo in reference-only mode.
-- Run real-device PDF/PWA/accessibility checks.
+- Collect real-device PDF/PWA/accessibility reports through Device Lab.

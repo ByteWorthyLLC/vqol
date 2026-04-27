@@ -10,6 +10,13 @@
 - Added locale keys for the new route.
 - Added `docs/VIRALITY-PLAYBOOK.md`.
 - Added a GitHub issue template for weird functional experiments.
+- Added `src/lib/device/report.ts` and tests.
+- Added `#/device` for runtime checks, manual physical-device checks, JSON
+  downloads, and prefilled GitHub issue URLs.
+- Added the device-verification GitHub issue template.
+- Served the social preview image from `public/assets/social-preview.png` and
+  wired Open Graph/Twitter metadata in `index.html`.
+- Added Device Lab to smoke/Lighthouse route coverage and launch screenshots.
 - Rendered the service-worker update prompt so returning visitors can refresh
   into new launch surfaces without reloading mid-survey.
 - Updated README, public roadmap, Curiosity Lab docs, requirements, roadmap,
@@ -24,8 +31,9 @@ The project now has a native path from curiosity to action:
 3. Tune fake cohort assumptions.
 4. Generate a practice fork config.
 5. Print a QR poster.
-6. Generate channel-specific share artifacts and a launch brief.
+6. Collect a real-device verification report.
+7. Generate channel-specific share artifacts and a launch brief.
 
 This makes marketing a product feature: the route converts working functionality
 into technical posts, clinical pilot outreach, contributor prompts, AI citation
-blocks, and remix links.
+blocks, remix links, and device-verification evidence.

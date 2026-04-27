@@ -10,7 +10,8 @@ marketing loop therefore starts from working artifacts, not from promises.
 3. Model follow-up assumptions in Outcomes Studio at `#/studio`.
 4. Generate a white-label config in Practice Forge at `#/forge`.
 5. Print or share the waiting-room QR poster at `#/poster`.
-6. Generate channel-specific launch artifacts at `#/launch`.
+6. Collect device evidence at `#/device`.
+7. Generate channel-specific launch artifacts at `#/launch`.
 
 Each step should either answer a practical question or create an artifact that a
 practice, clinician, developer, or patient can use.
@@ -41,6 +42,7 @@ Use hooks that are easy to verify:
 - One JSON file to rebrand a practice fork.
 - A proof panel that points to commands and implementation files.
 - A printable QR poster generated from the current deployment.
+- A Device Lab that turns physical-device checks into JSON and GitHub issues.
 
 Avoid hooks that are not currently true:
 
@@ -70,6 +72,7 @@ Attention should convert into one of these concrete actions:
 - Try the fake-data demo.
 - Run `npm run verify`.
 - Open a weird functional experiment issue.
+- Open a real-device verification issue.
 - Fork and edit `public/practice.json`.
 - Print a QR poster for a private pilot.
 - Review the legal fallback around instrument text.

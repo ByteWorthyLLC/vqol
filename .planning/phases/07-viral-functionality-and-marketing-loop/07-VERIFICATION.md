@@ -2,10 +2,12 @@
 
 ## Automated
 
-Passed on 2026-04-27 after Launch Kit and SW update prompt changes:
+Passed on 2026-04-27 after Device Lab changes:
 
 ```bash
 npm run verify
+VQOL_DEVICE_BASE_URL=http://127.0.0.1:4173/ npm run smoke:devices
+VQOL_CAPTURE_BASE_URL=http://127.0.0.1:4173/ npm run assets:launch
 ```
 
 Coverage:
@@ -13,10 +15,16 @@ Coverage:
 - Svelte type checks.
 - Contrast validation.
 - Translation key alignment.
-- Vitest: 14 files, 67 tests, including Launch Kit unit tests.
+- Vitest: 15 files, 71 tests, including Launch Kit and Device Lab report unit tests.
 - Production build.
+- Lighthouse accessibility: home 95%, demo result 96%, lab 95%, studio 96%,
+  forge 95%, launch 95%, proof 95%, poster 95%, device 96%.
 - Telemetry audit.
 - Dependency audit.
+- Device smoke: desktop Chromium, Android-sized Chrome layout, and iOS-sized
+  Safari layout each rendered launch, studio, forge, proof, device, fake demo,
+  and print invocation.
+- Launch screenshots/GIF regenerated with a Device Lab frame.
 
 ## Manual Browser Smoke
 

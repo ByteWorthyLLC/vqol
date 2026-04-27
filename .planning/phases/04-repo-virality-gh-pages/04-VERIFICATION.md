@@ -25,6 +25,8 @@ Results:
 - Dependency audit: 0 vulnerabilities.
 - Launch screenshots and GIF generated from deployed routes in `docs/assets/`.
 - Device smoke passed desktop Chromium, Android-sized touch layout, and iOS-sized touch layout.
+- Device Lab is now included in smoke/Lighthouse coverage and should be
+  regenerated after Device Lab changes.
 
 Public Pages deployment succeeded through GitHub Actions:
 
@@ -33,4 +35,5 @@ Public Pages deployment succeeded through GitHub Actions:
 
 Physical real-device verification is still pending. The automated smoke is not a
 substitute for iOS Safari Home Screen, Android Chrome install/notification,
-native print dialogs, or screen-reader checks.
+native print dialogs, or screen-reader checks. Those reports are now collected
+through `#/device` and `.github/ISSUE_TEMPLATE/device_verification.yml`.

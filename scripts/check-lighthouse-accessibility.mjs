@@ -15,8 +15,9 @@ const routes = [
   ['launch', '#/launch'],
   ['proof', '#/proof'],
   ['poster', '#/poster'],
+  ['device', '#/device'],
 ];
-const ciRouteNames = new Set(['home', 'demo-result', 'launch', 'proof']);
+const ciRouteNames = new Set(['home', 'demo-result', 'launch', 'proof', 'device']);
 const checkedRoutes = process.env.CI ? routes.filter(([name]) => ciRouteNames.has(name)) : routes;
 
 function waitForServer(url, timeoutMs = 20_000) {
@@ -53,7 +54,7 @@ function spawnPreview() {
   return child;
 }
 
-function withTimeout(promise, label, timeoutMs = 25_000) {
+function withTimeout(promise, label, timeoutMs = 45_000) {
   let timer;
   return Promise.race([
     promise,

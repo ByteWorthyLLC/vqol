@@ -6,12 +6,13 @@ vqol is a static, installable Svelte PWA for patient-owned VEINES-QOL/Sym tracki
 
 ## Current GSD State
 
-- Phase 0 legal/provenance package: deliverables complete, LSHTM email still user-owned async work.
+- Phase 0 legal/provenance package: deliverables complete, LSHTM inquiry sent and response pending.
 - Phase 1 vertical slice: complete.
 - Phase 2 white-label + i18n: complete.
 - Phase 3 chart/PDF/reminders/PWA: complete.
-- Phase 4 repo launch readiness: active.
-- Phase 5 aggregate submit + cluster extraction: pending.
+- Phase 4 repo launch readiness: active, with Pages demo, launch assets, and Device Lab evidence workflow live.
+- Phase 5 aggregate submit + cluster extraction: started; optional aggregate submit is implemented and disabled by default.
+- Phase 6/7 creative and viral functionality: complete, with Outcomes Studio, Practice Forge, Launch Kit, QR poster, proof surfaces, and Device Lab.
 
 Read `.planning/STATE.md` before starting work.
 
@@ -36,6 +37,7 @@ Read `.planning/STATE.md` before starting work.
 - `src/lib/chart/`: lazy uPlot chart.
 - `src/lib/pdf/`: `window.print()` export helper.
 - `src/lib/notifications/`: reminder scheduling and Notification API wrappers.
+- `src/lib/device/`: Device Lab report, filename, and GitHub issue URL helpers.
 
 ## Hard Rules
 
@@ -54,7 +56,9 @@ Use:
 npm run verify
 ```
 
-This runs type checks, contrast validation, translation validation, Vitest, production build, and telemetry audit.
+This runs type checks, contrast validation, translation validation, Vitest,
+production build, Lighthouse accessibility, telemetry audit, and dependency
+audit.
 
 ## Important Docs
 
@@ -62,13 +66,12 @@ This runs type checks, contrast validation, translation validation, Vitest, prod
 - `INSTRUMENT-LICENSE.md`: legal gate and provenance.
 - `docs/DEPLOY.md`: deployment instructions.
 - `docs/ARCHITECTURE.md`: runtime architecture.
+- `docs/DEVICE-VERIFICATION.md`: automated smoke, Lighthouse, and Device Lab workflow.
 - `.planning/REQUIREMENTS.md`: requirement status.
 - `.planning/codebase/`: brownfield map.
 
 ## Current Known Gaps
 
-- LSHTM licensing email still needs to be sent and logged.
-- Public GitHub remote is not configured in this checkout.
-- GitHub Pages demo is not confirmed live.
-- iOS Safari PDF/PWA manual verification is still open.
-- Lighthouse CI is not wired yet.
+- LSHTM written response is pending.
+- Real-device iOS/Android/native print/screen-reader reports are still open and should use `#/device`.
+- v0.1.0 should not be tagged until legal and physical-device gates are acceptable.

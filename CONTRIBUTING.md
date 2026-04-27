@@ -15,6 +15,10 @@ Before opening a pull request:
 npm run verify
 ```
 
+For physical-device, browser-print, or assistive-technology findings, open
+`#/device`, download the JSON report, and use the Device verification issue
+template.
+
 ## Hard Rules
 
 - Do not add telemetry, analytics, Sentry, Plausible, PostHog, Segment, Mixpanel, or similar tooling.
@@ -49,3 +53,4 @@ npm run check:contrast
 - No telemetry signatures are introduced.
 - Documentation is updated when behavior or setup changes.
 - Instrument licensing constraints are respected.
+- Device or accessibility behavior changes include either automated coverage or a Device Lab report path.

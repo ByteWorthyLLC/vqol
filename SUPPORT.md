@@ -10,9 +10,11 @@ Start with:
 
 - [README.md](README.md)
 - [docs/DEPLOY.md](docs/DEPLOY.md)
+- [docs/DEVICE-VERIFICATION.md](docs/DEVICE-VERIFICATION.md)
 - [INSTRUMENT-LICENSE.md](INSTRUMENT-LICENSE.md)
 
-Use GitHub Issues for setup problems, deployment questions, and feature requests.
+Use GitHub Issues for setup problems, deployment questions, feature requests,
+and Device Lab reports from `#/device`.
 
 ## For Researchers
 

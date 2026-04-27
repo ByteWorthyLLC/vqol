@@ -8,14 +8,14 @@ vqol is already through the product-build phases. The remaining work is launch r
 
 | Phase | Name | Status | Evidence |
 |---|---|---|---|
-| 0 | Legal Gate | Deliverables complete, async send pending | `.planning/phases/00-legal-gate/` |
+| 0 | Legal Gate | Inquiry sent, response pending | `.planning/phases/00-legal-gate/` |
 | 1 | Vertical Slice | Complete | `.planning/phases/01-vertical-slice/` |
 | 2 | White-label + i18n | Complete | `.planning/phases/02-white-label-i18n/` |
 | 3 | Patient/Clinician Value | Complete | `.planning/phases/03-patient-clinician-value/` |
-| 4 | Curiosity-Led Virality + GH Pages Deploy | Active | Public repo, Pages demo, launch copy, screenshots/GIF, and discussions live; physical/legal gates pending |
+| 4 | Curiosity-Led Virality + GH Pages Deploy | Active | Public repo, Pages demo, launch copy, screenshots/GIF, app-link social preview, and discussions live; physical/legal gates pending |
 | 5 | Aggregate Submit + Cluster Extraction | Started | Optional aggregate path and receiver example implemented |
 | 6 | Creative Application Amplification Studio | Complete | Outcomes Studio and Practice Forge implemented and deployed |
-| 7 | Viral Functionality and Marketing Loop | Complete | Launch Kit and SW update prompt implemented and deployed |
+| 7 | Viral Functionality and Marketing Loop | Complete | Launch Kit, SW update prompt, Device Lab, and verification issue workflow implemented and deployed |
 
 ## Phase 0: Legal Gate
 
@@ -89,6 +89,11 @@ Open manual checks:
 - Desktop Chrome/Firefox print output.
 - VoiceOver/NVDA survey and results navigation.
 
+Tracking path:
+
+- `#/device` collects runtime evidence and manual checkboxes.
+- `.github/ISSUE_TEMPLATE/device_verification.yml` captures trusted reports.
+
 ## Phase 4: Curiosity-Led Virality + GH Pages Deploy
 
 Goal: make the repo public-ready and demo-ready in a way that spreads because it is technically interesting, not because it is promoted aggressively.
@@ -113,8 +118,11 @@ Current status:
 - Public repo is live at `https://github.com/ByteWorthyLLC/vqol`.
 - GitHub Pages demo is live at `https://byteworthyllc.github.io/vqol/`.
 - Deployed screenshots/GIF are generated under `docs/assets/`.
+- App-link social preview is served from `public/assets/social-preview.png`.
 - Launch copy is reviewed in `docs/LAUNCH-COPY.md`.
 - Lighthouse accessibility now runs in `npm run verify`.
+- Device Lab and the device-verification issue template convert physical hard
+  gates into a public evidence workflow.
 
 ## Phase 5: Aggregate Submit + Cluster Extraction
 
@@ -158,4 +166,5 @@ Open:
 Plans:
 - [x] Launch Kit route and launch/remix artifact generator.
 - [x] Viral playbook and weird experiment issue template.
+- [x] Device Lab route and device-verification issue template.
 - [x] Verify and deploy Phase 7 route.

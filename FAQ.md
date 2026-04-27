@@ -22,7 +22,11 @@ Not in v1. PDF export is the clinical handoff path.
 
 ## Can a practice collect aggregate outcomes?
 
-Not in the default app yet. Aggregate submit is planned as an opt-in practice-owned feature in a later phase.
+Yes, but not by default. Aggregate submit is implemented as an opt-in practice-owned feature and remains disabled in `public/practice.json`.
+
+## How do we verify phones, tablets, print dialogs, and screen readers?
+
+Open `#/device` on the target device. The Device Lab runs runtime checks, lets a tester record manual install/PDF/notification/screen-reader checks, downloads JSON evidence, and opens a prefilled GitHub issue.
 
 ## Why use `window.print()` instead of a PDF library?
 

@@ -1,0 +1,60 @@
+name: Device verification report
+description: Report real-device install, print, offline, notification, or screen-reader behavior.
+title: "[Device]: "
+labels:
+  - device-verification
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use the live Device Lab first: https://byteworthyllc.github.io/vqol/#/device
+
+        Download the JSON report or use its prefilled GitHub issue link, then add any device-specific notes below.
+  - type: input
+    id: device
+    attributes:
+      label: Device and OS
+      placeholder: "Example: iPhone 15 Pro, iOS 18.4"
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      placeholder: "Example: Safari 18.4, Chrome 126, Firefox 125"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL tested
+      value: "https://byteworthyllc.github.io/vqol/#/device"
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Manual checks completed
+      options:
+        - label: Installed to Home Screen or app launcher.
+        - label: Reopened from installed app and prior local state still appeared.
+        - label: Clinician PDF export opened the native print/share/save flow.
+        - label: PDF or shared report rendered legibly.
+        - label: Notification permission behavior was checked.
+        - label: Offline reload was checked after first load.
+        - label: VoiceOver, NVDA, TalkBack, or keyboard-only navigation was checked.
+  - type: textarea
+    id: report
+    attributes:
+      label: Device Lab JSON or prefilled report
+      description: Paste the downloaded Device Lab JSON or the generated issue body.
+      render: json
+    validations:
+      required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes, screenshots, or failures
+      description: Include what worked, what failed, and any screenshots or screen recordings.
+    validations:
+      required: true

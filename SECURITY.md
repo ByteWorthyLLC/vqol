@@ -26,3 +26,4 @@ ByteWorthy LLC is not a Business Associate for practices that fork, deploy, host
 - No accounts or authentication by default.
 - No telemetry by default.
 - Patient data remains in browser IndexedDB unless the user exports it or a practice fork enables explicit aggregate submission.
+- Device Lab reports are generated locally and leave the device only if the tester downloads, copies, or submits them.

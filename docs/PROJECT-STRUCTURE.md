@@ -19,6 +19,7 @@
   - `aggregate/`: optional de-identified aggregate submission.
   - `calendar/`: local follow-up `.ics` export.
   - `demo/`: deterministic fake score history.
+  - `device/`: runtime/manual device verification report helpers.
   - `download/`: browser file download helper.
   - `forge/`: practice config builder helpers.
   - `fork/`: one-file fork readiness audit.
@@ -28,6 +29,7 @@
 ## Data and Config
 
 - `public/practice.json`: practice-owned configuration.
+- `public/assets/social-preview.png`: deployed Open Graph/Twitter card image.
 - `messages/*.json`: locale message files.
 - `public/icons/`: PWA icons.
 

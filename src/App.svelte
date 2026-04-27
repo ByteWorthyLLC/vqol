@@ -10,6 +10,7 @@
   import Forge from './routes/Forge.svelte';
   import LaunchKit from './routes/LaunchKit.svelte';
   import Poster from './routes/Poster.svelte';
+  import DeviceLab from './routes/DeviceLab.svelte';
   import LocaleSwitcher from './routes/LocaleSwitcher.svelte';
   import InAppReminderBanner from './routes/InAppReminderBanner.svelte';
   import SwUpdatePrompt from './routes/SwUpdatePrompt.svelte';
@@ -31,7 +32,8 @@
     | 'studio'
     | 'forge'
     | 'launch'
-    | 'poster';
+    | 'poster'
+    | 'device';
   interface ParsedLocation {
     route: Route;
     demo: boolean;
@@ -60,6 +62,7 @@
     if (path === 'forge') return { route: 'forge', demo };
     if (path === 'launch') return { route: 'launch', demo };
     if (path === 'poster') return { route: 'poster', demo };
+    if (path === 'device') return { route: 'device', demo };
     return { route: 'home', demo: false };
   }
 
@@ -174,6 +177,7 @@
         onforge={() => navigate('forge')}
         onlaunch={() => navigate('launch')}
         onposter={() => navigate('poster')}
+        ondevice={() => navigate('device')}
         onhome={() => navigate('home')}
       />
     {:else if route === 'proof'}
@@ -193,6 +197,12 @@
       />
     {:else if route === 'poster'}
       <Poster {t} {config} onback={() => navigate('lab')} />
+    {:else if route === 'device'}
+      <DeviceLab
+        {t}
+        onback={() => navigate('lab')}
+        onresults={() => navigate('results', { demo: true })}
+      />
     {:else}
       <Results {t} {config} demo={demoMode} onhome={() => navigate('home')} onlab={() => navigate('lab')} />
     {/if}

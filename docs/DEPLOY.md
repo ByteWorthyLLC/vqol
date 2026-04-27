@@ -45,6 +45,7 @@ Use the preview URL to verify:
 - Survey route works.
 - Results route works after a completed survey.
 - Print/PDF export opens the browser print dialog.
+- `#/device` runs runtime checks and can download a JSON report.
 
 ## 4. Deploy
 
@@ -81,7 +82,16 @@ If LSHTM permission has not been granted, keep placeholder item text or implemen
 
 ## 6. Device Checks
 
-Before announcing a demo:
+Before announcing a demo, open:
+
+```text
+https://your-deployment.example/#/device
+```
+
+Use the Device Lab to collect a JSON report and, for public testing, a prefilled
+GitHub issue.
+
+Still complete these checks on real devices:
 
 - iPhone Safari: complete survey, view chart, export PDF.
 - Android Chrome: complete survey and install PWA.

@@ -15,6 +15,9 @@ Make vqol easier to spread because it is useful, inspectable, and remixable.
 5. Add docs that define the viral functionality loop.
 6. Add a GitHub issue template for weird functional experiments.
 7. Update planning state, requirements, and roadmap.
+8. Add a Device Lab route that converts real-device verification gaps into
+   runtime/manual reports and prefilled GitHub issues.
+9. Serve app-link social preview metadata from a deployable public asset.
 
 ## Acceptance Criteria
 
@@ -23,5 +26,8 @@ Make vqol easier to spread because it is useful, inspectable, and remixable.
   remix-loop outputs.
 - Generated copy links to demo, proof, studio, forge, poster, and repo.
 - A downloadable Markdown launch brief is available.
+- `#/device` generates runtime/manual evidence, JSON report downloads, and
+  prefilled issue URLs.
+- App-link Open Graph/Twitter image is available from deployed static assets.
 - Translation keys stay aligned.
 - `npm run verify` passes.

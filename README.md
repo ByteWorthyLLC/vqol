@@ -37,6 +37,14 @@ Live demo:
 
 - https://byteworthyllc.github.io/vqol/
 - https://byteworthyllc.github.io/vqol/#/results?demo=1
+- https://byteworthyllc.github.io/vqol/#/launch
+
+Launch assets:
+
+- [Launch tour GIF](docs/assets/vqol-launch-tour.gif)
+- [Launch Kit screenshot](docs/assets/screenshots/launch-desktop.png)
+- [Social preview PNG](docs/assets/social-preview.png)
+- [Device smoke report](docs/assets/device-smoke-report.json)
 
 ## Why This Is Technically Interesting
 
@@ -100,7 +108,9 @@ This runs:
 - translation key validation
 - Vitest
 - production build
+- Lighthouse accessibility checks
 - telemetry signature audit
+- dependency audit
 
 ## Project Structure
 
@@ -150,7 +160,7 @@ Useful fake-data and proof routes:
 - `#/fork` - one-file `practice.json` fork audit
 - `#/poster` - printable waiting-room QR poster
 
-See [docs/CURIOSITY-LAB.md](docs/CURIOSITY-LAB.md), [docs/OUTCOMES-STUDIO.md](docs/OUTCOMES-STUDIO.md), [docs/PRACTICE-FORGE.md](docs/PRACTICE-FORGE.md), [docs/VIRALITY-PLAYBOOK.md](docs/VIRALITY-PLAYBOOK.md), [docs/INSTRUMENT-MODES.md](docs/INSTRUMENT-MODES.md), and [docs/AGGREGATE-SUBMISSION.md](docs/AGGREGATE-SUBMISSION.md).
+See [docs/CURIOSITY-LAB.md](docs/CURIOSITY-LAB.md), [docs/OUTCOMES-STUDIO.md](docs/OUTCOMES-STUDIO.md), [docs/PRACTICE-FORGE.md](docs/PRACTICE-FORGE.md), [docs/VIRALITY-PLAYBOOK.md](docs/VIRALITY-PLAYBOOK.md), [docs/LAUNCH-COPY.md](docs/LAUNCH-COPY.md), [docs/DEVICE-VERIFICATION.md](docs/DEVICE-VERIFICATION.md), [docs/HARD-GATES.md](docs/HARD-GATES.md), [docs/INSTRUMENT-MODES.md](docs/INSTRUMENT-MODES.md), and [docs/AGGREGATE-SUBMISSION.md](docs/AGGREGATE-SUBMISSION.md).
 
 ## What This Is Not
 

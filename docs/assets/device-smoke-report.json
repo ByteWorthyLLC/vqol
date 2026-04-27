@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-04-27T03:16:05.668Z",
+  "baseUrl": "https://byteworthyllc.github.io/vqol/",
+  "report": [
+    {
+      "name": "desktop-chromium",
+      "checks": [
+        "#/launch rendered Viral functionality kit",
+        "#/studio rendered Outcomes studio",
+        "#/forge rendered Practice forge",
+        "#/proof rendered Local-first proof",
+        "#/results?demo=1 rendered Demo data",
+        "Export PDF button called window.print"
+      ]
+    },
+    {
+      "name": "android-chrome-layout",
+      "checks": [
+        "#/launch rendered Viral functionality kit",
+        "#/studio rendered Outcomes studio",
+        "#/forge rendered Practice forge",
+        "#/proof rendered Local-first proof",
+        "#/results?demo=1 rendered Demo data",
+        "Export PDF button called window.print"
+      ]
+    },
+    {
+      "name": "ios-safari-layout",
+      "checks": [
+        "#/launch rendered Viral functionality kit",
+        "#/studio rendered Outcomes studio",
+        "#/forge rendered Practice forge",
+        "#/proof rendered Local-first proof",
+        "#/results?demo=1 rendered Demo data",
+        "Export PDF button called window.print"
+      ]
+    }
+  ]
+}

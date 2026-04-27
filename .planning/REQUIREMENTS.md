@@ -13,13 +13,13 @@ Updated: 2026-04-27
 | White-label | Complete |
 | i18n | Complete for app chrome, instrument translations blocked by license |
 | Visualization | Complete |
-| PDF export | Complete, real-device testing pending |
+| PDF export | Complete, automated smoke done, physical device testing pending |
 | Reminders | Core scheduling complete, real-device behavior pending |
-| PWA | Build artifacts complete, real-device verification pending |
-| Accessibility | Basic implementation complete, formal/manual audits pending |
+| PWA | Build artifacts and update prompt complete, physical device verification pending |
+| Accessibility | Lighthouse CI gate complete, screen-reader audits pending |
 | Anti-features | Enforced by design and docs |
-| Repo launch | In progress |
-| Curiosity-led virality | Core artifacts implemented and deployed, assets pending |
+| Repo launch | Public demo and assets complete, physical/legal gates pending |
+| Curiosity-led virality | Core artifacts implemented, deployed, and documented |
 | Aggregate submit | Implemented, disabled by default |
 | Operator deployment | Pending |
 | Creative application tooling | Complete |
@@ -27,7 +27,7 @@ Updated: 2026-04-27
 
 ## Phase 0: Legal Gate
 
-- [ ] **LEGL-01**: LSHTM licensing inquiry email sent.
+- [x] **LEGL-01**: LSHTM licensing inquiry email sent.
 - [ ] **LEGL-02**: Written response received, or fallback strategy executed.
 - [x] **LEGL-03**: `INSTRUMENT-LICENSE.md` committed with provenance, citations, and status log.
 
@@ -78,6 +78,7 @@ Updated: 2026-04-27
 - [x] **PDF-03**: Canvas snapshot is injected as an image before print.
 - [x] **PDF-04**: Print template includes practice info, scores, history, citation, and data ownership copy.
 - [ ] **PDF-05**: PDF export verified on Chrome, Firefox, and iOS Safari.
+- [x] **PDF-06**: Automated smoke verifies the export button calls `window.print()` and generates a Chromium PDF artifact.
 - [x] **REM-01**: Notification permission helper exists and is not invoked before baseline.
 - [x] **REM-02**: 1mo, 3mo, 6mo, and 1yr intervals exist.
 - [x] **REM-03**: In-app reminder banner exists.
@@ -93,7 +94,7 @@ Updated: 2026-04-27
 - [x] **PWA-08**: Service-worker update prompt renders and disables reload during an active survey.
 - [x] **A11Y-01**: Brand colors are checked for WCAG contrast.
 - [x] **A11Y-02**: 44px tap target baseline exists.
-- [ ] **A11Y-03**: Lighthouse accessibility gate runs in CI.
+- [x] **A11Y-03**: Lighthouse accessibility gate runs in CI.
 - [x] **A11Y-04**: Native controls support keyboard navigation.
 - [ ] **A11Y-05**: VoiceOver and NVDA manual testing completed.
 - [x] **NOPE-01**: No clinical interpretation on results screen.
@@ -130,9 +131,11 @@ Updated: 2026-04-27
 - [x] **CI-04**: Practice config validation runs through app/check scripts.
 - [x] **CI-05**: Contrast validation runs in `npm run check`.
 - [ ] **LAUN-01**: v0.1.0 release tagged.
-- [ ] **LAUN-02**: Show HN draft reviewed against live demo.
+- [x] **LAUN-02**: Show HN draft reviewed against live demo.
 - [ ] **LAUN-03**: Reddit moderator pre-contact completed.
-- [ ] **LAUN-04**: Outcome claims reviewed for instrument-vs-tool distinction.
+- [x] **LAUN-04**: Outcome claims reviewed for instrument-vs-tool distinction.
+- [x] **LAUN-05**: Deployed screenshots and launch GIF generated from live app routes.
+- [x] **LAUN-06**: GitHub Actions JavaScript actions are opted into Node 24 ahead of Node 20 deprecation.
 
 ## Phase 4: Curiosity-Led Virality
 
@@ -144,8 +147,8 @@ Updated: 2026-04-27
 - [x] **CURIO-06**: Waiting-room QR poster prototype exists as a printable operational artifact.
 - [x] **CURIO-07**: Calendar follow-up export is scoped as a no-server reminder fallback.
 - [x] **CURIO-08**: Weird lab/demo surface exists only for fake-data experiments and cannot affect patient history.
-- [ ] **CURIO-09**: Public copy leads with constraints, proofs, and implementation details rather than promotion.
-- [ ] **CURIO-10**: HN/Reddit/LinkedIn drafts are written only after the artifacts they describe are real.
+- [x] **CURIO-09**: Public copy leads with constraints, proofs, and implementation details rather than promotion.
+- [x] **CURIO-10**: HN/Reddit/LinkedIn drafts are written only after the artifacts they describe are real.
 
 ## Phase 5: Aggregate Submit + Operator Deployment
 

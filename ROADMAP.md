@@ -27,13 +27,14 @@ Done in the repo:
 - Reference-only/licensed-instrument mode as an explicit architecture path.
 - Waiting-room QR poster route.
 - Follow-up calendar export.
+- Lighthouse accessibility gate in `npm run verify`.
+- Deployed screenshots, launch GIF, and device smoke report.
 
 Remaining:
 
-- Deployed screenshots/GIF and uploaded GitHub social preview.
-- Real-device verification checklist.
-- Public release copy review.
-- LSHTM legal gate resolution or reference-only fallback.
+- Physical iOS/Android/browser print and screen-reader checks.
+- LSHTM written response, or continued reference-only mode.
+- v0.1.0 tag/release only after legal and physical-device gates are acceptable.
 
 ## Next
 

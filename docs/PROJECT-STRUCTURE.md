@@ -36,6 +36,9 @@
 - `scripts/validate-contrast.ts`: WCAG contrast gate for practice colors.
 - `scripts/validate-translations.ts`: locale key and empty-string gate.
 - `scripts/audit-telemetry.ts`: built-output telemetry signature audit.
+- `scripts/check-lighthouse-accessibility.mjs`: route-level Lighthouse accessibility gate.
+- `scripts/capture-launch-assets.mjs`: deployed screenshot and launch GIF generator.
+- `scripts/device-smoke.mjs`: deployed desktop/mobile smoke check and PDF artifact generator.
 - `vitest.setup.ts`: fake IndexedDB setup.
 
 ## GSD Planning

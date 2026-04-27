@@ -12,7 +12,7 @@ vqol is already through the product-build phases. The remaining work is launch r
 | 1 | Vertical Slice | Complete | `.planning/phases/01-vertical-slice/` |
 | 2 | White-label + i18n | Complete | `.planning/phases/02-white-label-i18n/` |
 | 3 | Patient/Clinician Value | Complete | `.planning/phases/03-patient-clinician-value/` |
-| 4 | Curiosity-Led Virality + GH Pages Deploy | Active | Public repo and Pages demo live; screenshots/GIF/discussions pending |
+| 4 | Curiosity-Led Virality + GH Pages Deploy | Active | Public repo, Pages demo, launch copy, screenshots/GIF, and discussions live; physical/legal gates pending |
 | 5 | Aggregate Submit + Cluster Extraction | Started | Optional aggregate path and receiver example implemented |
 | 6 | Creative Application Amplification Studio | Complete | Outcomes Studio and Practice Forge implemented and deployed |
 | 7 | Viral Functionality and Marketing Loop | Complete | Launch Kit and SW update prompt implemented and deployed |
@@ -112,7 +112,9 @@ Current status:
 - Curiosity artifacts are implemented in app routes.
 - Public repo is live at `https://github.com/ByteWorthyLLC/vqol`.
 - GitHub Pages demo is live at `https://byteworthyllc.github.io/vqol/`.
-- Demo screenshots/GIF still need to be produced from the deployed URL.
+- Deployed screenshots/GIF are generated under `docs/assets/`.
+- Launch copy is reviewed in `docs/LAUNCH-COPY.md`.
+- Lighthouse accessibility now runs in `npm run verify`.
 
 ## Phase 5: Aggregate Submit + Cluster Extraction
 

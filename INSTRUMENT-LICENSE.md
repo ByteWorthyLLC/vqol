@@ -40,11 +40,11 @@ doi:10.1016/j.jclinepi.2005.10.016
 
 ## Licensing Status
 
-**As of 2026-04-26**: The permission inquiry package for verbatim OSS distribution of the item text has been **drafted** but the status log does not yet record that it has been sent. Written permission is **not yet granted**.
+**As of 2026-04-27**: The permission inquiry for verbatim OSS distribution of the item text, validated translations, and scoring constants has been **sent** to Sara Schroter with LSHTM Research Data Management on CC. Written permission is **not yet granted**.
 
 The original developer, Donna L. Lamping, is deceased (confirmed in the 2015 BMC Cardiovasc Disord paper PMC4531536). Sara Schroter is the surviving co-author and the current institutional contact for instrument-distribution requests. The Scoring Manual (Lamping & Schroter, LSHTM 2007) containing the per-item normative means and SDs is not publicly available and must be requested directly.
 
-**Inquiry email draft and reference pack** are maintained in this project's planning directory: `.planning/legal/lshtm-inquiry-email.md`.
+**Inquiry email draft, sent copy, and reference pack** are maintained in this project's planning directory: `.planning/legal/`.
 
 ### What this means for users of this repo
 
@@ -79,8 +79,8 @@ This keeps the entire application architecturally complete and shippable while l
 
 | Date | Event | Owner |
 |---|---|---|
-| 2026-04-25 | Inquiry pack drafted (`.planning/legal/`) — email, cite pack, fallback plan | Project |
-| TBD | LSHTM email sent | Kevin Richards |
+| 2026-04-25 | Inquiry pack drafted (`.planning/legal/`) - email, cite pack, fallback plan | Project |
+| 2026-04-27 | LSHTM inquiry sent to `sschroter@bmj.com`; CC `researchdatamanagement@lshtm.ac.uk`; sent copy saved at `.planning/legal/lshtm-inquiry-sent-2026-04-27.md` | Kevin Richards |
 | TBD | LSHTM response received | Kevin Richards |
 | TBD | INSTRUMENT-LICENSE.md updated with permission outcome | Project |
 

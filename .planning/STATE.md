@@ -6,15 +6,15 @@ See `.planning/PROJECT.md`.
 
 **Core value:** Patient-owned VEINES-QOL/Sym tracking as a static, forkable PWA for vein and vascular practices.
 
-**Current focus:** Post-Phase 7 launch polish: legal gate, screenshots/GIF, real-device verification.
+**Current focus:** Post-Phase 7 launch polish: physical device checks, LSHTM response, release tagging.
 
 ## Current Position
 
 Phase: 7
-Status: Phase 7 deployed
-Last activity: 2026-04-27 - Added a functional viral marketing workbench that generates share artifacts, AI citation text, clinical pilot outreach, contributor prompts, and remix links from real app routes; then added the SW update prompt so returning visitors can refresh into new launch surfaces.
+Status: Legal inquiry sent; launch assets, Lighthouse CI, and automated device smoke complete
+Last activity: 2026-04-27 - Sent the LSHTM licensing inquiry, added launch assets, added Lighthouse accessibility to verify, added automated device smoke, and opted GitHub Actions into Node 24.
 
-Progress: [█████████░] 92%
+Progress: [█████████░] 95%
 
 ## Completed Phases
 
@@ -55,10 +55,12 @@ Phase 7 success means attention converts into functional use:
 - Phase 6 turns the demo into an operator tool: synthetic outcomes planning and local config forging.
 - Phase 7 treats marketing as product functionality: share copy and launch briefs must be generated from working demo/proof/studio/forge/poster routes.
 - Returning visitors need a visible service-worker update prompt; otherwise old cached shells can hide new launch routes until a manual hard refresh.
+- Lighthouse accessibility is now part of `npm run verify`.
+- Device smoke is automated through `npm run smoke:devices`, but physical iOS/Android and screen-reader checks remain external.
 
 ## Open Blockers
 
-- LSHTM licensing email has a draft, but the status log still shows it has not been sent.
+- LSHTM licensing inquiry sent on 2026-04-27; written response is pending.
 - Public repository: `https://github.com/ByteWorthyLLC/vqol`.
 - Live demo: `https://byteworthyllc.github.io/vqol/`.
 - Demo route: `https://byteworthyllc.github.io/vqol/#/results?demo=1`.
@@ -72,18 +74,16 @@ Phase 7 success means attention converts into functional use:
 
 ## Pending Todos
 
-- Send LSHTM inquiry email and update `INSTRUMENT-LICENSE.md`.
 - Decide whether v0.1 ships full in-app survey or reference-only mode.
 - Replace placeholder icons and add public demo screenshots or GIF.
-- Generate deployed screenshots/GIF/social preview.
 - Run iOS Safari, Android Chrome, desktop print, and screen-reader checks.
 - Tag v0.1.0 only after the legal/public-demo gates are closed.
-- Generate deployed screenshots/GIF from the Launch Kit, Studio, Forge, and proof routes.
-- Upgrade GitHub Actions JavaScript actions before the Node 20 runner deprecation dates.
+- Monitor LSHTM/BMJ response and update `INSTRUMENT-LICENSE.md`.
+- Upload `docs/assets/social-preview.svg` or a generated preview image as the GitHub repository social preview if GitHub exposes the UI/API in the authenticated account.
 
 ## Session Continuity
 
-Resume from post-Phase 7 polish. Start with the legal gate, public screenshots/GIF, and real-device verification.
+Resume from post-Phase 7 polish. Start with LSHTM response monitoring, physical device checks, and release tagging only if legal and device gates are acceptable.
 
 ## Accumulated Context
 

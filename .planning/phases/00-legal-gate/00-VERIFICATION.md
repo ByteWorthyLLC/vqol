@@ -11,7 +11,7 @@ verified: 2026-04-25
 
 | # | Criterion | Status |
 |---|---|---|
-| 1 | LSHTM inquiry email drafted, ready to send | ✓ Passed (`.planning/legal/lshtm-inquiry-email.md`) |
+| 1 | LSHTM inquiry email drafted and sent | ✓ Passed (`.planning/legal/lshtm-inquiry-email.md`, `.planning/legal/lshtm-inquiry-sent-2026-04-27.md`) |
 | 2 | Cite pack assembled with primary citations + commercial precedents | ✓ Passed (`.planning/legal/cite-pack.md`) |
 | 3 | Fallback plan documents 3 options + recommended path + follow-up checklist | ✓ Passed (`.planning/legal/fallback-plan.md`) |
 | 4 | `INSTRUMENT-LICENSE.md` committed to repo root with credits, citations, status log | ✓ Passed |
@@ -19,7 +19,6 @@ verified: 2026-04-25
 
 ## Async Items (tracked, not blocking)
 
-- LSHTM email send (Kevin Richards owns)
 - LSHTM response (30-day window)
 - INSTRUMENT-LICENSE.md status log update on response
 

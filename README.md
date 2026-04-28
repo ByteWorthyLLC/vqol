@@ -173,3 +173,7 @@ vqol is not clinical advice, diagnosis, severity interpretation, or an EHR integ
 ## License
 
 The application code is MIT licensed. VEINES-QOL/Sym item text, validated translations, and normative scoring constants are separate instrument content and are not covered by this repository's MIT license unless permission is granted by the instrument rights holder.
+
+## Stay updated
+
+Built by [ByteWorthy](https://byteworthy.io). Subscribe at [byteworthy.io/newsletter](https://byteworthy.io/newsletter) for updates on this project and new releases.

@@ -1,99 +1,78 @@
+<div align="center">
+<img src="https://raw.githubusercontent.com/ByteWorthyLLC/vqol/main/.github/assets/vqol-hero.svg" alt="vqol — VEINES-QOL/Sym tracker" width="100%">
+
 # vqol
 
-Patient-owned VEINES-QOL/Sym tracking for vein and vascular care.
+**Patient-owned VEINES-QOL/Sym tracker. Static, local-first PWA. No account, no telemetry.**
 
-![vqol social preview](docs/assets/social-preview.svg)
+[![License](https://img.shields.io/badge/license-MIT-2563EB?style=for-the-badge&labelColor=0F172A)](./LICENSE)
+[![Live demo](https://img.shields.io/badge/try_it-live_demo-2563EB?style=for-the-badge&labelColor=0F172A)](https://byteworthyllc.github.io/vqol/)
 
-vqol is a static, installable PWA that helps patients record longitudinal venous-disease quality-of-life scores and export a clinician-ready report. It is designed for fork-and-deploy use by vein practices: edit `public/practice.json`, deploy to GitHub Pages or Cloudflare Pages, and keep patient data local by default.
+[**Try the demo →**](https://byteworthyllc.github.io/vqol/) &nbsp;·&nbsp; [Results demo](https://byteworthyllc.github.io/vqol/#/results?demo=1) &nbsp;·&nbsp; [Fork for your practice →](#practice-setup)
+</div>
 
-> Instrument note: the app currently ships with placeholder VEINES-QOL/Sym item text and placeholder normative constants while LSHTM permission is pending. Read [INSTRUMENT-LICENSE.md](INSTRUMENT-LICENSE.md) before publishing a public deployment.
+---
 
-## Current Status
+> **vqol** is a static, installable PWA that tracks longitudinal VEINES-QOL/Sym scores and exports a clinician-ready report. Patient data lives in the browser — no account, no backend, no telemetry. Fork and deploy for your vein practice in minutes.
 
-The working app includes:
+## For patients
 
-- One-question-per-screen survey flow with draft resume support.
-- Local IndexedDB storage for sessions, scores, and app metadata.
-- VEINES-QOL/Sym scoring-engine shape with placeholder constants.
-- Practice branding through `public/practice.json`.
-- Four locale files: English, Spanish, French, German.
-- Longitudinal uPlot chart on the results screen.
-- Print/PDF export through `window.print()` and print CSS.
-- Seeded fake-data demo at `#/results?demo=1`.
-- Curiosity lab, Outcomes Studio, Practice Forge, Launch Kit, Device Lab, local-first proof panel, one-file fork audit, and QR poster route.
-- Follow-up calendar export with local `.ics` generation.
-- Follow-up reminder scheduling helpers and in-app reminder banner.
-- PWA manifest, icons, service worker, and install prompt.
-- Service-worker update prompt so returning visitors can refresh into new routes without losing an active survey.
-- Optional aggregate submission module, disabled by default.
+vqol guides you through a one-question-per-screen survey, tracks your score history over time, and lets you export a print-ready report to share with your care team. Everything stays in your browser. There is no account to create, no data sent anywhere, and a one-tap wipe removes everything if you choose.
 
-Remaining launch blockers:
+- One-question-per-screen survey with draft resume support
+- Score history as a longitudinal chart
+- Print/PDF export through the browser print dialog
+- Works offline after the first load (PWA)
+- Four languages: English, Spanish, French, German
 
-- Resolve the LSHTM licensing inquiry, or keep shipping reference-only mode.
-- Collect real-device Device Lab reports for iOS Safari, Android Chrome, desktop print, and screen-reader navigation.
+## For practices
 
-Live demo:
+Fork the repo, edit one file, and deploy. The app uses `public/practice.json` for all clinic-specific configuration — name, logo, contact info, brand colors, and locale selection. No code changes required for a standard deployment.
 
-- https://byteworthyllc.github.io/vqol/
-- https://byteworthyllc.github.io/vqol/#/results?demo=1
-- https://byteworthyllc.github.io/vqol/#/launch
-- https://byteworthyllc.github.io/vqol/#/device
+## Privacy
 
-Launch assets:
+Patient data is stored in browser IndexedDB only. Nothing is transmitted, logged, or shared. Export is patient-initiated through the browser print dialog. One-tap wipe removes all local data. No analytics, no third-party scripts, no telemetry of any kind.
 
-- [Launch tour GIF](docs/assets/vqol-launch-tour.gif)
-- [Launch Kit screenshot](docs/assets/screenshots/launch-desktop.png)
-- [Social preview PNG](docs/assets/social-preview.png)
-- [Deployable social preview PNG](public/assets/social-preview.png)
-- [Device smoke report](docs/assets/device-smoke-report.json)
-
-## Why This Is Technically Interesting
-
-vqol is meant to be inspected as much as used:
-
-- A clinical-adjacent outcomes workflow with static files only.
-- Patient-owned score history in browser IndexedDB.
-- No account system, backend, analytics, or telemetry.
-- A clinic-branded fork through one JSON file.
-- An explicit legal-safe path when instrument text cannot be redistributed.
-- A falsifiable proof surface for offline behavior, telemetry absence, and fork readiness.
-- A real-device evidence loop that turns install, print, offline, and screen-reader gaps into JSON reports and GitHub issues.
-
-The project should spread through those constraints and proofs, not through growth copy.
-
-## Quick Start
+## Practice setup
 
 ```bash
-npm install
-npm run dev
+git clone https://github.com/ByteWorthyLLC/vqol
+cd vqol
+# Edit public/practice.json with your practice name, logo, and contact info
+npm install && npm run dev
+# Deploy: push to GitHub → enable Pages → done
 ```
 
-Open the Vite URL, usually `http://localhost:5173`.
+`public/practice.json` controls:
 
-See [FAQ.md](FAQ.md) for common deployment and product-scope questions.
-
-## Practice Setup
-
-Edit only:
-
-```text
-public/practice.json
-```
-
-The config controls:
-
-- Practice name
-- Logo path
+- Practice name and logo path
 - Contact details
 - Brand colors
 - Available locales
-- Aggregate submission feature flags
+- Aggregate submission feature flags (off by default)
 
-Validate the config and translations:
+Validate config and translations:
 
 ```bash
 npm run check
 ```
+
+## Deploy
+
+[![Deploy to GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-181717?style=for-the-badge&logo=github)](https://docs.github.com/en/pages)
+[![Deploy to Cloudflare Pages](https://img.shields.io/badge/Deploy-Cloudflare%20Pages-F38020?style=for-the-badge&logo=cloudflare)](https://deploy.workers.cloudflare.com/?url=https://github.com/ByteWorthyLLC/vqol)
+[![Deploy to Netlify](https://img.shields.io/badge/Deploy-Netlify-00C7B7?style=for-the-badge&logo=netlify)](https://app.netlify.com/start/deploy?repository=https://github.com/ByteWorthyLLC/vqol)
+[![Deploy to Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel)](https://vercel.com/new/clone?repository-url=https://github.com/ByteWorthyLLC/vqol)
+
+All four platforms support static site deployment at no cost on free tiers.
+
+## Instrument note
+
+The VEINES-QOL/Sym instrument text requires licensing from LSHTM for published deployments. The app ships with placeholder item text. See [INSTRUMENT-LICENSE.md](INSTRUMENT-LICENSE.md) before publishing a public deployment.
+
+## Stack
+
+Vite + Svelte, IndexedDB, uPlot charts, service worker, PWA manifest. No backend. No build-time data fetching. Static files only.
 
 ## Verification
 
@@ -103,77 +82,29 @@ Run the full local gate:
 npm run verify
 ```
 
-This runs:
+Runs: `svelte-check`, contrast validation, translation key validation, Vitest, production build, Lighthouse accessibility checks, telemetry signature audit, and dependency audit.
 
-- `svelte-check`
-- contrast validation
-- translation key validation
-- Vitest
-- production build
-- Lighthouse accessibility checks
-- telemetry signature audit
-- dependency audit
-
-## Project Structure
+## Project structure
 
 ```text
 src/
   lib/
-    chart/             uPlot trend chart
-    aggregate/         optional de-identified aggregate submission
-    calendar/          follow-up .ics export
-    demo/              deterministic fake score histories
-    device/            runtime/manual device verification report helpers
-    download/          client-side file download helper
-    forge/             practice.json draft and serialization helpers
-    fork/              one-file fork readiness audit
-    i18n/              locale loading and translation helper
-    marketing/         launch artifact, AI citation, and remix brief generator
-    notifications/     reminder scheduling and notification helpers
-    offline/           runtime offline-readiness inspection
-    pdf/               print/PDF export helper
-    practice-config/   practice.json validation and branding
-    scoring/           item metadata, constants, scoring algorithm
-    storage/           IndexedDB wrapper
-    survey/            survey item metadata
-  routes/              Home, Survey, Results, supporting route components
-messages/              en/es/fr/de message files
-public/                practice.json and PWA icons
-scripts/               validation and audit scripts
-.planning/             GSD planning state, phase summaries, codebase map
-docs/                  public operator docs
+    chart/        uPlot trend chart
+    scoring/      item metadata, constants, scoring algorithm
+    storage/      IndexedDB wrapper
+    survey/       survey item metadata
+    i18n/         locale loading and translation helper
+    pdf/          print/PDF export helper
+    practice-config/  practice.json validation and branding
+  routes/         Home, Survey, Results, supporting route components
+messages/         en/es/fr/de message files
+public/           practice.json and PWA icons
+scripts/          validation and audit scripts
+docs/             operator docs
 ```
-
-## Privacy Model
-
-By default, vqol has no backend, accounts, telemetry, or third-party analytics. Patient data is stored in the user's browser through IndexedDB. Export is patient-initiated through the browser print dialog.
-
-Optional aggregate submission is implemented but off by default. When enabled, it posts a de-identified score payload only to the configured HTTPS practice endpoint.
-
-## Curiosity Lab
-
-Useful fake-data and proof routes:
-
-- `#/lab` - tool index
-- `#/studio` - synthetic cohort and protocol workbench
-- `#/forge` - live `practice.json` builder
-- `#/launch` - viral functionality and marketing artifact generator
-- `#/device` - runtime and real-device verification report lab
-- `#/results?demo=1` - seeded fake longitudinal result
-- `#/proof` - local-first and telemetry proof panel
-- `#/fork` - one-file `practice.json` fork audit
-- `#/poster` - printable waiting-room QR poster
-
-See [docs/CURIOSITY-LAB.md](docs/CURIOSITY-LAB.md), [docs/OUTCOMES-STUDIO.md](docs/OUTCOMES-STUDIO.md), [docs/PRACTICE-FORGE.md](docs/PRACTICE-FORGE.md), [docs/VIRALITY-PLAYBOOK.md](docs/VIRALITY-PLAYBOOK.md), [docs/LAUNCH-COPY.md](docs/LAUNCH-COPY.md), [docs/DEVICE-VERIFICATION.md](docs/DEVICE-VERIFICATION.md), [docs/HARD-GATES.md](docs/HARD-GATES.md), [docs/INSTRUMENT-MODES.md](docs/INSTRUMENT-MODES.md), and [docs/AGGREGATE-SUBMISSION.md](docs/AGGREGATE-SUBMISSION.md).
-
-## What This Is Not
-
-vqol is not clinical advice, diagnosis, severity interpretation, or an EHR integration. It displays scores, deltas, history, and export controls only.
 
 ## License
 
 The application code is MIT licensed. VEINES-QOL/Sym item text, validated translations, and normative scoring constants are separate instrument content and are not covered by this repository's MIT license unless permission is granted by the instrument rights holder.
 
-## Stay updated
-
-Built by [ByteWorthy](https://byteworthy.io). Subscribe at [byteworthy.io/newsletter](https://byteworthy.io/newsletter) for updates on this project and new releases.
+Built by [ByteWorthy LLC](https://byteworthy.io).

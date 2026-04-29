@@ -335,4 +335,44 @@
     font-size: var(--text-sm);
     font-weight: var(--weight-regular);
   }
+
+  /* Entry motion */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero .eyebrow { animation: fade-up 480ms cubic-bezier(0.22, 1, 0.36, 1) 40ms both; }
+  .hero h1       { animation: fade-up 480ms cubic-bezier(0.22, 1, 0.36, 1) 100ms both; }
+  .hero .lede    { animation: fade-up 480ms cubic-bezier(0.22, 1, 0.36, 1) 160ms both; }
+  .trust .pill:nth-child(1) { animation: fade-up 460ms cubic-bezier(0.22, 1, 0.36, 1) 220ms both; }
+  .trust .pill:nth-child(2) { animation: fade-up 460ms cubic-bezier(0.22, 1, 0.36, 1) 270ms both; }
+  .trust .pill:nth-child(3) { animation: fade-up 460ms cubic-bezier(0.22, 1, 0.36, 1) 320ms both; }
+
+  /* Smooth hover transitions — pointer devices only */
+  @media (hover: hover) and (pointer: fine) {
+    .tool-card {
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+      cursor: pointer;
+    }
+    .steps li {
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+    .steps li:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero .eyebrow,
+    .hero h1,
+    .hero .lede,
+    .trust .pill {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+    }
+  }
 </style>

@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://raw.githubusercontent.com/ByteWorthyLLC/vqol/main/.github/assets/vqol-hero.svg" alt="vqol — VEINES-QOL/Sym tracker" width="100%">
+<img src="https://raw.githubusercontent.com/ByteWorthyLLC/vqol/main/.github/assets/vqol-hero.svg" alt="vqol: VEINES-QOL/Sym tracker" width="100%">
 
 # vqol
 
@@ -13,7 +13,7 @@
 
 ---
 
-> **vqol** is a static, installable PWA that tracks longitudinal VEINES-QOL/Sym scores and exports a clinician-ready report. Patient data lives in the browser — no account, no backend, no telemetry. Fork and deploy for your vein practice in minutes.
+> **vqol** is a static, installable PWA that tracks longitudinal VEINES-QOL/Sym scores and exports a clinician-ready report. Patient data lives in the browser. No account, no backend, no telemetry. Fork and deploy for your vein practice in minutes.
 
 ## For patients
 
@@ -27,7 +27,7 @@ vqol guides you through a one-question-per-screen survey, tracks your score hist
 
 ## For practices
 
-Fork the repo, edit one file, and deploy. The app uses `public/practice.json` for all clinic-specific configuration — name, logo, contact info, brand colors, and locale selection. No code changes required for a standard deployment.
+Fork the repo, edit one file, and deploy. The app uses `public/practice.json` for all clinic-specific configuration: name, logo, contact info, brand colors, and locale selection. No code changes required for a standard deployment.
 
 ## Privacy
 

@@ -103,8 +103,31 @@ scripts/          validation and audit scripts
 docs/             operator docs
 ```
 
+## More from ByteWorthy
+
+<table>
+<tr>
+<td width="25%" align="center">
+<a href="https://github.com/ByteWorthyLLC/outbreaktinder"><strong>OutbreakTinder</strong></a><br />
+<sub>Tinder for plagues. Swipe through history's deadliest outbreaks. Every fact cited.</sub>
+</td>
+<td width="25%" align="center">
+<a href="https://github.com/ByteWorthyLLC/honeypot-med"><strong>honeypot-med</strong></a><br />
+<sub>Exposed: how healthcare middlemen mark up your care. 27-page investigation.</sub>
+</td>
+<td width="25%" align="center">
+<a href="https://github.com/ByteWorthyLLC/hightimized"><strong>hightimized</strong></a><br />
+<sub>Audit your hospital bill against the chargemaster. Generate a dispute letter.</sub>
+</td>
+<td width="25%" align="center">
+<a href="https://github.com/ByteWorthyLLC/sovra"><strong>sovra</strong></a><br />
+<sub>Browser-first financial sovereignty tools. No accounts, no cloud.</sub>
+</td>
+</tr>
+</table>
+
 ## License
 
 The application code is MIT licensed. VEINES-QOL/Sym item text, validated translations, and normative scoring constants are separate instrument content and are not covered by this repository's MIT license unless permission is granted by the instrument rights holder.
 
-Built by [ByteWorthy LLC](https://byteworthy.io).
+Built by [ByteWorthy LLC](https://github.com/ByteWorthyLLC).

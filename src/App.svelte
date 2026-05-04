@@ -218,6 +218,27 @@
         github.com/ByteWorthyLLC/vqol
       </a>
     </div>
+    <div class="footer-ecosystem">
+      <p class="footer-ecosystem-label">More from ByteWorthy</p>
+      <div class="footer-ecosystem-grid">
+        <a href="https://github.com/ByteWorthyLLC/outbreaktinder" class="footer-ecosystem-card" target="_blank" rel="noopener noreferrer">
+          <strong>OutbreakTinder</strong>
+          <span>Swipe through history's deadliest outbreaks. Every fact cited.</span>
+        </a>
+        <a href="https://github.com/ByteWorthyLLC/honeypot-med" class="footer-ecosystem-card" target="_blank" rel="noopener noreferrer">
+          <strong>honeypot-med</strong>
+          <span>How healthcare middlemen mark up your care. 27-page investigation.</span>
+        </a>
+        <a href="https://github.com/ByteWorthyLLC/hightimized" class="footer-ecosystem-card" target="_blank" rel="noopener noreferrer">
+          <strong>hightimized</strong>
+          <span>Audit your hospital bill against the chargemaster. Generate a dispute letter.</span>
+        </a>
+        <a href="https://github.com/ByteWorthyLLC/sovra" class="footer-ecosystem-card" target="_blank" rel="noopener noreferrer">
+          <strong>sovra</strong>
+          <span>Browser-first financial sovereignty tools. No accounts, no cloud.</span>
+        </a>
+      </div>
+    </div>
   </footer>
 {/if}
 
@@ -334,5 +355,55 @@
     border-radius: var(--radius-md);
     overflow-x: auto;
     font-size: var(--text-sm);
+  }
+  .footer-ecosystem {
+    max-width: var(--max-wide);
+    margin: var(--space-5) auto 0;
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-md);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+  .footer-ecosystem-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0 0 var(--space-3);
+  }
+  .footer-ecosystem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-2);
+  }
+  .footer-ecosystem-card {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background 0.15s ease-out;
+  }
+  .footer-ecosystem-card:hover,
+  .footer-ecosystem-card:focus-visible {
+    background: var(--surface-0);
+  }
+  .footer-ecosystem-card strong {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+  .footer-ecosystem-card span {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  @media (max-width: 640px) {
+    .footer-ecosystem-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
